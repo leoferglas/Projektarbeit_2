@@ -1,0 +1,229 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global/global}
+    \entry{AD:95}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=5155547696efbfc7235bd566147d265b}{%
+           family={Andruskiewitsch},
+           familyi={A\bibinitperiod},
+           given={N.},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d44b00aba891c58e157e682181a7d113}{%
+           family={Devoto},
+           familyi={D\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{af4fe10fdc8580fce0cf7ed2e147bec1}
+      \strng{fullhash}{af4fe10fdc8580fce0cf7ed2e147bec1}
+      \strng{fullhashraw}{af4fe10fdc8580fce0cf7ed2e147bec1}
+      \strng{bibnamehash}{af4fe10fdc8580fce0cf7ed2e147bec1}
+      \strng{authorbibnamehash}{af4fe10fdc8580fce0cf7ed2e147bec1}
+      \strng{authornamehash}{af4fe10fdc8580fce0cf7ed2e147bec1}
+      \strng{authorfullhash}{af4fe10fdc8580fce0cf7ed2e147bec1}
+      \strng{authorfullhashraw}{af4fe10fdc8580fce0cf7ed2e147bec1}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{St.~Petersburg Math.~J.}
+      \field{number}{1}
+      \field{title}{Extensions of {H}opf algebras}
+      \field{volume}{7}
+      \field{year}{1996}
+      \true{nocite}
+      \field{pages}{17\bibrangedash 52}
+      \range{pages}{36}
+    \endentry
+    \entry{TestOnlineQuelle}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=9bce838c5d16642fb4a4af3823c48edd}{%
+           family={Borchers},
+           familyi={B\bibinitperiod},
+           given={Detlef},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{9bce838c5d16642fb4a4af3823c48edd}
+      \strng{fullhash}{9bce838c5d16642fb4a4af3823c48edd}
+      \strng{fullhashraw}{9bce838c5d16642fb4a4af3823c48edd}
+      \strng{bibnamehash}{9bce838c5d16642fb4a4af3823c48edd}
+      \strng{authorbibnamehash}{9bce838c5d16642fb4a4af3823c48edd}
+      \strng{authornamehash}{9bce838c5d16642fb4a4af3823c48edd}
+      \strng{authorfullhash}{9bce838c5d16642fb4a4af3823c48edd}
+      \strng{authorfullhashraw}{9bce838c5d16642fb4a4af3823c48edd}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{2}
+      \field{month}{1}
+      \field{title}{Elektronische Unterschrift: Bundesregierung reformiert Schriftformerfordernis}
+      \field{urlday}{1}
+      \field{urlmonth}{1}
+      \field{urlyear}{2016}
+      \field{year}{2015}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \true{nocite}
+      \verb{urlraw}
+      \verb http://m.heise.de/newsticker/meldung/Elektronische-Unterschrift-Bundesregierung-reformiert-Schriftformerfordernis-3259140.html
+      \endverb
+      \verb{url}
+      \verb http://m.heise.de/newsticker/meldung/Elektronische-Unterschrift-Bundesregierung-reformiert-Schriftformerfordernis-3259140.html
+      \endverb
+    \endentry
+    \entry{DIN69901-1}{misc}{}{}
+      \list{organization}{1}{%
+        {Deutsches Institut für Normung}%
+      }
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labeltitlesource}{title}
+      \field{subtitle}{Prozesse, Prozessmodell}
+      \field{title}{{DIN 69901-2}}
+      \field{year}{2010}
+      \field{dateera}{ce}
+      \true{nocite}
+    \endentry
+    \entry{ME12}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=ffb765e32262fc4771dc5f8faba16da1}{%
+           family={Musterfrau},
+           familyi={M\bibinitperiod},
+           given={Erika},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7280c2057cde9708f9c5359b0a65367d}{%
+           family={Exempelmann},
+           familyi={E\bibinitperiod},
+           given={Max},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Wiesbaden}%
+      }
+      \list{publisher}{1}{%
+        {Wissenschaftstestverlag}%
+      }
+      \strng{namehash}{d653299badce754ca1b3a36eebb57e01}
+      \strng{fullhash}{d653299badce754ca1b3a36eebb57e01}
+      \strng{fullhashraw}{d653299badce754ca1b3a36eebb57e01}
+      \strng{bibnamehash}{d653299badce754ca1b3a36eebb57e01}
+      \strng{authorbibnamehash}{d653299badce754ca1b3a36eebb57e01}
+      \strng{authornamehash}{d653299badce754ca1b3a36eebb57e01}
+      \strng{authorfullhash}{d653299badce754ca1b3a36eebb57e01}
+      \strng{authorfullhashraw}{d653299badce754ca1b3a36eebb57e01}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{5}
+      \field{title}{{Zitationen am Beispiel}}
+      \field{year}{2012}
+      \true{nocite}
+    \endentry
+    \entry{AA}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=8cc2e7240164328fdc3f0e5e21032c56}{%
+           family={NN},
+           familyi={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{8cc2e7240164328fdc3f0e5e21032c56}
+      \strng{fullhash}{8cc2e7240164328fdc3f0e5e21032c56}
+      \strng{fullhashraw}{8cc2e7240164328fdc3f0e5e21032c56}
+      \strng{bibnamehash}{8cc2e7240164328fdc3f0e5e21032c56}
+      \strng{authorbibnamehash}{8cc2e7240164328fdc3f0e5e21032c56}
+      \strng{authornamehash}{8cc2e7240164328fdc3f0e5e21032c56}
+      \strng{authorfullhash}{8cc2e7240164328fdc3f0e5e21032c56}
+      \strng{authorfullhashraw}{8cc2e7240164328fdc3f0e5e21032c56}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{labeldatesource}{nodate}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Mögliche Stile: Numerisch, Alphabetisch, Harvard, Autor-Jahr}
+      \true{nocite}
+    \endentry
+    \entry{TD15}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=a3169db70b91ad85d5d658c296026566}{%
+           family={Testmann},
+           familyi={T\bibinitperiod},
+           given={Heribert},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=53bc639eb74dd57970b3643b738eb0e5}{%
+           family={Demofrau},
+           familyi={D\bibinitperiod},
+           given={Marita},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=bd445f1450c3b809b56264d945cd756b}{%
+           family={Checker},
+           familyi={C\bibinitperiod},
+           given={Eva},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsedrei}%
+      }
+      \strng{namehash}{a3d3ba139cf0c60f9088d44da3d1c592}
+      \strng{fullhash}{a3d3ba139cf0c60f9088d44da3d1c592}
+      \strng{fullhashraw}{a3d3ba139cf0c60f9088d44da3d1c592}
+      \strng{bibnamehash}{a3d3ba139cf0c60f9088d44da3d1c592}
+      \strng{authorbibnamehash}{a3d3ba139cf0c60f9088d44da3d1c592}
+      \strng{authornamehash}{a3d3ba139cf0c60f9088d44da3d1c592}
+      \strng{authorfullhash}{a3d3ba139cf0c60f9088d44da3d1c592}
+      \strng{authorfullhashraw}{a3d3ba139cf0c60f9088d44da3d1c592}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issue}{42}
+      \field{journaltitle}{Int. Journal of Testing}
+      \field{number}{2}
+      \field{series}{Lecture Notes}
+      \field{title}{Das Testen von Artikeln}
+      \field{volume}{5}
+      \field{year}{2015}
+      \true{nocite}
+      \field{pages}{111\bibrangedash 222}
+      \range{pages}{112}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
