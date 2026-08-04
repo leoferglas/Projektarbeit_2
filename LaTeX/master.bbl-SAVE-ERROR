@@ -19,6 +19,40 @@
 
 \refsection{0}
   \datalist[entry]{nyt/global//global/global/global}
+    \entry{ArtificialAnalysis2026}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=60a0f8adc747278c54843aa94bef2613}{%
+           family={{Artificial Analysis}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{60a0f8adc747278c54843aa94bef2613}
+      \strng{fullhash}{60a0f8adc747278c54843aa94bef2613}
+      \strng{fullhashraw}{60a0f8adc747278c54843aa94bef2613}
+      \strng{bibnamehash}{60a0f8adc747278c54843aa94bef2613}
+      \strng{authorbibnamehash}{60a0f8adc747278c54843aa94bef2613}
+      \strng{authornamehash}{60a0f8adc747278c54843aa94bef2613}
+      \strng{authorfullhash}{60a0f8adc747278c54843aa94bef2613}
+      \strng{authorfullhashraw}{60a0f8adc747278c54843aa94bef2613}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Independent analysis and comparison of AI models and API providers}
+      \field{title}{AI Model \& API Providers Analysis}
+      \field{urlday}{4}
+      \field{urlmonth}{8}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://artificialanalysis.ai/
+      \endverb
+      \verb{url}
+      \verb https://artificialanalysis.ai/
+      \endverb
+    \endentry
     \entry{baumeister2019sample}{thesis}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=4e42d6508499ff25d6067a62596262e1}{%
@@ -48,6 +82,181 @@
       \field{title}{Sample size and error containment judgments in non-statistical audit sampling-the sensivity of auditors to a revision of professional standards}
       \field{type}{phdthesis}
       \field{year}{2019}
+    \endentry
+    \entry{cantu2025making}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=c0fc9c2e65384329b499960591da6717}{%
+           family={Cantù},
+           familyi={C\bibinitperiod},
+           given={Elena},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=98065e187f49b3bd7631f2261c7b601a}{%
+           family={Langella},
+           familyi={L\bibinitperiod},
+           given={Cecilia},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4e063f588361c700d5d6fdefe1be930e}{%
+           family={Vannini},
+           familyi={V\bibinitperiod},
+           given={Ilaria\bibnamedelima Elisa},
+           giveni={I\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley Online Library}%
+      }
+      \strng{namehash}{2cd7ef7c3933581f8bb7cbb22ac8274a}
+      \strng{fullhash}{2cd7ef7c3933581f8bb7cbb22ac8274a}
+      \strng{fullhashraw}{2cd7ef7c3933581f8bb7cbb22ac8274a}
+      \strng{bibnamehash}{2cd7ef7c3933581f8bb7cbb22ac8274a}
+      \strng{authorbibnamehash}{2cd7ef7c3933581f8bb7cbb22ac8274a}
+      \strng{authornamehash}{2cd7ef7c3933581f8bb7cbb22ac8274a}
+      \strng{authorfullhash}{2cd7ef7c3933581f8bb7cbb22ac8274a}
+      \strng{authorfullhashraw}{2cd7ef7c3933581f8bb7cbb22ac8274a}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Financial Accountability \& Management}
+      \field{number}{2}
+      \field{title}{Making sense of the internal audit function: toward internal controls integration and organizational learning}
+      \field{volume}{41}
+      \field{year}{2025}
+      \field{pages}{262\bibrangedash 273}
+      \range{pages}{12}
+    \endentry
+    \entry{freudenberg2026auditsample}{unpublished}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=99296c1d3aea1d26814a2032492e1ffa}{%
+           family={Freudenberg},
+           familyi={F\bibinitperiod},
+           given={Corporate\bibnamedelima Audit},
+           giveni={C\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{institution}{1}{%
+        {Freudenberg \& Co. KG}%
+      }
+      \strng{namehash}{99296c1d3aea1d26814a2032492e1ffa}
+      \strng{fullhash}{99296c1d3aea1d26814a2032492e1ffa}
+      \strng{fullhashraw}{99296c1d3aea1d26814a2032492e1ffa}
+      \strng{bibnamehash}{99296c1d3aea1d26814a2032492e1ffa}
+      \strng{authorbibnamehash}{99296c1d3aea1d26814a2032492e1ffa}
+      \strng{authornamehash}{99296c1d3aea1d26814a2032492e1ffa}
+      \strng{authorfullhash}{99296c1d3aea1d26814a2032492e1ffa}
+      \strng{authorfullhashraw}{99296c1d3aea1d26814a2032492e1ffa}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Interne Excel-Datei, Freudenberg \& Co. KG}
+      \field{title}{Internal Audit Sample Testing Guidance Examples}
+      \field{year}{2026}
+    \endentry
+    \entry{KOKINA2025100734}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=136c96222083aaf06038a17039c13973}{%
+           family={Kokina},
+           familyi={K\bibinitperiod},
+           given={Julia},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e71782a67d80d875f6ed6c15c5150370}{%
+           family={Blanchette},
+           familyi={B\bibinitperiod},
+           given={Shay},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=418715aadaf08f606ff3e5575fa44f4f}{%
+           family={Davenport},
+           familyi={D\bibinitperiod},
+           given={Thomas\bibnamedelima H.},
+           giveni={T\bibinitperiod\bibinitdelim H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=aa3a7d4a2fd8ad33cc5a457198ddd80e}{%
+           family={Pachamanova},
+           familyi={P\bibinitperiod},
+           given={Dessislava},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{1e636edc04a58efcf88fe6512926e9aa}
+      \strng{fullhash}{92188d48a837d9685a072323bbfedbcc}
+      \strng{fullhashraw}{92188d48a837d9685a072323bbfedbcc}
+      \strng{bibnamehash}{1e636edc04a58efcf88fe6512926e9aa}
+      \strng{authorbibnamehash}{1e636edc04a58efcf88fe6512926e9aa}
+      \strng{authornamehash}{1e636edc04a58efcf88fe6512926e9aa}
+      \strng{authorfullhash}{92188d48a837d9685a072323bbfedbcc}
+      \strng{authorfullhashraw}{92188d48a837d9685a072323bbfedbcc}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1467-0895}
+      \field{journaltitle}{International Journal of Accounting Information Systems}
+      \field{title}{Challenges and opportunities for artificial intelligence in auditing: Evidence from the field}
+      \field{volume}{56}
+      \field{year}{2025}
+      \field{pages}{100734}
+      \range{pages}{1}
+      \verb{doi}
+      \verb https://doi.org/10.1016/j.accinf.2025.100734
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S1467089525000107
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S1467089525000107
+      \endverb
+      \keyw{Artificial intelligence,AI,AI challenges,Robotic Process Automation,Machine Learning,Natural Language Processing}
+    \endentry
+    \entry{lyell2017automation}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=561ca746e257250f658706cc50f36a27}{%
+           family={Lyell},
+           familyi={L\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9bb08e6618a6dbb56fd9040958bdb9ff}{%
+           family={Coiera},
+           familyi={C\bibinitperiod},
+           given={Enrico},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Oxford University Press}%
+      }
+      \strng{namehash}{1baa3db8ba8616938efc54695b7d4051}
+      \strng{fullhash}{1baa3db8ba8616938efc54695b7d4051}
+      \strng{fullhashraw}{1baa3db8ba8616938efc54695b7d4051}
+      \strng{bibnamehash}{1baa3db8ba8616938efc54695b7d4051}
+      \strng{authorbibnamehash}{1baa3db8ba8616938efc54695b7d4051}
+      \strng{authornamehash}{1baa3db8ba8616938efc54695b7d4051}
+      \strng{authorfullhash}{1baa3db8ba8616938efc54695b7d4051}
+      \strng{authorfullhashraw}{1baa3db8ba8616938efc54695b7d4051}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of the American Medical Informatics Association}
+      \field{number}{2}
+      \field{title}{Automation bias and verification complexity: a systematic review}
+      \field{volume}{24}
+      \field{year}{2017}
+      \field{pages}{423\bibrangedash 431}
+      \range{pages}{9}
     \endentry
   \enddatalist
 \endrefsection
