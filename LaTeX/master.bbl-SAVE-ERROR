@@ -159,6 +159,75 @@
       \field{title}{Internal Audit Sample Testing Guidance Examples}
       \field{year}{2026}
     \endentry
+    \entry{G2_DataSnipper_2026}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=d24bade136bc8cd77e37395ea94226eb}{%
+           family={{G2}},
+           familyi={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{d24bade136bc8cd77e37395ea94226eb}
+      \strng{fullhash}{d24bade136bc8cd77e37395ea94226eb}
+      \strng{fullhashraw}{d24bade136bc8cd77e37395ea94226eb}
+      \strng{bibnamehash}{d24bade136bc8cd77e37395ea94226eb}
+      \strng{authorbibnamehash}{d24bade136bc8cd77e37395ea94226eb}
+      \strng{authornamehash}{d24bade136bc8cd77e37395ea94226eb}
+      \strng{authorfullhash}{d24bade136bc8cd77e37395ea94226eb}
+      \strng{authorfullhashraw}{d24bade136bc8cd77e37395ea94226eb}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{DataSnipper Reviews 2026: Details, Pricing \& Features}
+      \field{urlday}{6}
+      \field{urlmonth}{8}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.g2.com/products/datasnipper/reviews
+      \endverb
+      \verb{url}
+      \verb https://www.g2.com/products/datasnipper/reviews
+      \endverb
+    \endentry
+    \entry{GartnerPeerInsights_DataSnipper_2026}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=1f0201a23087cdc10c54b5c113f52b26}{%
+           family={{Gartner Peer Insights}},
+           familyi={G\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Gartner, Inc.}%
+      }
+      \strng{namehash}{1f0201a23087cdc10c54b5c113f52b26}
+      \strng{fullhash}{1f0201a23087cdc10c54b5c113f52b26}
+      \strng{fullhashraw}{1f0201a23087cdc10c54b5c113f52b26}
+      \strng{bibnamehash}{1f0201a23087cdc10c54b5c113f52b26}
+      \strng{authorbibnamehash}{1f0201a23087cdc10c54b5c113f52b26}
+      \strng{authornamehash}{1f0201a23087cdc10c54b5c113f52b26}
+      \strng{authorfullhash}{1f0201a23087cdc10c54b5c113f52b26}
+      \strng{authorfullhashraw}{1f0201a23087cdc10c54b5c113f52b26}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{DataSnipper Reviews, Ratings \& Features 2026}
+      \field{urlday}{6}
+      \field{urlmonth}{8}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.gartner.com/reviews/market/artificial-intelligence/vendor/datasnipper
+      \endverb
+      \verb{url}
+      \verb https://www.gartner.com/reviews/market/artificial-intelligence/vendor/datasnipper
+      \endverb
+    \endentry
     \entry{KOKINA2025100734}{article}{}{}
       \name{author}{4}{}{%
         {{un=0,uniquepart=base,hash=136c96222083aaf06038a17039c13973}{%
@@ -257,6 +326,39 @@
       \field{year}{2017}
       \field{pages}{423\bibrangedash 431}
       \range{pages}{9}
+    \endentry
+    \entry{YourAIFinder_DataSnipper_2026}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=ee02a88c86bf88fafb4de17d18e181da}{%
+           family={{YourAIFinder}},
+           familyi={Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{ee02a88c86bf88fafb4de17d18e181da}
+      \strng{fullhash}{ee02a88c86bf88fafb4de17d18e181da}
+      \strng{fullhashraw}{ee02a88c86bf88fafb4de17d18e181da}
+      \strng{bibnamehash}{ee02a88c86bf88fafb4de17d18e181da}
+      \strng{authorbibnamehash}{ee02a88c86bf88fafb4de17d18e181da}
+      \strng{authornamehash}{ee02a88c86bf88fafb4de17d18e181da}
+      \strng{authorfullhash}{ee02a88c86bf88fafb4de17d18e181da}
+      \strng{authorfullhashraw}{ee02a88c86bf88fafb4de17d18e181da}
+      \field{sortinit}{Y}
+      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{DataSnipper -- AI Audit Automation Platform Inside Excel}
+      \field{urlday}{6}
+      \field{urlmonth}{8}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://youraifinder.com/tool/datasnipper
+      \endverb
+      \verb{url}
+      \verb https://youraifinder.com/tool/datasnipper
+      \endverb
     \endentry
   \enddatalist
 \endrefsection
