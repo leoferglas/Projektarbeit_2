@@ -2,9 +2,11 @@
 Ziel, Anwendungsfall, Auswahlkriterien LLMs, Vorstellung ausgewählter LLMs, Evaluationsmetriken
 
 \section{Forschungsdesign}
+Um die Evaluation der für den Use Case am besten geeigneten Lösung durchzuführen wird eine Bewertungsmatrix aufgesetzt. Auf diese Matrix werden die vier Modelle GPT 5.5, GPT 5.6, Opus X.X und Sonnet X.X angwandt und anhand von definierten Kritierien anahnd einer Bewertungsmatrix bewertet.
 
 \section{Auswahl der zu untersuchende Modelle}
 Auswahlkritieren, Vorstellung und Begründung der Modellwahl
+Die Auswahl der zu untersuchenden Modelle basiert auf der aktuellen Nutzung von KI-Lösungen für die Freudenberg Gruppe. Wie in \ref{sec:ki_at_the_moment} beschrieben nutzt die Freudenberg Gruppe gruppenweit den Microsoft Copilot Premium Version. Hierbei werden sowohl die internen Datenschutz- und Compliance Richlinien als auch EU-Richtlinien eingehalten. Zudem birgt die Nutzung der Modelle über den Micorosft Copilot keine zusätzlichen Kosten. Die Nutzung von Open-Source Modellen könnte zwar den Datenschutz- und Compliance Richtlinien statthalten, ist jedoch aufgrund der Rahmenbedingungen durch große Server und der Gewöhnung der Mitarbeiter nicht geeignet. 
 
 \section{Entwicklung der Testdatensätz}
 
@@ -13,3 +15,34 @@ Rechnungsstichproben, Ticketstichproben, eingebaute Fehler und Auffälligkeiten
 \section{Entwicklung einer Bewertungsmatrix}
 
 Precision, Fals Positives, Qualität Begründungen, Konsistenz, Gewichtung, Gesamtbewertung, Begründung der Gewichtung
+
+Dimension 1 (objektiv): Erkennungsleistung
+\begin{enumerate}
+    \item Precision  -> TP // TP + FP
+    \item Recall -> TP // TP + FN
+    \item F1 - Score -> 2* Precision * Recall // Precision + Recall
+\end{enumerate}
+
+Dimension 2 (subjektiv): Qualität der Begründung
+
+\begin{enumerate}
+    \item Qualität der Begründung -> Kann ein Auditor nachvollziehen,w arum das Modell die Auffälligkeiten markitert hat (Skala 1 - 5)
+    \item Fachliche Korrektheit -> Ist die Argumentation aus Auditsicht korrekt? Korrekt/Nicht korrekt (Binär)
+    \item Halluzinationsrate 
+\end{enumerate}
+
+Dimension 3 (Konsistenz)
+\begin{enumerate}
+    \item Ergebnisskonsitzen -> X Durchläufe
+    \item Begründungskonsitenz -> Werden ähnliche Begründungen gelifert? Ähnliche Risiken priorisiert?
+\end{enumerate}
+
+Dimension 4: Audit Nutzen
+
+-> vllt unnötig, aber wie stark würde die Analyse einen Auditor unterstützen -> sehr subjektiv???
+
+Dimension 5: Praktische Einsatzfähigkeit
+Antwortzeit?, Kosten ? , Datenschutz (sollte gegeben sein)
+
+Einzelne Dimension und Punkte gewichten -> Gesamtergebnis
+

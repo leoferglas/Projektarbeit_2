@@ -327,6 +327,46 @@
       \field{pages}{423\bibrangedash 431}
       \range{pages}{9}
     \endentry
+    \entry{wassie2024artificial}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=b1bff8b9203fd179a4513441dde57923}{%
+           family={Wassie},
+           familyi={W\bibinitperiod},
+           given={Fekadu\bibnamedelima Agmas},
+           giveni={F\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=179449918142b890ed0bb89a63479f4f}{%
+           family={Lakatos},
+           familyi={L\bibinitperiod},
+           given={László\bibnamedelima Péter},
+           giveni={L\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Palgrave}%
+      }
+      \strng{namehash}{b88e3e3dc6b9c82dc8a6789c59861ed4}
+      \strng{fullhash}{b88e3e3dc6b9c82dc8a6789c59861ed4}
+      \strng{fullhashraw}{b88e3e3dc6b9c82dc8a6789c59861ed4}
+      \strng{bibnamehash}{b88e3e3dc6b9c82dc8a6789c59861ed4}
+      \strng{authorbibnamehash}{b88e3e3dc6b9c82dc8a6789c59861ed4}
+      \strng{authornamehash}{b88e3e3dc6b9c82dc8a6789c59861ed4}
+      \strng{authorfullhash}{b88e3e3dc6b9c82dc8a6789c59861ed4}
+      \strng{authorfullhashraw}{b88e3e3dc6b9c82dc8a6789c59861ed4}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Humanities and Social Sciences Communications}
+      \field{number}{1}
+      \field{title}{Artificial intelligence and the future of the internal audit function}
+      \field{volume}{11}
+      \field{year}{2024}
+      \field{pages}{386}
+      \range{pages}{1}
+    \endentry
     \entry{YourAIFinder_DataSnipper_2026}{online}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=ee02a88c86bf88fafb4de17d18e181da}{%
