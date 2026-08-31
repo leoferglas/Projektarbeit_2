@@ -29,39 +29,19 @@ Die Eignung der untersuchten \ac{KI}-Modelle für den definierten Audit-Use-Case
 
 
 \section{Entwicklung einer Bewertungsmatrix}
-Um die Evaluation basierend auf einer Nutzwertanalyse durchzuführen muss eine Bewertungsmatrix mit mehreren quantitativen und qualitativen Kriterien entwickelt werden (vgl. \cite[S.3]{liang2023holisticevaluationlanguagemodels}).
+Um die Evaluation basierend auf einer Nutzwertanalyse durchzuführen, muss eine Bewertungsmatrix mit mehreren quantitativen und qualitativen Kriterien entwickelt werden (vgl. \cite[S.3]{liang2023holisticevaluationlanguagemodels}). Die Bewertungsmatrix gliedert sich hierzu in fünf Dimensionen, die jeweils unterschiedliche, für den Audit-Use-Case relevante Aspekte der Modellleistung abbilden und in ihrer Gesamtheit ein möglichst vollständiges Bild der Eignung der untersuchten \acp{LLM} liefern sollen.
 
-Precision, Fals Positives, Qualität Begründungen, Konsistenz, Gewichtung, Gesamtbewertung, Begründung der Gewichtung
+Die erste Dimension bildet die objektiv messbare Erkennungsleistung der Modelle ab. Sie umfasst die Kennzahl Precision, die sich als Quotient aus den korrekt als auffällig erkannten Rechnungen (True Positives) und der Summe aus True Positives und fälschlicherweise als auffällig markierten Rechnungen (False Positives) berechnet, sowie die Kennzahl Recall, die sich als Quotient aus den True Positives und der Summe aus True Positives und den nicht erkannten Auffälligkeiten (False Negatives) ergibt. Da eine hohe Precision und ein hoher Recall teilweise gegenläufige Anforderungen an ein Auditunterstützungssystem darstellen, wird ergänzend der F1-Score als harmonisches Mittel aus Precision und Recall herangezogen, um die Erkennungsleistung der Modelle in einer einzelnen, ausgewogenen Kennzahl zusammenzufassen.
 
-Dimension 1 (objektiv): Erkennungsleistung
-\begin{enumerate}
-    \item Precision  -> TP // TP + FP
-    \item Recall -> TP // TP + FN
-    \item F1 - Score -> 2* Precision * Recall // Precision + Recall
-\end{enumerate}
+Die zweite Dimension erfasst die stärker subjektiv geprägte Qualität der von den Modellen gelieferten Begründungen. Da eine Auffälligkeit für den Prüfungsprozess erst dann einen Mehrwert besitzt, wenn ein Auditor die Argumentation des Modells nachvollziehen kann, wird die Nachvollziehbarkeit der Begründung auf einer fünfstufigen Skala bewertet. Ergänzend wird die fachliche Korrektheit der Argumentation binär als korrekt oder nicht korrekt beurteilt, um abzubilden, ob die vom Modell angeführten Gründe auch aus fachlicher Auditsicht Bestand haben. Zusätzlich wird die Halluzinationsrate der Modelle erhoben, da insbesondere frei erfundene oder inhaltlich nicht durch die Rechnung gedeckte Begründungen das Vertrauen in die Modellergebnisse und damit deren praktische Einsatzfähigkeit im Audit maßgeblich beeinträchtigen würden.
 
-Dimension 2 (subjektiv): Qualität der Begründung
+Die dritte Dimension widmet sich der Konsistenz der Modelle. Hierzu wird zum einen die Ergebniskonsistenz betrachtet, indem dieselbe Anfrage über mehrere Durchläufe hinweg wiederholt und die Stabilität der erzielten Ergebnisse beurteilt wird. Zum anderen wird die Begründungskonsistenz untersucht, also die Frage, ob die Modelle über die Durchläufe hinweg ähnliche Begründungen liefern und vergleichbare Risiken priorisieren. Beide Teilkriterien sind für den Audit-Use-Case von besonderer Bedeutung, da ein Prüfungsergebnis nur dann als verlässlich gelten kann, wenn es bei wiederholter Anwendung reproduzierbar ist.
 
-\begin{enumerate}
-    \item Qualität der Begründung -> Kann ein Auditor nachvollziehen,w arum das Modell die Auffälligkeiten markitert hat (Skala 1 - 5)
-    \item Fachliche Korrektheit -> Ist die Argumentation aus Auditsicht korrekt? Korrekt/Nicht korrekt (Binär)
-    \item Halluzinationsrate 
-\end{enumerate}
+Die vierte Dimension bewertet den unmittelbaren Nutzen der Modellanalyse für den Auditor, also inwieweit die generierte Auffälligkeitsanalyse den Auditor bei seiner Prüfungstätigkeit tatsächlich unterstützt. Dieses Kriterium ist naturgemäß in besonderem Maße subjektiv geprägt, da es weniger die technische Leistungsfähigkeit als vielmehr den wahrgenommenen praktischen Mehrwert der Modellausgabe für den Prüfungsprozess erfasst, und wird bei der Auswertung entsprechend vorsichtig interpretiert.
 
-Dimension 3 (Konsistenz)
-\begin{enumerate}
-    \item Ergebnisskonsitzen -> X Durchläufe
-    \item Begründungskonsitenz -> Werden ähnliche Begründungen gelifert? Ähnliche Risiken priorisiert?
-\end{enumerate}
+Die fünfte Dimension berücksichtigt die praktische Einsatzfähigkeit der Modelle jenseits ihrer inhaltlichen Leistung. Hierzu zählen die Antwortzeit der Modelle, die für die Integration in den Prüfungsprozess von Bedeutung ist, die mit der Nutzung verbundenen Kosten sowie die Einhaltung datenschutzrechtlicher Anforderungen, deren Erfüllung angesichts der sensiblen, geschäftskritischen Inhalte der geprüften Dokumente eine notwendige Voraussetzung für den produktiven Einsatz der Modelle im Internal Audit darstellt.
 
-Dimension 4: Audit Nutzen
-
--> vllt unnötig, aber wie stark würde die Analyse einen Auditor unterstützen -> sehr subjektiv???
-
-Dimension 5: Praktische Einsatzfähigkeit
-Antwortzeit?, Kosten ? , Datenschutz (sollte gegeben sein)
-
-Einzelne Dimension und Punkte gewichten -> Gesamtergebnis
+Die auf diese Weise entwickelten fünf Dimensionen mit ihren jeweiligen Einzelkriterien bilden die Grundlage der Bewertungsmatrix. Im Rahmen der Nutzwertanalyse werden die einzelnen Kriterien sowie die übergeordneten Dimensionen anschließend gewichtet und zu einem Gesamtergebnis je Modell zusammengeführt, das im nachfolgenden Abschnitt näher erläutert wird.
 
 \section{Gewichtung der Bewertungsmatrix}
 
