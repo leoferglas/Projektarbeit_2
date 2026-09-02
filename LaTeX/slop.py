@@ -1,0 +1,2 @@
+# audit grundlagen
+Durch die fortschreitende Zunahme regulatorischer Anforderungen, organisatorischer Komplexität sowie vielfältiger Risikoquellen kommt dem Audit eine wichtige Kontroll- und Überwachungsfunktion zu. Gleichzeitig dient es als Instrument zur Koordination von Governance-, Risiko- und Kontrollaktivitäten und trägt dazu bei, Überschneidungen oder Schwachstellen innerhalb des Internen Kontrollsystems zu identifizieren und zu reduzieren (vgl. \cite[S. 1--3]{cantu2025making}).
