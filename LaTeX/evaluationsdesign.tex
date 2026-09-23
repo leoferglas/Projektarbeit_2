@@ -25,18 +25,50 @@ Die Eignung der untersuchten \ac{KI}-Modelle für den definierten Audit-Use-Case
 
 
 \section{Entwicklung einer Bewertungsmatrix}
-Um die Evaluation basierend auf einer Nutzwertanalyse durchzuführen, muss eine Bewertungsmatrix mit mehreren quantitativen und qualitativen Kriterien entwickelt werden (vgl. \cite[S.3]{liang2023holisticevaluationlanguagemodels}). 
+Um die Evaluation basierend auf einer Nutzwertanalyse durchzuführen, muss eine Bewertungsmatrix mit mehreren quantitativen und qualitativen Kriterien entwickelt werden (vgl. \cite[S.3]{liang2023holisticevaluationlanguagemodels}).
+Bei der Entwicklung der Bewertungsmatrix werden die Anforderungen für den Anwendungsfall der Corporate Audit Abteilung der \ac{FCo} berücksichtigt. Die Bewertungsmatrix umfasst drei Hauptkriterien, die für die Eignung der Modelle für den definierten Use Case von zentraler Bedeutung sind. Diese Kriterien sind die Erkennungsleistung der Modelle, die Qualität der Begründungen und die Konsistenz der Ergebnisse. Sind alle drei Kriterien hinreichend erfüllt, können die Modelle als geeignet für den Einsatz im Audit-Use-Case betrachtet werden.
+
 
 Als zentrales quantiatives Kriterium wird die Erkennugsleistung der Modelle herangezogen. Hierbei werden die Kennzahlen Precision und Recall berechnet. Der Precision-Wert gib an, wie viele der vom Modell als fehlerhaft identifizierten Rechnungen tatsächlich fehlerhaft sind. Er berechnet sich aus dem Quotient aller richtig als fehlerhafte klassifizierten Rechnungen, den sogenannten True Positivies, un der Summe aller als fehlerhaft klassifizierten Rechnungen, also der Summe aus True Positives und False Positives. Der Recall-Wert gibt an, wie viele der tatsächlich fehlerhaften Rechnungen vom Modell korrekt identifiziert wurden. Er berechnet sich aus dem Quotient der True Positives, und der Summe aller tatsächlich fehlerhaften Rechnungen, also der Summe aus True Positives und False Negatives.
 
 Als weiteres Kriterium wird die Qualität der Begründungen der Modelle bewertet. Die qualitative Bewertung der Begründung erfolgt durch mehrerer Auditoren der \ac{FCo}. Die Auditoren bewerten die Begründungen der Modelle anhand von den drei Kriterien Korrektheit, Nachvollziehbarkeit und Faktentreue (Halluzination). Jedes Kriterium wird auf einer Skala von 1 bis 5 bewertet, wobei 1 für "sehr schlecht" und 5 für "sehr gut" steht. Die Bewertungen der einzelnen Kriterien werden anschließend zu einem Gesamtnutzenwert aggregiert.
 
-Als letztes Kriterium wird die Konsistenz der Modelle bewertet. Die einzelnen Rechnungen werden fünf mal von den Modellen analysiert. Die Konsistenz wird anhand der Übereinstimmung der Ergebnisse bewertet. Je höher die Übereinstimmung der Ergebnisse, desto besser ist die Konsistenz der Modelle.
-
-
+Als letztes Kriterium wird die Konsistenz der Modelle bewertet. Dazu wird jede Rechnung mit identischem Prompt fünfmal von jedem Modell analysiert. Anschließend werden alle unterschiedlichen Befunde erfasst, die über die fünf Durchläufe hinweg gemeldet wurden. Für jeden dieser Befunde wird ermittelt, in wie vielen Durchläufen er auftaucht. Ein Befund, der in allen fünf Durchläufen gemeldet wird, erhält somit den Wert 1, ein Befund, der nur in einem Durchlauf auftaucht, den Wert 0,2. Die Konsistenz ergibt sich aus dem Mittelwert dieser Anteile über alle Befunde und wird in Prozent angegeben. Liefert ein Modell in allen Durchläufen exakt dieselben Befunde, erreicht es eine Konsistenz von 100\,\%. Je häufiger sich die gemeldeten Befunde zwischen den Durchläufen unterscheiden, desto geringer fällt der Wert aus.
 
 \section{Gewichtung der Bewertungsmatrix}
 
-Zur systematischen Evaluation der unterschuchten \acp{LLM} wird eine mehrdimensionale Bewerungsmatrix entwicklet. Ziel dieser Matrix ist es, die Eignung der Modelle für die Unterstützung von Stichprobenanalysen im Internal Audit möglichst ganzheitlich zu bewerten. Die Leistungsfähigkeit der Modelle wird sowohl über objektive Kennzahlen als auch über qualitative Kriterien bewertet. Die einzelnen Bewertungskriterien werden gewichtet und anschlißend zu einer Gesamtbewertung zusammengeführt.
+Um die drei Hauptkriterien zu einem Gesamtergebnis zusammenzuführen, werden diese entsprechend ihrer Bedeutung für den Audit-Use-Case gewichtet. Die Gewichtung wird vor der Durchführung der Tests festgelegt, damit eine nachträgliche Anpassung an die Ergebnisse ausgeschlossen werden kann.
 
-Die erste Bewertungsdimension umfasst die Erkennungsleistung der Modelle. Diese bildet den Kern der Evaluation, da die zuverlässige Identifikation von Auffälligkeiten und Unregelmässigkeiten die zentrale Anforderung eines \ac{KI}-gestützen Audit-Tools darstellt.
+Die Erkennungsleistung erhält mit 50\,\% das höchste Gewicht, da die zuverlässige Identifikation fehlerhafter Rechnungen die Kernaufgabe der Stichprobenanalyse darstellt. Innerhalb dieses Kriteriums wird der Recall mit 30\,\% höher gewichtet als die Precision mit 20\,\%. Ein Fehlalarm wird vom Auditor im Rahmen der weiteren Prüfung erkannt und verursacht lediglich zusätzlichen Prüfaufwand. Wird ein Fehler hingegen vom Modell nicht gemeldet, besteht die Gefahr, dass auch der Auditor diesen übersieht, da er sich auf das Ergebnis des Systems verlässt.
+
+Die Qualität der Begründungen wird mit 30\,\% gewichtet. Auditoren müssen nachvollziehen können, wie ein Ergebnis zustande gekommen ist, um die Befunde prüfen und dokumentieren zu können. Die Korrektheit erhält hierbei mit 12\,\% das höchste Gewicht, da eine fachlich falsche Argumentation auch bei richtig erkanntem Fehler zu einer fehlerhaften Dokumentation führen kann. Die Nachvollziehbarkeit wird mit 10\,\% und die Faktentreue mit 8\,\% gewichtet. Erfundene Angaben sind im Audit zwar besonders kritisch, werden aber teilweise bereits über die Korrektheit erfasst.
+
+Die Konsistenz erhält mit 20\,\% das geringste Gewicht. Reproduzierbare Ergebnisse sind zwar eine Voraussetzung dafür, dass Auditoren einem Modell vertrauen können. Eine hohe Konsistenz sagt allein jedoch nichts über die Richtigkeit der Ergebnisse aus, da auch ein Modell, das dauerhaft dieselben Fehler übersieht, konsistent arbeitet. Tabelle~\ref{tab:gewichtung} fasst die Gewichtung zusammen.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{llll}
+        \hline
+        \textbf{Hauptkriterium} & \textbf{Gewicht} & \textbf{Teilkriterium} & \textbf{Gewicht} \\
+        \hline
+        Erkennungsleistung & 50\,\% & Recall & 30\,\% \\
+                           &        & Precision & 20\,\% \\
+        Qualität der Begründungen & 30\,\% & Korrektheit & 12\,\% \\
+                           &        & Nachvollziehbarkeit & 10\,\% \\
+                           &        & Faktentreue & 8\,\% \\
+        Konsistenz         & 20\,\% & Konsistenz & 20\,\% \\
+        \hline
+    \end{tabular}
+    \caption{Gewichtung der Bewertungsmatrix}
+    \label{tab:gewichtung}
+\end{table}
+
+Da die Kriterien auf unterschiedlichen Skalen erfasst werden, müssen sie vor der Verrechnung vereinheitlicht werden. Precision, Recall und Konsistenz liegen bereits als Prozentwerte vor. Für die Teilkriterien der Begründungsqualität wird zunächst der Mittelwert über alle Auditoren gebildet. Dieser wird anschließend über $e = \frac{x-1}{4} \cdot 100$ in einen Wert zwischen 0 und 100 umgerechnet, sodass die schlechteste Bewertung den Wert 0 und die beste Bewertung den Wert 100 erhält. Der Nutzwert eines Modells ergibt sich dann als Summe der gewichteten Einzelwerte:
+
+\begin{equation}
+    N_j = \sum_{i=1}^{6} w_i \cdot e_{ij}
+\end{equation}
+
+Dabei steht $N_j$ für den Nutzwert des Modells $j$, $w_i$ für das Gewicht des Teilkriteriums $i$ und $e_{ij}$ für den normierten Wert des Modells $j$ im Teilkriterium $i$.
+
+Da jede Gewichtung eine gewisse Subjektivität enthält, wird im Rahmen der Auswertung zusätzlich eine Sensitivitätsanalyse durchgeführt. Hierbei werden die Gewichte der Hauptkriterien verändert, um zu prüfen, ob sich die Rangfolge der Modelle dadurch verschiebt. Bleibt die Rangfolge stabil, kann das Ergebnis als robust betrachtet werden.

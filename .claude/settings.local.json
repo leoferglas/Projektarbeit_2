@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -n \"Entwicklung einer Bewertungsmatrix\\\\|^\\\\\\\\\\\\\\\\section\\\\|^\\\\\\\\\\\\\\\\subsection\" \"/c/Users/F20VerLeo/OneDrive - FGroup/02_Studium_DHBW/PA 2/Projektarbeit_2/LaTeX/evaluationsdesign.tex\")"
+    ]
+  }
+}
