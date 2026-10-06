@@ -12,77 +12,27 @@ Auf Basis dieser Klassifizierung wird ein Threshold festgelegt. Alle Rechnungen,
 Die ausgewählten Stichprobenelemente werden anschließend durch den Auditor einer detaillierten Prüfung unterzogen. Hierbei werden sämtliche für die Bewertung relevanten Informationen und Nachweisdokumente gesammelt, geprüft und dokumentiert. Nach Abschluss der Analyse bewertet der Auditor die Ergebnisse hinsichtlich möglicher Auffälligkeiten, Abweichungen oder Regelverstöße. Werden Unregelmäßigkeiten festgestellt, werden diese dokumentiert und als Audit Exceptions erfasst.
 
 Durch die Kombination aus risikobasierter Auswahl und zufälliger Stichprobenziehung wird sichergestellt, dass sowhol potenziell kritische Transaktionen als auch repräsentative Elemente der Grundgesamtheit in die Prüfung einbezogen werden. Dadurch kann mit vertretbarem Prüfungsaufwand ein hohes Maß an Prüfungssicherheit erreicht werden.
-(vgl. \autocite{freudenberg2026auditsample})
+(vgl. \autocite{freudenberg2026auditsample}).
 
 
 \section{Einsatz von KI im Auditbereich}
-Forschungsstand, vergleichbare studien, andere Unternehmen
+%Forschungsstand, vergleichbare studien, andere Unternehmen
+
 
 \section{Verfügbare KI-Lösungen für Audits}
 
-Auswahlverfahren basierend auf AI Benchmarks:
+Speziell für den Auditbereich gibt es eine Vielzahl von KI-Lösungen, die unterschiedliche Ansätze und Funktionalitäten bieten. Diese reichen von generativen \acp{LLM} bis hin zu spezialisierten Audit-Tools. Im Folgenden werden die wichtigsten verfügbaren Lösungen vorgestellt und hinsichtlich ihrer Eignung für Auditprozesse bewertet.
 
-Modell muss Dokumente interpretieren, Belege verknüofen, Inkonsistenzen finden, Schlussfolgerungen begründen
+Die Entwicklung generative \ac{KI} gilt als die technologische Entwicklung des 21. Jahrhunderts. Die rasante Entwicklung von \acp{LLM} hat dazu geführt, dass diese Modelle in einer Vielzahl von Anwendungsbereichen eingesetzt werden können, darunter auch im Auditbereich. Generative \acp{LLM} sind in der Lage, große Mengen an Textdaten zu verarbeiten, Muster zu erkennen und auf Basis dieser Informationen fundierte Schlussfolgerungen zu ziehen. Dies eröffnet neue Möglichkeiten für die Automatisierung und Effizienzsteigerung von Auditprozessen.
 
-Intelligence Index: aggregiert mehrere Test, GPQA (5 Sterne) , Humanity's Last Exam (5 Sterne), Browse Comp (4 Sterne), SimpleQA (4 Sterne), MRCR (4 Sterne), SciCode (2 Sterne) etc. -> allgemeiner Index
+Die einzelnen Modelle werden kontinuierlich weiterentwickelt, wobei die Leistungsfähigkeit und Genauigkeit der Modelle stetig zunimmt. Zum Stand der Arbeit (Oktober 2026) führen Modelle von Anthropic, OpenAI und Google die Benchmark-Rankings, wie den Artifical Analysis Intelligence Index an. Modelle wie Opus 5.5, Sonnet 5.5, Fable 5.1, GPT-6 Astra und Gemini 4 empfehlen sich somit zum Einsatz im Auditbereich. Die Auswahl des geeigneten Modells hängt jedoch von den spezifischen Anforderungen und Rahmenbedingungen ab, die im Rahmen der Auditprozesse relevant sind.
 
-Agentic Index: nutzen wir agenten? 
-
-Context Window -> Audit prüfung viele dateien und Daten -> je größer, desto mehr Dokumente können gleichzeitig verarbeitet werden
-
-Coding Index -> Excel-Datei analysieren? Stichproben automatisch ziehen?
-
-Cost per Task -> in vergleich zu den oben stehenden benchmarks
-
-wenig relevant : speed, latency, output tokens
-
-Intelligence Index:
-Opus 5 ,
-Fable 5,
-GPT 5.6,
-Kimi K3,
-Grok 4.5,
-Sonnet 5,
-GLM 5.2
-
-Intelligence Index vs. Cost per Intelligence Index Task:
-
-DeepSeek V4 Flash,
-GPT-5.6(Luna),
-Grok 4.5,
-Kimi K3
-
-Context Window:
-Kimi K3,
-GPT 5.6 (Luna, Terra, Sol)
-GLM 5.2,
-Sonnet 5,
-Haiku 4.5,
-Opus 5,
-Fable 5
-
+Neben dem reinen Intelligence Index sind auch weitere Faktoren relevant. Etwa die Kosten, die Größe des Context Windows und die Geschwindigkeit der Modelle. Diese Faktoren beeinflussen die Effizienz und Wirtschaftlichkeit des Einsatzes von \acp{LLM} im Auditbereich.
 \autocite{ArtificialAnalysis2026}
 
-
-\subsection{Kommerzielle Lösungen}
-
-- Microsoft Copilot (Audit hat Zugriff): GPT 5.6 (nicht klar, ob sol, terra, luna), GPT 5.5
-- Claude (Zuhause - keine sensiblen Daten (Daten selber erstellen)): Fable 5. Opus 5, Sonnet 5, Haiku 4.5
-- Grok 4 - nur stanard
-
-\subsection{Open-Source-Lösungen}
-
-Kimi K3 -> aber das kann man nirgendswo laufen lassen
-
-Laptop (16 GB RAM) -> Qwen 3.5 PB, Phi-4
--> deutlich schlechter, wo kann ich das laufen lassen?
-LM studio zum manuellen testen
-OLlama zur python evaluierung
-
-\subsection{Spezialisierte KI-gestütze Audit-Lösung}
 Abseites von generativen \acp{LLM} gibt es spezialisierte \ac{KI}-gestütze Audit-Lösungen. In dieser Arbeit wird DataSnipper als die Vergleichssoftware zu den herkömlichen \acp{LLM} genutzt. DataSnipper erzielt an mehreren Rankings sehr gute Rankings unter \ac{KI}-gestützen Audit-Lösungen und wird auch von den Big 4 als Audit-Tool verwendet, was das Tool zu einer der weit verbreitesten spezialliserten \ac{KI}-Lösungen im Audit-Bereich macht und eine hohe Marktrelevanz besitzt (vgl. \cite{G2_DataSnipper_2026}, \cite{GartnerPeerInsights_DataSnipper_2026}. \cite{YourAIFinder_DataSnipper_2026}). DataSnipper fungiert als Excel-Add-In und stellt verschiedene KI-Funktionen zur Untersützung von Auditprozessen bereit. Im Gegensatz zu herkömmlichen \acp{LLM} wurde DataSnipper speziell für die Anforderungen von Audit-und Finance-Prozessen entwickelt. Zu den zentralen Funktionalitäten gehören die automatisierte Datenetraktion, der Abgleich von Dokumenten mit Arbeitspapieren, die Erstellung nachvollziehbarer Audit Trails sowie die \ac{KI}-gestütze Analyse von Dokumenten. Darauf aufbauend gibt es erweiterte Funktionen durch sogenannte Excel Agent, die Audit Aufgaben innerhalb bestehender Workflows unterstützen. Ein wesentliches Merkmal ist der Human-in-the-Loop-Ansatz. Dbaei üerbnimmt die Software repitive Prüfungs- und Dokumentationsschritte, während fachliche Entscheidungen und die finale Bewertung weitherin durch den Auditor erfolgt. Zudem bleibt jede Analyse mit den zugrunde liegenden Dokumenten verknüpft, wodurch eine hohe Nachvollziehbarkeit der Ergebnisse gewährleistet wird.
 
 \section{Einordnung des KI-Einsatzes bei Freudenberg}
 \label{sec:ki_at_the_moment}
  
-Die Freudenberg Gruppe nutzt aktuell gruppenweit die KI-Lösung von Microsoft Microsoft Copilot. Hierbei werden für alle Nutzer die Modelle GPT 4.5 und GPT 4.6 zur Verfügung gestellt. Der Copilot darf hierbei Zugriff auf alle internen Dokumente haben und bietet volle Datensicherheit- und integrität. Zusätzlich zum Microsoft Copilot gibt es für eine geringe Anzahl an Nutzern über GitHub Copilot die Möglichkeit auf begrenzte Ressourcen von Claude Sonnet und Claude Opus zuzugreifen. Hierbei liegte der Fokus jedoch auf der Software-Entwicklung. Die Anwendung auf den Auditbereich ist hierbei auf Grund von begrenzter Ressourcen nicht empfehlenswert.
+Die Freudenberg Gruppe nutzt aktuell gruppenweit die \ac{KI}-Lösung von Microsoft, den Microsoft Copilot. Hierbei werden für alle Nutzer Modelle, wie GPT 5.6, GPT 6.1 als auch Sonnet 5, Sonnet 5.5 und Opus 5.5 zur Verfügung gestellt \todo{hier bin ich stehen geblieben}. Der Copilot darf hierbei Zugriff auf alle internen Dokumente haben und bietet volle Datensicherheit- und integrität. Zusätzlich zum Microsoft Copilot gibt es für eine geringe Anzahl an Nutzern über GitHub Copilot die Möglichkeit auf begrenzte Ressourcen von Claude Sonnet und Claude Opus zuzugreifen. Hierbei liegte der Fokus jedoch auf der Software-Entwicklung. Die Anwendung auf den Auditbereich ist hierbei auf Grund von begrenzter Ressourcen nicht empfehlenswert.
