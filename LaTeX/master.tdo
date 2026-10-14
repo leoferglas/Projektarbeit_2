@@ -11,3 +11,17 @@
 \contentsline {todo}{genaue Zahlen begründen: 100 Rechnungen, 24\,\%, 24 Fehler, Verteilung 6, 5, 4, 4, 3, 2}{16}{section*.20}%
 \contentsline {todo}{wissenschaftlich begründen, warum diese Kriterien}{20}{section*.22}%
 \contentsline {todo}{an die Statuswerte aus dem Prompt anpassen}{20}{section*.23}%
+\contentsline {todo}{festgelegte Regel für richtige Markierung mit falschem Grund nennen, z.\,B. Wertung als FN}{24}{section*.25}%
+\contentsline {todo}{ggf. zusätzlich Fleiss' Kappa über die Durchläufe}{25}{section*.26}%
+\contentsline {todo}{Anzahl betroffener Rechnungen und Umgang damit in der Auswertung, z.\,B. Ausschluss oder Wertung als Fehler}{25}{section*.27}%
+\contentsline {todo}{auffällige Unterschiede zwischen Precision und Recall beschreiben, z.\,B. ob ein Modell eher zu viele oder zu wenige Exceptions meldet}{25}{section*.30}%
+\contentsline {todo}{Datengrundlage für Benutzerberechtigungen kurz nennen: Anzahl Fälle, Anzahl Exceptions laut Ground Truth, was als Exception gilt}{26}{section*.31}%
+\contentsline {todo}{Ergebnisse beschreiben, Unterschiede zum Anwendungsfall Rechnungen benennen}{26}{section*.33}%
+\contentsline {todo}{festlegen, ob über alle Fälle gemeinsam gerechnet wird (Micro) oder der Mittelwert beider Anwendungsfälle gebildet wird (Macro), und kurz begründen}{26}{section*.34}%
+\contentsline {todo}{Umrechnungsregel nennen}{26}{section*.36}%
+\contentsline {todo}{Ergebnis, bleibt die Rangfolge stabil?}{26}{section*.38}%
+\contentsline {todo}{Stärken und Schwächen je Modell in wenigen Sätzen gegenüberstellen, z.\,B. hohe Precision bei geringerer Konsistenz}{27}{section*.39}%
+\contentsline {todo}{z.\,B. Abweichung zwischen messbaren Kennzahlen und Einschätzung der Senior Auditoren}{27}{section*.40}%
+\contentsline {todo}{Ergebnisse interpretieren und mit dem Stand der Forschung aus Kapitel~[XX] abgleichen. Mögliche Leitfragen: Decken sich die Ergebnisse mit bisherigen Studien? Welche Fehlerarten treten bei allen Modellen auf?}{27}{section*.41}%
+\contentsline {todo}{wichtigste Unterscheidungsmerkmale, z.\,B. Erkennungsrate, Konsistenz}{27}{section*.42}%
+\contentsline {todo}{Einschränken, in welcher Rolle, z.\,B. als Unterstützung bei der Vorprüfung, wobei die abschließende Bewertung weiterhin durch Auditoren erfolgt.}{27}{section*.43}%

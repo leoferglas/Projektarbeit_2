@@ -1,20 +1,146 @@
 \chapter{Evaluationsdurchführung}
 \label{chap:evaluationsdurchfuehrung}
 
+% Platzhalter: [XX] = Zahl/Ergebnis eintragen, \todo{} = Inhalt ergänzen
+% Label von Kapitel 5 ggf. anpassen: chap:evaluationsdesign
+
+In diesem Kapitel wird beschrieben, wie die in Kapitel~\ref{chap:evaluationsdesign} festgelegte Evaluation praktisch umgesetzt wurde. Anschließend werden die Ergebnisse der Stichprobenanalysen dargestellt, in der Bewertungsmatrix zusammengeführt und analysiert. Am Ende des Kapitels wird die Forschungsfrage beantwortet.
+
 \section{Durchführung der Tests}
+\label{sec:durchfuehrung_tests}
+
+Für jedes untersuchte Modell wurde in Microsoft Copilot Studio ein eigener Agent angelegt. Alle Agenten erhielten denselben Prompt und dieselbe Konfiguration, sodass sich die Agenten ausschließlich im zugrunde liegenden Sprachmodell unterscheiden. Der Prompt wurde zuvor anhand von fünf separaten Rechnungen mit Freigaben entwickelt und vor Beginn der Tests eingefroren. Am eigentlichen Testdatensatz wurden danach keine Anpassungen mehr vorgenommen. Damit wird vermieden, dass der Prompt auf die Testdaten optimiert wird und die Ergebnisse dadurch zu positiv ausfallen. Der finale Prompt befindet sich in Anhang~[XX].
+
+Untersucht wurden die Modelle [Modell A], [Modell B] und [Modell C] (Stand der Modellversionen: [Datum]). Die Tests wurden im Zeitraum vom [XX] bis [XX] durchgeführt.
+
+Die Durchführung erfolgte automatisiert über einen Flow in Power Automate. Der Flow übergibt jede Rechnung des Testdatensatzes an den jeweiligen Agenten und trägt dessen Antwort zusammen mit Zeitstempel, Modell und Laufnummer in eine Excel Tabelle ein. Diese Antworten werden anschließend automatisch mit der Abgleichstabelle (Ground Truth) verglichen. Aus dem Abgleich ergibt sich für jede Rechnung, ob es sich um ein True Positive (TP), False Positive (FP), True Negative (TN) oder False Negative (FN) handelt.
+
+Für die Einordnung als TP reicht es nicht aus, dass eine Rechnung als Exception markiert wurde. Zusätzlich wird der vom Modell genannte Grund für die Exception mit dem in der Ground Truth hinterlegten Grund verglichen. Nur wenn beide übereinstimmen, wird die Antwort als TP gewertet. Weicht der Grund ab, wird der Fall einzeln betrachtet und entschieden. \todo{festgelegte Regel für richtige Markierung mit falschem Grund nennen, z.\,B. Wertung als FN} Alle Einzelfallentscheidungen wurden ohne Kenntnis des jeweiligen Modells getroffen und sind mit Begründung in Anhang~[XX] dokumentiert.
+
+Zur Messung der Konsistenz wurde jede Rechnung pro Modell [n] Mal ausgewertet. Die Konsistenz ergibt sich aus dem Anteil der Rechnungen, bei denen das Modell in allen Durchläufen zum gleichen Ergebnis kam. \todo{ggf. zusätzlich Fleiss' Kappa über die Durchläufe}
+
+Ergänzend wurden die Antworten von [XX] Senior Auditoren anhand eines einheitlichen Bewertungsbogens beurteilt (siehe Anhang~[XX]). Damit die Bewertung nicht durch die Erwartung an ein bestimmtes Modell beeinflusst wird, wurden die Modellnamen vorher entfernt. Die Übereinstimmung zwischen den Bewertenden wurde mit [Krippendorffs Alpha] geprüft.
+
+Während der Durchführung zeigten sich zwei technische Auffälligkeiten. Erstens wurden die Freigabescreenshots in den Rechnungsunterlagen häufig nicht erkannt und konnten deshalb nicht ausgelesen werden. Zweitens werden PNG Dateien im Chatfenster von Copilot Studio gar nicht verarbeitet. \todo{Anzahl betroffener Rechnungen und Umgang damit in der Auswertung, z.\,B. Ausschluss oder Wertung als Fehler} Diese Einschränkungen betreffen alle Modelle gleichermaßen und werden in Abschnitt~\ref{sec:analyse_ergebnisse} bei der Interpretation berücksichtigt.
 
 \section{Ergebnisse der Stichprobenanalysen}
+\label{sec:ergebnisse_stichproben}
+
+Im Folgenden werden die Ergebnisse getrennt nach Anwendungsfall dargestellt. Dieser Abschnitt beschreibt die Ergebnisse zunächst ohne Bewertung. Die Interpretation folgt in Abschnitt~\ref{sec:analyse_ergebnisse}.
 
 \subsection{Rechnungen}
+\label{subsec:ergebnisse_rechnungen}
+
+Der Testdatensatz umfasst 100 Rechnungen, von denen laut Ground Truth [XX] eine Exception enthalten. Tabelle~\ref{tab:konfusion_rechnungen} zeigt die Verteilung der Ergebnisse je Modell, Tabelle~\ref{tab:metriken_rechnungen} die daraus berechneten Kennzahlen.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Konfusionswerte je Modell für den Anwendungsfall Rechnungen}
+  \label{tab:konfusion_rechnungen}
+  \begin{tabular}{lcccc}
+    \hline
+    Modell & TP & FP & TN & FN \\
+    \hline
+    \relax[Modell A] & [XX] & [XX] & [XX] & [XX] \\
+    \relax[Modell B] & [XX] & [XX] & [XX] & [XX] \\
+    \relax[Modell C] & [XX] & [XX] & [XX] & [XX] \\
+    \hline
+  \end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+  \centering
+  \caption{Kennzahlen je Modell für den Anwendungsfall Rechnungen}
+  \label{tab:metriken_rechnungen}
+  \begin{tabular}{lccccc}
+    \hline
+    Modell & Precision & Recall & Accuracy & F1 Score & Konsistenz \\
+    \hline
+    \hline
+  \end{tabular}
+\end{table}
+
+Den höchsten F1 Score erreicht [Modell], den niedrigsten [Modell]. \todo{auffällige Unterschiede zwischen Precision und Recall beschreiben, z.\,B. ob ein Modell eher zu viele oder zu wenige Exceptions meldet}
 
 \subsection{Benutzerberechtigungen}
+\label{subsec:ergebnisse_berechtigungen}
+
+\todo{Datengrundlage für Benutzerberechtigungen kurz nennen: Anzahl Fälle, Anzahl Exceptions laut Ground Truth, was als Exception gilt}
+
+% Tabellen analog zu Rechnungen
+\begin{table}[htbp]
+  \centering
+  \caption{Kennzahlen je Modell für den Anwendungsfall Benutzerberechtigungen}
+  \label{tab:metriken_berechtigungen}
+  \begin{tabular}{lccccc}
+    \hline
+    Modell & Precision & Recall & Accuracy & F1 Score & Konsistenz \\
+    \hline
+
+    \hline
+  \end{tabular}
+\end{table}
+
+\todo{Ergebnisse beschreiben, Unterschiede zum Anwendungsfall Rechnungen benennen}
 
 \subsection{Gesamtvergleich}
+\label{subsec:gesamtvergleich}
+
+Tabelle~\ref{tab:gesamtvergleich} fasst die Kennzahlen beider Anwendungsfälle zusammen. \todo{festlegen, ob über alle Fälle gemeinsam gerechnet wird (Micro) oder der Mittelwert beider Anwendungsfälle gebildet wird (Macro), und kurz begründen}
+
+\begin{table}[htbp]
+  \centering
+  \caption{Gesamtvergleich der Modelle über beide Anwendungsfälle}
+  \label{tab:gesamtvergleich}
+  \begin{tabular}{lccccc}
+    \hline
+    Modell & Precision & Recall & Accuracy & F1 Score & Konsistenz \\
+    \hline
+
+    \hline
+  \end{tabular}
+\end{table}
+
+Die Ergebnisse der Senior Auditoren sind in Tabelle~[XX] dargestellt. Die Übereinstimmung zwischen den Bewertenden liegt bei [XX], was nach [Quelle] als [gering/mittel/hoch] einzustufen ist.
 
 \section{Auswertung der Bewertungsmatrix}
+\label{sec:bewertungsmatrix}
+
+Die Ergebnisse aus Abschnitt~\ref{sec:ergebnisse_stichproben} fließen nun in die Nutzwertanalyse ein. Die Kriterien und ihre Gewichtung wurden bereits in Kapitel~\ref{chap:evaluationsdesign} vor der Durchführung der Tests festgelegt und wurden danach nicht verändert. Für jedes Kriterium wurden die gemessenen Werte in Punkte auf einer Skala von [1 bis 5] überführt. \todo{Umrechnungsregel nennen} Multipliziert mit der jeweiligen Gewichtung ergibt sich der Nutzwert je Modell.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Bewertungsmatrix der Nutzwertanalyse}
+  \label{tab:bewertungsmatrix}
+  \begin{tabular}{lcccc}
+    \hline
+    Kriterium & Gewicht & [Modell A] & [Modell B] & [Modell C] \\
+    \hline
+    \hline
+    Nutzwert & 100\,\% & [XX] & [XX] & [XX] \\
+    \hline
+  \end{tabular}
+\end{table}
+
+Um zu prüfen, wie stark das Ergebnis von der gewählten Gewichtung abhängt, wurde eine Sensitivitätsanalyse durchgeführt. Dabei wurden die Gewichte der Kriterien jeweils um [XX] Prozentpunkte verändert. \todo{Ergebnis, bleibt die Rangfolge stabil?}
 
 \section{Vergleich der Modelle}
+\label{sec:vergleich_modelle}
+
+[Modell] erreicht mit [XX] Punkten den höchsten Nutzwert, gefolgt von [Modell] und [Modell]. \todo{Stärken und Schwächen je Modell in wenigen Sätzen gegenüberstellen, z.\,B. hohe Precision bei geringerer Konsistenz}
+
+Auffällig ist \todo{z.\,B. Abweichung zwischen messbaren Kennzahlen und Einschätzung der Senior Auditoren}.
 
 \section{Analyse der Ergebnisse}
+\label{sec:analyse_ergebnisse}
+
+\todo{Ergebnisse interpretieren und mit dem Stand der Forschung aus Kapitel~[XX] abgleichen. Mögliche Leitfragen: Decken sich die Ergebnisse mit bisherigen Studien? Welche Fehlerarten treten bei allen Modellen auf?}
+
+Bei der Interpretation sind mehrere Einschränkungen zu beachten. Der Testdatensatz ist mit 100 Rechnungen eher klein, sodass bereits wenige abweichende Fälle die Kennzahlen deutlich verändern. Die Untersuchung fand ausschließlich innerhalb von Copilot Studio statt. Die beschriebenen Probleme beim Auslesen der Freigabescreenshots und bei PNG Dateien sind daher eher eine Grenze der Plattform als der Modelle selbst, beeinflussen aber die gemessenen Ergebnisse. Zudem beruht die Bewertung der Senior Auditoren auf subjektiven Einschätzungen, deren Aussagekraft von der Übereinstimmung der Bewertenden abhängt. Schließlich bilden die Ergebnisse den Stand der Modellversionen zum Zeitpunkt der Tests ab und können sich mit neuen Versionen ändern.
 
 \section{Beantwortung der Forschungsfrage}
+\label{sec:beantwortung_forschungsfrage}
+
+Die Forschungsfrage dieser Arbeit lautet: \emph{Wie unterscheiden sich verschiedene LLMs hinsichtlich ihrer Eignung zur Unterstützung von Stichprobenanalysen im Audit-Bereich?}
+
+Die Ergebnisse zeigen, dass sich die untersuchten Modelle vor allem in \todo{wichtigste Unterscheidungsmerkmale, z.\,B. Erkennungsrate, Konsistenz} unterscheiden. xyz eignet sich nach der Nutzwertanalyse am besten für den Einsatz im Internal Audit bei Freudenberg. \todo{Einschränken, in welcher Rolle, z.\,B. als Unterstützung bei der Vorprüfung, wobei die abschließende Bewertung weiterhin durch Auditoren erfolgt.}
