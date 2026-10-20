@@ -1,26 +1,34 @@
 \contentsline {todo}{Text Kapitel 4}{2}{section*.10}%
 \contentsline {todo}{Text Grundlagen und Kapitel 3}{2}{section*.11}%
-\contentsline {todo}{vllt. zu hypotethisch -> wie ght er über reine Compliance-Aspekte hinaus?}{3}{section*.12}%
-\contentsline {todo}{Hier zum Einstieg noch mehr Kontext. Das internal Audit hat verschiedene Methoden. ua Stichproben -> rechnungen aber auch user benutzeranlegen etc.}{4}{section*.13}%
-\contentsline {todo}{auch wieder sehr mystisch: mitteleinsatz prüfungseffizienz etwas menschlicher einfacherer ausführen}{4}{section*.14}%
-\contentsline {todo}{noch durchgehe, quellen etc .-> siehe copilot chat}{5}{section*.15}%
-\contentsline {todo}{noch besser erklären}{9}{section*.16}%
-\contentsline {todo}{so rihcitg zitiert oder zusammenfassen?}{9}{section*.17}%
-\contentsline {todo}{Freudenberg einheitlich benennen: Freudenberg Gruppe vs. \ac {FCo}, Internal Audit vs. Corporate Audit schon am anfang der arbeit}{14}{section*.18}%
-\contentsline {todo}{Stefanie Bell: Finanzkontext hier eine repräsentative Quelle? -> Ich finde schon, da das auch Teil des Audits sein könnte}{15}{section*.19}%
-\contentsline {todo}{Quelle? ansonsten auch David}{16}{section*.20}%
-\contentsline {todo}{Schreib ich hier 6 oder sechs generell überall}{16}{section*.21}%
-\contentsline {todo}{genaue Zahlen begründen: 100 Rechnungen, 24\,\%, 24 Fehler, Verteilung 6, 5, 4, 4, 3, 2}{16}{section*.22}%
-\contentsline {todo}{hier nur struktur, nicht inhaltlich}{17}{section*.24}%
-\contentsline {todo}{Quelle}{17}{section*.25}%
-\contentsline {todo}{muss ich die älteren prompts auch mit rein nehmen? Ich will eigentlich nicht}{18}{section*.26}%
-\contentsline {todo}{wissenschaftlich begründen, warum diese Kriterien}{20}{section*.27}%
-\contentsline {todo}{auffällige Unterschiede zwischen Precision und Recall beschreiben, z.\,B. ob ein Modell eher zu viele oder zu wenige Exceptions meldet}{26}{section*.35}%
-\contentsline {todo}{Konsistenz kurz beschreiben: Welches Modell liefert bei wiederholten Durchläufen die stabilsten Ergebnisse?}{26}{section*.36}%
-\contentsline {todo}{Umrechnungsregel nennen}{27}{section*.37}%
-\contentsline {todo}{Ergebnis, bleibt die Rangfolge stabil?}{27}{section*.39}%
-\contentsline {todo}{Stärken und Schwächen je Modell in wenigen Sätzen gegenüberstellen, z.\,B. hohe Precision bei geringerer Konsistenz}{27}{section*.40}%
-\contentsline {todo}{z.\,B. Abweichung zwischen messbaren Kennzahlen und Einschätzung der Senior Auditoren}{27}{section*.41}%
-\contentsline {todo}{Ergebnisse interpretieren und mit dem Stand der Forschung aus Kapitel~[XX] abgleichen. Mögliche Leitfragen: Decken sich die Ergebnisse mit bisherigen Studien? Welche Fehlerarten treten bei allen Modellen auf?}{28}{section*.42}%
-\contentsline {todo}{wichtigste Unterscheidungsmerkmale, z.\,B. Erkennungsrate, Konsistenz}{28}{section*.43}%
-\contentsline {todo}{Einschränken, in welcher Rolle, z.\,B. als Unterstützung bei der Vorprüfung, wobei die abschließende Bewertung weiterhin durch Auditoren erfolgt.}{28}{section*.44}%
+\contentsline {todo}{Seite ergänzen}{4}{section*.12}%
+\contentsline {todo}{Seiten ergänzen}{4}{section*.13}%
+\contentsline {todo}{Seite ergänzen}{4}{section*.14}%
+\contentsline {todo}{Seite ergänzen}{5}{section*.15}%
+\contentsline {todo}{Seite ergänzen}{5}{section*.16}%
+\contentsline {todo}{Aussage und Seite im Paper prüfen}{5}{section*.17}%
+\contentsline {todo}{Seite ergänzen: Abschnitt zu den Bestandteilen eines Prompts}{5}{section*.18}%
+\contentsline {todo}{Seite ergänzen}{5}{section*.19}%
+\contentsline {todo}{Dopplung mit 3.2 prüfen: Kokina und Fedyk dort mit gleicher Aussage}{6}{section*.20}%
+\contentsline {todo}{Quelle}{6}{section*.21}%
+\contentsline {todo}{Seite ergänzen}{6}{section*.22}%
+\contentsline {todo}{Seite ergänzen: Abschnitt zu datenbedingten Ursachen}{6}{section*.23}%
+\contentsline {todo}{noch besser erklären}{11}{section*.24}%
+\contentsline {todo}{so rihcitg zitiert oder zusammenfassen?}{11}{section*.25}%
+\contentsline {todo}{Freudenberg einheitlich benennen: Freudenberg Gruppe vs. \ac {FCo}, Internal Audit vs. Corporate Audit schon am anfang der arbeit}{16}{section*.26}%
+\contentsline {todo}{Stefanie Bell: Finanzkontext hier eine repräsentative Quelle? -> Ich finde schon, da das auch Teil des Audits sein könnte}{17}{section*.27}%
+\contentsline {todo}{Quelle? ansonsten auch David}{18}{section*.28}%
+\contentsline {todo}{Schreib ich hier 6 oder sechs generell überall}{18}{section*.29}%
+\contentsline {todo}{genaue Zahlen begründen: 100 Rechnungen, 24\,\%, 24 Fehler, Verteilung 6, 5, 4, 4, 3, 2}{18}{section*.30}%
+\contentsline {todo}{hier nur struktur, nicht inhaltlich}{19}{section*.32}%
+\contentsline {todo}{Quelle}{19}{section*.33}%
+\contentsline {todo}{muss ich die älteren prompts auch mit rein nehmen? Ich will eigentlich nicht}{20}{section*.34}%
+\contentsline {todo}{wissenschaftlich begründen, warum diese Kriterien}{22}{section*.35}%
+\contentsline {todo}{auffällige Unterschiede zwischen Precision und Recall beschreiben, z.\,B. ob ein Modell eher zu viele oder zu wenige Exceptions meldet}{28}{section*.43}%
+\contentsline {todo}{Konsistenz kurz beschreiben: Welches Modell liefert bei wiederholten Durchläufen die stabilsten Ergebnisse?}{28}{section*.44}%
+\contentsline {todo}{Umrechnungsregel nennen}{29}{section*.45}%
+\contentsline {todo}{Ergebnis, bleibt die Rangfolge stabil?}{29}{section*.47}%
+\contentsline {todo}{Stärken und Schwächen je Modell in wenigen Sätzen gegenüberstellen, z.\,B. hohe Precision bei geringerer Konsistenz}{29}{section*.48}%
+\contentsline {todo}{z.\,B. Abweichung zwischen messbaren Kennzahlen und Einschätzung der Senior Auditoren}{29}{section*.49}%
+\contentsline {todo}{Ergebnisse interpretieren und mit dem Stand der Forschung aus Kapitel~[XX] abgleichen. Mögliche Leitfragen: Decken sich die Ergebnisse mit bisherigen Studien? Welche Fehlerarten treten bei allen Modellen auf?}{30}{section*.50}%
+\contentsline {todo}{wichtigste Unterscheidungsmerkmale, z.\,B. Erkennungsrate, Konsistenz}{30}{section*.51}%
+\contentsline {todo}{Einschränken, in welcher Rolle, z.\,B. als Unterstützung bei der Vorprüfung, wobei die abschließende Bewertung weiterhin durch Auditoren erfolgt.}{30}{section*.52}%
