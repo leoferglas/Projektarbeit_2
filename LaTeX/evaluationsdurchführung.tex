@@ -4,13 +4,13 @@
 \section{Durchführung der Tests}
 \label{sec:durchfuehrung_tests}
 
-Zur Durchführung der Tests wird für jedes untersuchte Modell in Microsoft Copilot Studio ein eigener Agent angelegt. Alle Agenten erhielten dieselben Anweisungen, das selbe hinterlegte Wissen und die selben Konfigurationen, sodass sich die Agenten ausschließlich im zugrunde liegenden Sprachmodell unterscheiden. Der Prompt wurde zuvor anhand von fünf separaten Rechnungen mit Freigaben entwickelt und vor Beginn der Tests eingefroren. Damit wird vermieden, dass der Prompt auf die Testdaten optimiert wird und die Ergebnisse dadurch zu positiv ausfallen. Der finale Prompt befindet sich in Anhang \ref{anh:prompt}.
+Zur Durchführung der Tests wird für jedes untersuchte Modell in Microsoft Copilot Studio ein eigener Agent angelegt. Alle Agenten erhielten dieselben Anweisungen, das selbe hinterlegte Wissen und die selben Konfigurationen, sodass sich die Agenten ausschließlich im zugrunde liegenden Sprachmodell unterscheiden. Der Prompt wurde zuvor anhand von fünf separaten Rechnungen mit Freigaben entwickelt (vgl. Abschnitt~\ref{sec:prompt}) und vor Beginn der Tests eingefroren. Damit wird vermieden, dass der Prompt auf die Testdaten optimiert wird und die Ergebnisse dadurch zu positiv ausfallen. Der finale Prompt befindet sich in Anhang \ref{anh:prompt}.
 
 Untersucht wurden die Modelle Opus 4.8, Opus 4.7, Opus 4.6, Sonnet 4.6, GPT 5.5, GPT 5.3, GPT 5 und GPT 4.1. Das sind alle Modelle, die zu diesem Zeitpunkt (20.10.2026) im Copilot Studio verfügbar sind.
 
 Die Durchführung erfolgte automatisiert über einen Flow in Power Automate. Jeder Agent erhält die 100 Rechnungen selbst und die zugehörige Freigabe als Anhang übergeben. Dann wird der Agent 100 mal ausgeführt und die Antworten zusammen mit Rechnungsnummer, Zeitstempel, Modell und Laufnummer in eine Excel Tabelle geschrieben. 
 
-Die Auswertung erfolgt anschließend in Excel. Dort wird für jede Antwort festgehalten, ob das Modell eine Exception gemeldet hat und welchen Grund es nennt. Diese Angaben werden über die Rechnungsnummer mit der Abgleichstabelle (Ground Truth) verknüpft. Aus dem Abgleich ergibt sich für jede Rechnung, ob es sich um ein \ac{TP}, \ac{FP}, \ac{TN} oder \ac{FN} handelt. Abschließend werden diese Werte je Modell gezählt und bilden die Grundlage für die Kennzahlen in Abschnitt~\ref{sec:ergebnisse_stichproben}.
+Die Auswertung erfolgt anschließend in Excel. Dort wird für jede Antwort festgehalten, ob das Modell eine Exception gemeldet hat und welchen Grund es nennt. Diese Angaben werden über die Rechnungsnummer mit der Abgleichstabelle (Ground Truth) verknüpft. Aus dem Abgleich ergibt sich für jede Rechnung, ob es sich um ein \ac{TP}, \ac{FP}, \ac{TN} oder \ac{FN} handelt. Abschließend werden diese Werte je Modell gezählt und bilden die Grundlage für die Berechnung der in Abschnitt~\ref{sec:bewertungsmatrix} definierten Kennzahlen.
 
 Für die Einordnung als \ac{TP} reicht es nicht aus, dass eine Rechnung als Exception markiert wurde. Zusätzlich wird der vom Modell genannte Grund für die Exception mit dem in der Ground Truth hinterlegten Grund verglichen. Nur wenn beide übereinstimmen, wird die Antwort als \ac{TP} gewertet. Weicht der Grund ab, so wird die Antwort als \ac{FP} gewertet. Auch die Antworten für \ac{TN}, \ac{FP}, \ac{FN} werden überprüft, um technische Fehler oder anderweiterige Probleme auszuschließen.
 
@@ -24,7 +24,7 @@ Während der Durchführung zeigten sich zwei technische Auffälligkeiten. Ersten
 \label{sec:ergebnisse_stichproben}
 
 
-Der Testdatensatz umfasst 100 Rechnungen mit den zugehörigen Freigaben. Laut Ground Truth enthalten 24 davon eine Exception. Die Tabelle \ref{tab:konfusion_rechnungen} zeigt die Verteilung der Konfusionswerte für die einzelnen Modelle.
+Der Testdatensatz umfasst 100 Rechnungen mit den zugehörigen Freigaben. Laut Ground Truth enthalten 24 davon eine Exception.
 
 \subsection{Ergebnisse der Modelle}
 \label{subsec:ergebnisse_modelle}
@@ -71,7 +71,7 @@ Den höchsten F1 Score erreicht [Modell], den niedrigsten [Modell]. \todo{auffä
 Die Ergebnisse der Senior Auditoren sind in Tabelle~[XX] dargestellt. Die Übereinstimmung zwischen den Bewertenden liegt bei [XX], was nach [Quelle] als [gering/mittel/hoch] einzustufen ist.
 
 \section{Auswertung der Bewertungsmatrix}
-\label{sec:bewertungsmatrix}
+\label{sec:auswertung_bewertungsmatrix}
 
 Die Ergebnisse aus Abschnitt~\ref{sec:ergebnisse_stichproben} fließen nun in die Nutzwertanalyse ein. Die Kriterien und ihre Gewichtung wurden bereits in Kapitel~\ref{chap:evaluationsdesign} vor der Durchführung der Tests festgelegt und wurden danach nicht verändert. Für jedes Kriterium wurden die gemessenen Werte in Punkte auf einer Skala von [1 bis 5] überführt. \todo{Umrechnungsregel nennen} Multipliziert mit der jeweiligen Gewichtung ergibt sich der Nutzwert je Modell.
 
