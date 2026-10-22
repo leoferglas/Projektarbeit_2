@@ -16,19 +16,18 @@
 \contentsline {todo}{so rihcitg zitiert oder zusammenfassen?}{11}{section*.25}%
 \contentsline {todo}{Freudenberg einheitlich benennen: Freudenberg Gruppe vs. \ac {FCo}, Internal Audit vs. Corporate Audit schon am anfang der arbeit}{16}{section*.26}%
 \contentsline {todo}{Stefanie Bell: Finanzkontext hier eine repräsentative Quelle? -> Ich finde schon, da das auch Teil des Audits sein könnte}{17}{section*.27}%
-\contentsline {todo}{Quelle? ansonsten auch David}{18}{section*.28}%
-\contentsline {todo}{Schreib ich hier 6 oder sechs generell überall}{18}{section*.29}%
-\contentsline {todo}{genaue Zahlen begründen: 100 Rechnungen, 24\,\%, 24 Fehler, Verteilung 6, 5, 4, 4, 3, 2}{18}{section*.30}%
-\contentsline {todo}{hier nur struktur, nicht inhaltlich}{19}{section*.32}%
-\contentsline {todo}{Quelle}{19}{section*.33}%
-\contentsline {todo}{muss ich die älteren prompts auch mit rein nehmen? Ich will eigentlich nicht}{20}{section*.34}%
-\contentsline {todo}{wissenschaftlich begründen, warum diese Kriterien}{22}{section*.35}%
-\contentsline {todo}{auffällige Unterschiede zwischen Precision und Recall beschreiben, z.\,B. ob ein Modell eher zu viele oder zu wenige Exceptions meldet}{28}{section*.43}%
-\contentsline {todo}{Konsistenz kurz beschreiben: Welches Modell liefert bei wiederholten Durchläufen die stabilsten Ergebnisse?}{28}{section*.44}%
-\contentsline {todo}{Umrechnungsregel nennen}{29}{section*.45}%
-\contentsline {todo}{Ergebnis, bleibt die Rangfolge stabil?}{29}{section*.47}%
-\contentsline {todo}{Stärken und Schwächen je Modell in wenigen Sätzen gegenüberstellen, z.\,B. hohe Precision bei geringerer Konsistenz}{29}{section*.48}%
-\contentsline {todo}{z.\,B. Abweichung zwischen messbaren Kennzahlen und Einschätzung der Senior Auditoren}{29}{section*.49}%
-\contentsline {todo}{Ergebnisse interpretieren und mit dem Stand der Forschung aus Kapitel~[XX] abgleichen. Mögliche Leitfragen: Decken sich die Ergebnisse mit bisherigen Studien? Welche Fehlerarten treten bei allen Modellen auf?}{30}{section*.50}%
-\contentsline {todo}{wichtigste Unterscheidungsmerkmale, z.\,B. Erkennungsrate, Konsistenz}{30}{section*.51}%
-\contentsline {todo}{Einschränken, in welcher Rolle, z.\,B. als Unterstützung bei der Vorprüfung, wobei die abschließende Bewertung weiterhin durch Auditoren erfolgt.}{30}{section*.52}%
+\contentsline {todo}{Schreib ich hier 6 oder sechs generell überall}{18}{section*.28}%
+\contentsline {todo}{genaue Zahlen begründen: 100 Rechnungen, 24\,\%, 24 Fehler, Verteilung 6, 5, 4, 4, 3, 2}{18}{section*.29}%
+\contentsline {todo}{hier nur struktur, nicht inhaltlich}{19}{section*.31}%
+\contentsline {todo}{Quelle}{19}{section*.32}%
+\contentsline {todo}{muss ich die älteren prompts auch mit rein nehmen? Ich will eigentlich nicht}{20}{section*.33}%
+\contentsline {todo}{wissenschaftlich begründen, warum diese Kriterien}{22}{section*.34}%
+\contentsline {todo}{auffällige Unterschiede zwischen Precision und Recall beschreiben, z.\,B. ob ein Modell eher zu viele oder zu wenige Exceptions meldet}{28}{section*.42}%
+\contentsline {todo}{Konsistenz kurz beschreiben: Welches Modell liefert bei wiederholten Durchläufen die stabilsten Ergebnisse?}{28}{section*.43}%
+\contentsline {todo}{Umrechnungsregel nennen}{29}{section*.44}%
+\contentsline {todo}{Ergebnis, bleibt die Rangfolge stabil?}{29}{section*.46}%
+\contentsline {todo}{Stärken und Schwächen je Modell in wenigen Sätzen gegenüberstellen, z.\,B. hohe Precision bei geringerer Konsistenz}{29}{section*.47}%
+\contentsline {todo}{z.\,B. Abweichung zwischen messbaren Kennzahlen und Einschätzung der Senior Auditoren}{29}{section*.48}%
+\contentsline {todo}{Ergebnisse interpretieren und mit dem Stand der Forschung aus Kapitel~[XX] abgleichen. Mögliche Leitfragen: Decken sich die Ergebnisse mit bisherigen Studien? Welche Fehlerarten treten bei allen Modellen auf?}{30}{section*.49}%
+\contentsline {todo}{wichtigste Unterscheidungsmerkmale, z.\,B. Erkennungsrate, Konsistenz}{30}{section*.50}%
+\contentsline {todo}{Einschränken, in welcher Rolle, z.\,B. als Unterstützung bei der Vorprüfung, wobei die abschließende Bewertung weiterhin durch Auditoren erfolgt.}{30}{section*.51}%
