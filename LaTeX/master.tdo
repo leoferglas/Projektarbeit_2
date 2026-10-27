@@ -23,12 +23,11 @@
 \contentsline {todo}{Quelle}{20}{section*.33}%
 \contentsline {todo}{muss ich die älteren prompts auch mit rein nehmen? Ich will eigentlich nicht}{21}{section*.34}%
 \contentsline {todo}{wissenschaftlich begründen, warum diese Kriterien}{23}{section*.35}%
-\contentsline {todo}{auffällige Unterschiede zwischen Precision und Recall beschreiben, z.\,B. ob ein Modell eher zu viele oder zu wenige Exceptions meldet}{29}{section*.43}%
-\contentsline {todo}{Konsistenz kurz beschreiben: Welches Modell liefert bei wiederholten Durchläufen die stabilsten Ergebnisse?}{29}{section*.44}%
-\contentsline {todo}{Umrechnungsregel nennen}{30}{section*.45}%
-\contentsline {todo}{Ergebnis, bleibt die Rangfolge stabil?}{30}{section*.47}%
-\contentsline {todo}{Stärken und Schwächen je Modell in wenigen Sätzen gegenüberstellen, z.\,B. hohe Precision bei geringerer Konsistenz}{30}{section*.48}%
-\contentsline {todo}{z.\,B. Abweichung zwischen messbaren Kennzahlen und Einschätzung der Senior Auditoren}{30}{section*.49}%
-\contentsline {todo}{Ergebnisse interpretieren und mit dem Stand der Forschung aus Kapitel~[XX] abgleichen. Mögliche Leitfragen: Decken sich die Ergebnisse mit bisherigen Studien? Welche Fehlerarten treten bei allen Modellen auf?}{31}{section*.50}%
-\contentsline {todo}{wichtigste Unterscheidungsmerkmale, z.\,B. Erkennungsrate, Konsistenz}{31}{section*.51}%
-\contentsline {todo}{Einschränken, in welcher Rolle, z.\,B. als Unterstützung bei der Vorprüfung, wobei die abschließende Bewertung weiterhin durch Auditoren erfolgt.}{31}{section*.52}%
+\contentsline {todo}{Konsistenz kurz beschreiben: Welches Modell liefert bei wiederholten Durchläufen die stabilsten Ergebnisse?}{31}{section*.43}%
+\contentsline {todo}{Umrechnungsregel nennen}{31}{section*.44}%
+\contentsline {todo}{Ergebnis, bleibt die Rangfolge stabil?}{31}{section*.46}%
+\contentsline {todo}{Stärken und Schwächen je Modell in wenigen Sätzen gegenüberstellen, z.\,B. hohe Precision bei geringerer Konsistenz}{32}{section*.47}%
+\contentsline {todo}{z.\,B. Abweichung zwischen messbaren Kennzahlen und Einschätzung der Senior Auditoren}{32}{section*.48}%
+\contentsline {todo}{Ergebnisse interpretieren und mit dem Stand der Forschung aus Kapitel~[XX] abgleichen. Mögliche Leitfragen: Decken sich die Ergebnisse mit bisherigen Studien? Welche Fehlerarten treten bei allen Modellen auf?}{32}{section*.49}%
+\contentsline {todo}{wichtigste Unterscheidungsmerkmale, z.\,B. Erkennungsrate, Konsistenz}{32}{section*.50}%
+\contentsline {todo}{Einschränken, in welcher Rolle, z.\,B. als Unterstützung bei der Vorprüfung, wobei die abschließende Bewertung weiterhin durch Auditoren erfolgt.}{32}{section*.51}%
