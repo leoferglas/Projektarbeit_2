@@ -50,7 +50,7 @@ Eine Audit Exception kann die Rechnung selbst betreffen, etwa eine falsche Rechn
 
 Für die vorliegende Arbeit wird eine Fehlerquote von 24\,\% festgelegt, was bei einem Datensatz von 100 Rechnungen insgesamt 24 fehlerhaften Belegen entspricht. Nach internen Angaben liegt die Quote für fehlerhafte oder unvollständige Rechnungen bei ca. 24\,\% (vgl. \cite{Goth2026}). Durch eine Fehlerquote von 24\,\% ist die Anzahl fehlerhafter Rechnungen ausreichend groß, um die Erkennungsleistung der Modelle repräsentativ zu untersuchen. Gleichzeitig bildet die Mehrheit an korrekten Rechnungen den realen Prüfungskontext realitätsnah ab. \todo{ wirkt bissl abgehakt}
 
-Bei der Fehlererzeugung wird bewusst auf eine breite Streuung unterschiedlicher Fehlertypen geachtet. Die Fehler werden in sechs \todo{Schreib ich hier 6 oder sechs generell überall} Gruppen unterschieden. Die größte Gruppe bilden typische Betrugsmuster mit 6 Fehlern. Sie zeigen den Nutzen eines solchen Systems im Audit bei kreativen Betrugsmaschen auf. Bei 5 Fehlern liegt das Problem im Freigabeprozess, wenn eine Rechnung durch eine nicht berechtigte Person freigegeben wird oder die Freigabe gefälscht wird. Weitere 4 Fehler betreffen den Abgleich mit den Stammdaten, bei denen die Angaben auf der Rechnung von den hinterlegten Lieferantendaten abweichen, zum Beispiel bei Anschrift oder Bankverbindung. Bei 4 Fehlern handelt es sich um einfache Rechen- bzw. Zahlenfehler. Weitere 3 Fehler betreffen ein falsches Rechnungsdatum oder die Zuordnung zur falschen Periode, sodass der Aufwand im falschen Zeitraum gebucht wird. Die letzten 2 Fehler betreffen eine fehlende Rechnungsnummer. Tabelle~\ref{tab:fehlergruppen} fasst die Fehlergruppen zusammen.
+Bei der Fehlererzeugung wird bewusst auf eine breite Streuung der Fehler geachtet. Dazu wird jeder eingebaute Fehler einer von sechs \todo{Schreib ich hier 6 oder sechs generell überall} Fehlerkategorien zugeordnet. Die größte Fehlerkategorie bilden typische Betrugsmuster mit 6 Fehlern. Sie zeigen den Nutzen eines solchen Systems im Audit bei kreativen Betrugsmaschen auf. Bei 5 Fehlern liegt das Problem im Freigabeprozess, wenn eine Rechnung durch eine nicht berechtigte Person freigegeben wird oder die Freigabe gefälscht wird. Weitere 4 Fehler betreffen den Abgleich mit den Stammdaten, bei denen die Angaben auf der Rechnung von den hinterlegten Lieferantendaten abweichen, zum Beispiel bei Anschrift oder Bankverbindung. Bei 4 Fehlern handelt es sich um einfache Rechen- bzw. Zahlenfehler. Weitere 3 Fehler betreffen ein falsches Rechnungsdatum oder die Zuordnung zur falschen Periode, sodass der Aufwand im falschen Zeitraum gebucht wird. Die letzten 2 Fehler betreffen eine fehlende Rechnungsnummer. Tabelle~\ref{tab:fehlerkategorien} fasst die Fehlerkategorien zusammen.
 
 \todo{es muss noch erwähnt werden irgendwo im text eher am anfang, dass es eine referenztabelle und eine freigabematrix gibt}
 
@@ -60,23 +60,23 @@ Bei der Fehlererzeugung wird bewusst auf eine breite Streuung unterschiedlicher 
   \centering
   \begin{tabular}{cl}
     \hline
-    \textbf{Anzahl} & \textbf{Fehlergruppe}\\
+    \textbf{Anzahl} & \textbf{Fehlerkategorie}\\
     \hline
     6 & Betrugsmuster \\
-    5 & Fehler in der Rechnungsfreigabe\\
-    4 & Abgleich mit Stammdaten \\
-    4 & Rechnerische Fehler \\
-    3 & Datum und Periode \\
+    5 & Freigabefehler \\
+    4 & Stammdatenabweichungen \\
+    4 & Rechenfehler \\
+    3 & Datums- und Periodenfehler \\
     2 & Fehlende Rechnungsnummer \\
     \hline
     24 & \textbf{Gesamt} \\
     \hline
   \end{tabular}
-  \caption{Verteilung der eingebauten Fehler auf die Fehlergruppen}
-  \label{tab:fehlergruppen}
+  \caption{Verteilung der eingebauten Fehler auf die Fehlerkategorien}
+  \label{tab:fehlerkategorien}
 \end{table}
 
-Da jede Fehlergruppe nur zwischen 2 und 6 Fehler umfasst, sind Aussagen zur Erkennungsleistung einzelner Fehlergruppen nur eingeschränkt belastbar. Die Auswertung nach Fehlergruppen dient daher als ergänzende Betrachtung. Der Vergleich der Modelle erfolgt über die Gesamtheit aller Rechnungen.
+Da jede Fehlerkategorie nur zwischen 2 und 6 Fehler umfasst, sind Aussagen zur Erkennungsleistung einzelner Fehlerkategorien nur eingeschränkt belastbar. Die Auswertung nach Fehlerkategorien dient daher als ergänzende Betrachtung. Der Vergleich der Modelle erfolgt über die Gesamtheit aller Rechnungen.
 
 \section{Entwicklung eines geeigneten Prompts}
 \label{sec:prompt}
@@ -127,7 +127,7 @@ Als zentrales quantitatives Kriterium wird die Erkennungsleistung der Modelle he
 
 Unabhängig davon bewertet das Modell, ob eine menschliche Nachprüfung erforderlich ist. Diese Empfehlung spricht das Modell bei Unsicherheit aus, etwa bei fehlenden, unleserlichen oder widersprüchlichen Unterlagen sowie bei einer nicht eindeutigen Zuordnung oder Berechtigung. Eine menschliche Nachprüfung kann daher auch ohne Audit Exception empfohlen werden. Für die Einordnung als beanstandet wird sie nicht herangezogen, da sie keine nachgewiesene Abweichung voraussetzt. Die Erkennungsleistung wird somit ausschließlich an den Feststellungen gemessen, die das Modell anhand der Unterlagen belegen kann.
 
-Durch den Vergleich mit den im Testdatensatz festgelegten Fehlern lässt sich jede Rechnung einer von vier Kategorien zuordnen. Ein True Positive liegt vor, wenn das Modell eine fehlerhafte Rechnung beanstandet und den eingebauten Fehler zutreffend benennt. Ein False Negative liegt vor, wenn das Modell eine fehlerhafte Rechnung nicht oder nur aus einem anderen Grund beanstandet, da der eigentliche Fehler in beiden Fällen im Audit unentdeckt bliebe. Ein False Positive liegt vor, wenn das Modell eine korrekte Rechnung beanstandet. Ein True Negative liegt vor, wenn das Modell eine korrekte Rechnung nicht beanstandet.
+Durch den Vergleich mit den im Testdatensatz festgelegten Fehlern lässt sich jede Rechnung einem von vier Klassifikationsergebnissen zuordnen. Ein True Positive liegt vor, wenn das Modell eine fehlerhafte Rechnung beanstandet und den eingebauten Fehler zutreffend benennt. Ein False Negative liegt vor, wenn das Modell eine fehlerhafte Rechnung nicht oder nur aus einem anderen Grund beanstandet, da der eigentliche Fehler in beiden Fällen im Audit unentdeckt bliebe. Ein False Positive liegt vor, wenn das Modell eine korrekte Rechnung beanstandet. Ein True Negative liegt vor, wenn das Modell eine korrekte Rechnung nicht beanstandet.
 
 Auf dieser Grundlage werden die Kennzahlen der Erkennunsleistung Precision und Recall berechnet. Der Precision-Wert gibt an, wie viele der vom Modell als fehlerhaft identifizierten Rechnungen tatsächlich fehlerhaft sind. Er berechnet sich aus dem Quotienten der richtig als fehlerhaft klassifizierten Rechnungen, den sogenannten True Positives, und der Summe aus True Positives und False Positives. Der Recall-Wert gibt an, wie viele der tatsächlich fehlerhaften Rechnungen vom Modell korrekt identifiziert wurden. Er berechnet sich aus dem Quotienten der True Positives und der Summe aller tatsächlich fehlerhaften Rechnungen, also der Summe aus True Positives und False Negatives.
 
@@ -137,9 +137,9 @@ Auf dieser Grundlage werden die Kennzahlen der Erkennunsleistung Precision und R
 
 Precision und Recall werden für jedes Modell auf Grundlage eines vollständigen Durchlaufs über alle 100 Rechnungen des Testdatensatzes berechnet. Die zusätzlichen Durchläufe zur Messung der Konsistenz fließen nicht in die Erkennungsleistung ein, da sie nur einen Teil des Datensatzes umfassen und die betroffenen Rechnungen sonst stärker gewichtet würden als die übrigen.
 
-Als zweites Kriterium wird die Konsistenz der Modelle bewertet. Auch standardisierte Agenten liefern keine identischen Ergebnisse bei wiederholter Verarbeitung \todo{Quelle}. Um dieses Kriterium zu messen, werden aus dem Testdatensatz 30 Rechnungen zufällig ausgewählt, die von jedem Modell mit identischem Prompt weitere viermal analysiert werden. Zusammen mit dem ersten Durchlauf liegen für diese Rechnungen somit fünf Durchläufe je Modell vor. Bei der Auswahl wird darauf geachtet, dass die Teilmenge die Zusammensetzung des Testdatensatzes widerspiegelt. Sie umfasst 7 fehlerhafte und 23 korrekte Rechnungen. Mit rund 23\,\% entspricht der Anteil fehlerhafter Rechnungen annähernd der Fehlerquote des gesamten Testdatensatzes. Unter den fehlerhaften Rechnungen ist jede der sechs Fehlergruppen mindestens einmal vertreten. Die Betrugsmuster sind als größte Fehlergruppe zweimal enthalten. Zudem sind 7 der 30 Rechnungen eingescannt, sodass auch die Verarbeitung gescannter Dokumente in die Konsistenzmessung einfließt. Dadurch wird die Konsistenz sowohl bei korrekten Rechnungen als auch bei allen Fehlerarten und beiden Dokumentformaten erfasst. Die Beschränkung auf eine Teilmenge begrenzt den Aufwand der Evaluation, da jeder zusätzliche Durchlauf für alle acht Modelle durchgeführt werden muss.
+Als zweites Kriterium wird die Konsistenz der Modelle bewertet. Auch standardisierte Agenten liefern keine identischen Ergebnisse bei wiederholter Verarbeitung \todo{Quelle}. Um dieses Kriterium zu messen, werden aus dem Testdatensatz 30 Rechnungen zufällig ausgewählt, die von jedem Modell mit identischem Prompt weitere viermal analysiert werden. Zusammen mit dem ersten Durchlauf liegen für diese Rechnungen somit fünf Durchläufe je Modell vor. Bei der Auswahl wird darauf geachtet, dass die Teilmenge die Zusammensetzung des Testdatensatzes widerspiegelt. Sie umfasst 7 fehlerhafte und 23 korrekte Rechnungen. Mit rund 23\,\% entspricht der Anteil fehlerhafter Rechnungen annähernd der Fehlerquote des gesamten Testdatensatzes. Unter den fehlerhaften Rechnungen ist jede der sechs Fehlerkategorien mindestens einmal vertreten. Die Betrugsmuster sind als größte Fehlerkategorie zweimal enthalten. Zudem sind 7 der 30 Rechnungen eingescannt, sodass auch die Verarbeitung gescannter Dokumente in die Konsistenzmessung einfließt. Dadurch wird die Konsistenz sowohl bei korrekten Rechnungen als auch bei allen Fehlerkategorien und beiden Dokumentformaten erfasst. Die Beschränkung auf eine Teilmenge begrenzt den Aufwand der Evaluation, da jeder zusätzliche Durchlauf für alle acht Modelle durchgeführt werden muss.
 
-Für jede dieser 30 Rechnungen wird festgehalten, wie das Modell in den fünf Durchläufen entschieden hat. Da jede Rechnung genau eine Audit Exception betrifft, liefert das Modell pro Durchlauf entweder ein Ja, wenn es die Audit Exception mit der zutreffenden Auffälligkeit meldet, oder ein Nein. Meldet das Modell einen Befund mit einer Begründung, die nicht zutrifft, wird dies ebenfalls als Nein gewertet.
+Für jede dieser 30 Rechnungen wird festgehalten, wie das Modell in den fünf Durchläufen entschieden hat. Da jede Rechnung entweder keine oder genau eine Audit Exception betrifft, liefert das Modell pro Durchlauf entweder ein Ja, wenn es die Audit Exception mit der zutreffenden Auffälligkeit meldet, oder ein Nein. Meldet das Modell einen Befund mit einer Begründung, die nicht zutrifft, wird dies ebenfalls als Nein gewertet.
 
 Für jede Rechnung wird gezählt, in wie vielen Durchläufen das Modell mit Ja ($n_{\text{ja}}$) und in wie vielen mit Nein ($n_{\text{nein}}$) entschieden hat. Die Konsistenz einer Rechnung entspricht dem Anteil der Durchläufe, die mit der häufigeren Entscheidung übereinstimmen:
 

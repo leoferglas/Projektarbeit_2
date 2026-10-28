@@ -33,10 +33,8 @@
 \contentsline {todo}{haben wir das mit den mehereren kriterien nicht gerade schon gesagt?}{23}{section*.43}%
 \contentsline {todo}{wissenschaftlich begründen, warum diese Kriterien}{23}{section*.44}%
 \contentsline {todo}{Quelle}{25}{section*.45}%
-\contentsline {todo}{Konsistenz kurz beschreiben: Welches Modell liefert bei wiederholten Durchläufen die stabilsten Ergebnisse?}{31}{section*.53}%
-\contentsline {todo}{Umrechnungsregel nennen}{32}{section*.54}%
-\contentsline {todo}{Ergebnis, bleibt die Rangfolge stabil?}{32}{section*.56}%
-\contentsline {todo}{Stärken und Schwächen je Modell in wenigen Sätzen gegenüberstellen, z.\,B. hohe Precision bei geringerer Konsistenz}{32}{section*.57}%
-\contentsline {todo}{Ergebnisse interpretieren und mit dem Stand der Forschung aus Kapitel~[XX] abgleichen. Mögliche Leitfragen: Decken sich die Ergebnisse mit bisherigen Studien? Welche Fehlerarten treten bei allen Modellen auf?}{32}{section*.58}%
-\contentsline {todo}{wichtigste Unterscheidungsmerkmale, z.\,B. Erkennungsrate, Konsistenz}{32}{section*.59}%
-\contentsline {todo}{Einschränken, in welcher Rolle, z.\,B. als Unterstützung bei der Vorprüfung, wobei die abschließende Bewertung weiterhin durch Auditoren erfolgt.}{33}{section*.60}%
+\contentsline {todo}{Sensivitätsanalyse muss noch gemacht werden}{28}{section*.47}%
+\contentsline {todo}{Ergänzen, wie damit umgegangen wurde und ob es die Ergebnisse beeinflusst}{29}{section*.52}%
+\contentsline {todo}{Reihenfolge prüfen, sobald die Werte für Opus 4.6 und GPT 5.5 vorliegen}{31}{section*.56}%
+\contentsline {todo}{Reihenfolge von Sonnet 4.6 und Opus 4.6 prüfen}{32}{section*.58}%
+\contentsline {todo}{Aussage zur Konsistenz mit den Werten für Opus 4.6 und GPT 5.5 prüfen}{33}{section*.59}%
