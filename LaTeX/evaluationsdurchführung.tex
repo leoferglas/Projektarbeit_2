@@ -12,11 +12,9 @@ Die Durchführung erfolgte automatisiert über einen Flow in Power Automate. Jed
 
 Die Auswertung erfolgt anschließend in Excel. Dort wird für jede Antwort festgehalten, ob das Modell eine Exception gemeldet hat und welchen Grund es nennt. Diese Angaben werden über die Rechnungsnummer mit der Abgleichstabelle (Ground Truth) verknüpft. Aus dem Abgleich ergibt sich für jede Rechnung, ob es sich um ein \ac{TP}, \ac{FP}, \ac{TN} oder \ac{FN} handelt. Abschließend werden diese Werte je Modell gezählt und bilden die Grundlage für die Berechnung der in Abschnitt~\ref{sec:bewertungsmatrix} definierten Kennzahlen.
 
-Für die Einordnung als \ac{TP} reicht es nicht aus, dass eine Rechnung als Exception markiert wurde. Zusätzlich wird der vom Modell genannte Grund für die Exception mit dem in der Ground Truth hinterlegten Grund verglichen. Nur wenn beide übereinstimmen, wird die Antwort als \ac{TP} gewertet. Weicht der Grund ab, so wird die Antwort als \ac{FP} gewertet. Auch die Antworten für \ac{TN}, \ac{FP}, \ac{FN} werden überprüft, um technische Fehler oder anderweiterige Probleme auszuschließen.
+Für die Einordnung als \ac{TP} reicht es nicht aus, dass eine Rechnung als Exception markiert wurde. Zusätzlich wird der vom Modell genannte Grund für die Exception mit dem in der Ground Truth hinterlegten Grund verglichen. Nur wenn beide übereinstimmen, wird die Antwort als \ac{TP} gewertet. Weicht der Grund ab, so wird die Antwort als \ac{FN} gewertet, da der eingebaute Fehler in diesem Fall unentdeckt bliebe. Auch die Antworten für \ac{TN}, \ac{FP}, \ac{FN} werden überprüft, um technische Fehler oder anderweiterige Probleme auszuschließen.
 
-Zur Messung der Konsistenz wurde jede Rechnung pro Modell 5 Mal ausgewertet. Die Konsistenz ergibt sich aus dem Anteil der Rechnungen, bei denen das Modell in allen Durchläufen zum gleichen Ergebnis kam.
-
-Ergänzend wurden für jede Rechnung und jedes Modell die Antworten von 2 Senior Auditoren anhand eines einheitlichen Bewertungsbogens beurteilt (siehe Anhang~[XX]). Damit die Bewertung nicht durch die Erwartung an ein bestimmtes Modell beeinflusst wird, wurden die Modellnamen vorher entfernt.
+Zur Messung der Konsistenz wurden 30 der 100 Rechnungen von jedem Modell weitere viermal ausgewertet, sodass für diese Rechnungen insgesamt fünf Durchläufe je Modell vorliegen. Die Auswahl der Rechnungen ist in Abschnitt~\ref{sec:bewertungsmatrix} beschrieben. Die Konsistenz ergibt sich aus dem Mittelwert der Anteile, mit denen die einzelnen Befunde über die fünf Durchläufe hinweg gemeldet wurden. Precision und Recall beruhen dagegen ausschließlich auf dem ersten Durchlauf über alle 100 Rechnungen.
 
 Während der Durchführung zeigten sich zwei technische Auffälligkeiten. Erstens wurden die Freigabescreenshots in den Rechnungsunterlagen häufig nicht erkannt und konnten deshalb nicht ausgelesen werden. Zweitens werden PNG Dateien im Chatfenster von Copilot Studio gar nicht verarbeitet. Somit ist eine Nutzung  Diese Einschränkungen betreffen alle Modelle gleichermaßen und werden bei der Interpretation der Ergebnisse berücksichtigt.
 
@@ -79,11 +77,6 @@ Die Accuracy ist in diesem Fall nur eingeschränkt aussagekräftig. Da nur 24 de
 
 \todo{Konsistenz kurz beschreiben: Welches Modell liefert bei wiederholten Durchläufen die stabilsten Ergebnisse?}
 
-\subsection{Bewertung durch die Senior Auditoren}
-\label{subsec:bewertung_auditoren}
-
-Die Ergebnisse der Senior Auditoren sind in Tabelle~[XX] dargestellt. Die Übereinstimmung zwischen den Bewertenden liegt bei [XX], was nach [Quelle] als [gering/mittel/hoch] einzustufen ist.
-
 \section{Auswertung der Bewertungsmatrix}
 \label{sec:auswertung_bewertungsmatrix}
 
@@ -109,15 +102,12 @@ Um zu prüfen, wie stark das Ergebnis von der gewählten Gewichtung abhängt, wu
 \label{sec:vergleich_modelle}
 
 [Modell] erreicht mit [XX] Punkten den höchsten Nutzwert, gefolgt von [Modell] und [Modell]. \todo{Stärken und Schwächen je Modell in wenigen Sätzen gegenüberstellen, z.\,B. hohe Precision bei geringerer Konsistenz}
-
-Auffällig ist \todo{z.\,B. Abweichung zwischen messbaren Kennzahlen und Einschätzung der Senior Auditoren}.
-
 \section{Analyse der Ergebnisse}
 \label{sec:analyse_ergebnisse}
 
 \todo{Ergebnisse interpretieren und mit dem Stand der Forschung aus Kapitel~[XX] abgleichen. Mögliche Leitfragen: Decken sich die Ergebnisse mit bisherigen Studien? Welche Fehlerarten treten bei allen Modellen auf?}
 
-Bei der Interpretation sind mehrere Einschränkungen zu beachten. Der Testdatensatz ist mit 100 Rechnungen eher klein, sodass bereits wenige abweichende Fälle die Kennzahlen deutlich verändern. Die Untersuchung fand ausschließlich innerhalb von Copilot Studio statt. Die beschriebenen Probleme beim Auslesen der Freigabescreenshots und bei PNG Dateien sind daher eher eine Grenze der Plattform als der Modelle selbst, beeinflussen aber die gemessenen Ergebnisse. Zudem beruht die Bewertung der Senior Auditoren auf subjektiven Einschätzungen, deren Aussagekraft von der Übereinstimmung der Bewertenden abhängt. Schließlich bilden die Ergebnisse den Stand der Modellversionen zum Zeitpunkt der Tests ab und können sich mit neuen Versionen ändern.
+Bei der Interpretation sind mehrere Einschränkungen zu beachten. Der Testdatensatz ist mit 100 Rechnungen eher klein, sodass bereits wenige abweichende Fälle die Kennzahlen deutlich verändern. Die Untersuchung fand ausschließlich innerhalb von Copilot Studio statt. Die beschriebenen Probleme beim Auslesen der Freigabescreenshots und bei PNG Dateien sind daher eher eine Grenze der Plattform als der Modelle selbst, beeinflussen aber die gemessenen Ergebnisse. Schließlich bilden die Ergebnisse den Stand der Modellversionen zum Zeitpunkt der Tests ab und können sich mit neuen Versionen ändern.
 
 \section{Beantwortung der Forschungsfrage}
 \label{sec:beantwortung_forschungsfrage}
