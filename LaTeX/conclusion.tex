@@ -1,10 +1,33 @@
-% !TEX root =  master.tex
 \chapter{Fazit und Ausblick}
+\label{chap:fazit}
 
-\section{Zusammenfassung der wichtigsten Erkenntnisse}
+\section{Zusammenfassung der zentralen Erkenntnisse}
+\label{sec:zusammenfassung}
 
-\section{Fazit zur Eignung von LLMs im Audit}
+Ziel dieser Arbeit war es, verschiedene \acp{LLM} hinsichtlich ihrer Eignung zur Unterstützung von Stichprobenanalysen im Internal Audit der Freudenberg Gruppe zu vergleichen. Dazu wurden acht Modelle von Anthropic und OpenAI, die in Copilot Studio verfügbar sind, als Agenten mit identischen Instruktionen auf 100 Rechnungen mit den zugehörigen Freigaben angewendet. Bewertet wurden die Modelle über eine Nutzwertanalyse mit den Kriterien Recall, Precision und Konsistenz.
 
-\section{Handlungsempfehlungen für Freudenberg}
+Den höchsten Nutzwert erreicht Opus 4.7 mit 92,9 Punkten, gefolgt von Opus 4.8 mit 89,6 Punkten. Beide Modelle erkennen den Großteil der eingebauten Exceptions, melden kaum Fehlalarme und treffen bei wiederholter Auswertung fast immer dieselbe Entscheidung. Die übrigen Modelle melden dagegen entweder viele unberechtigte Exceptions oder übersehen einen großen Teil der tatsächlichen Fehler. Insgesamt belegen die vier Modelle von Anthropic die Plätze eins bis vier und die vier Modelle von OpenAI die Plätze fünf bis acht. Diese Rangfolge bleibt auch bei veränderter Gewichtung der Kriterien stabil. Außerdem fällt auf, dass neuere Modellversionen nicht automatisch besser abschneiden als ältere.
 
-\section{Zukünfige Entwicklungspotenziale}
+\section{Beantwortung der Forschungsfrage}
+\label{sec:forschungsfrage}
+
+Die Forschungsfrage dieser Arbeit lautet, wie sich verschiedene \acp{LLM} hinsichtlich ihrer Eignung zur Unterstützung von Stichprobenanalysen im Audit-Bereich unterscheiden. Die Modelle unterscheiden sich vor allem darin, ob sie einen hohen Recall mit einer hohen Precision verbinden und ihre Entscheidungen zuverlässig wiederholen. Der deutlichste Unterschied besteht dabei zwischen den Anbietern. Die Modelle von Anthropic erreichen durchgehend einen höheren Recall und eine höhere Konsistenz als die Modelle von OpenAI. Mit Opus 4.7 und Opus 4.8 erfüllen allerdings nur zwei Modelle alle drei Kriterien auf einem vergleichsweise hohen Niveau. Dass Modelle von Anthropic in allgemeinen Rankings wie dem Artificial Analysis Intelligence Index zu den führenden Modellen zählen (vgl. \cite{ArtificialAnalysis2026}), bestätigt sich damit auch im konkreten Anwendungsfall der Stichprobenanalyse.
+
+Für den Einsatz im Audit sind die Ergebnisse insgesamt zufriedenstellend. Mit Opus 4.7 und Opus 4.8 stehen Modelle zur Verfügung, die Auffälligkeiten in Rechnungen und Freigaben zuverlässig erkennen und damit eine belastbare Grundlage für die Stichprobenanalyse bilden. Eine vollständig fehlerfreie Prüfung erreicht jedoch keines der Modelle. Auch Opus 4.7 übersieht zwei der 24 Exceptions. Um eine vollständig korrekte Prüfung zu gewährleisten, dürfen die Modelle daher nur als Entscheidungshilfe für die Auditoren dienen. Die abschließende Bewertung muss weiterhin beim Auditor liegen. In dieser Rolle kann \ac{KI} den Auditprozess deutlich unterstützen. Zeitaufwendige manuelle Schritte wie das Sammeln und Abgleichen von Nachweisen lassen sich automatisiert vorbereiten. Darüber hinaus kann das Modell bereits erste inhaltliche Prüfungen durchführen, indem es Auffälligkeiten wie Rechenfehler oder fehlerhafte Freigaben erkennt und begründet.
+Erfahrungen aus der Praxis deuten dabei auf erhebliche Effizienzgewinne hin (vgl. \cite[S.~125\,ff.]{emett2025leveraging}).
+
+\section{Limitationen der Arbeit}
+\label{sec:limitationen}
+
+Bei der Einordnung der Ergebnisse sind mehrere Grenzen zu beachten. Der Testdatensatz umfasst 100 Rechnungen mit 24 Exceptions. Jede einzelne Rechnung verändert den Recall daher um 4,2 Prozentpunkte, sodass kleine Abstände zwischen den Modellen nicht überbewertet werden sollten. Die Rechnungen und Freigaben wurden zudem künstlich erzeugt und bilden reale Unterlagen nur näherungsweise ab. Untersucht wurde außerdem nur die Prüfung von Rechnungen mit ihren Freigaben, sodass offen bleibt, ob sich die Ergebnisse auf andere Prüffelder übertragen lassen.
+
+Alle Modelle wurden mit demselben Prompt getestet. Da Modelle unterschiedlich auf die Gestaltung eines Prompts reagieren (vgl. \cite[S. 6]{sclar2024quantifying}), könnten einzelne Modelle mit einem modellspezifisch angepassten Prompt besser abschneiden. Die Ergebnisse bilden zudem nur den Stand der Modelle in Copilot Studio zum Zeitpunkt der Tests im Oktober 2026 ab. Neuere Modelle, die dort noch nicht verfügbar waren, konnten nicht untersucht werden und liefern möglicherweise bessere Ergebnisse. Schließlich wurde nicht gemessen, wie viel Zeit der Einsatz der Agenten im Vergleich zur manuellen Prüfung einspart.
+
+\section{Handlungsempfehlungen und Ausblick}
+\label{sec:handlungsempfehlungen}
+
+Für die Stichprobenanalyse im Internal Audit der Freudenberg Gruppe empfiehlt sich der Einsatz von Modellen von Anthropic. Konkret sollten Opus 4.7 oder Opus 4.8 als Modell hinter dem Agenten in Copilot Studio genutzt werden, da sie den höchsten Nutzwert erreichen. Opus 4.6 und Sonnet 4.6 sind weniger geeignet, da etwa jede dritte gemeldete Exception unberechtigt ist und dadurch zusätzlicher Prüfaufwand entsteht.
+
+Der Agent sollte als Unterstützung bei der Vorprüfung eingesetzt werden. Er bereitet jede Rechnung nach einem festen Prüfschema auf und markiert Auffälligkeiten. Der Auditor kontrolliert anschließend jede gemeldete Exception und jede empfohlene menschliche Nachprüfung und trifft die abschließende Bewertung. Vor dem produktiven Einsatz sollte der Agent in einem Pilotprojekt auf echten Rechnungen und Freigaben erprobt werden. Ein solches Pilotprojekt würde gleichzeitig mehrere Limitationen dieser Arbeit adressieren. Es ermöglicht einen größeren Datensatz aus realen Unterlagen, eine gezieltere Auswertung der einzelnen Fehlerkategorien und eine Messung der tatsächlichen Zeitersparnis.
+
+Da regelmäßig neue Modelle erscheinen, sollte die Modellwahl zudem in festen Abständen überprüft werden. Der in dieser Arbeit erstellte Testdatensatz und der Prompt lassen sich dafür direkt wiederverwenden. Im Chatfenster des Microsoft Copilot sind bereits neuere Modelle wie Claude Opus 5.5 und GPT-6.1 verfügbar, die in Copilot Studio noch nicht genutzt werden können. Sobald diese oder weitere Versionen von Opus und GPT dort bereitstehen, sollten sie nach demselben Verfahren getestet werden. Die Entscheidung sollte dabei auf solchen Tests beruhen und nicht auf der Versionsnummer, da neuere Modelle in dieser Arbeit nicht automatisch besser abgeschnitten haben als ihre Vorgänger. Besonders die neuen Modelle von Anthropic sollten beobachtet werden, da diese Modellreihe in dieser Arbeit am besten abgeschnitten hat.

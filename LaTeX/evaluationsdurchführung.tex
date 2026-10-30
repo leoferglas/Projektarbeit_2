@@ -4,7 +4,7 @@
 \section{Durchführung der Tests}
 \label{sec:durchfuehrung_tests}
 
-Für jedes der acht untersuchten Modelle wurde in Copilot Studio ein eigener Agent angelegt. Alle Agenten erhielten dieselben Instruktionen (siehe Anhang~\ref{anh:prompt}), damit sich Unterschiede in den Ergebnissen auf das jeweilige Modell zurückführen lassen. Die Tests wurden automatisiert über einen Power-Automate-Flow durchgeführt. In jedem Durchlauf übergab der Flow dem Agenten eine Rechnung und die zugehörige Freigabe als Anhang und schrieb die Antwort zusammen mit Rechnungsnummer, Modell und Laufnummer in eine Excel Tabelle. Auf diese Weise wurde jeder Agent für jede der 100 Testrechnungen einmal ausgeführt.
+Für jedes der acht untersuchten Modelle wurde in Copilot Studio ein eigener Agent angelegt. Alle Agenten erhielten dieselben Instruktionen (siehe Anhang~\ref{anh:prompt}), damit sich Unterschiede in den Ergebnissen auf das jeweilige Modell zurückführen lassen. Die Tests wurden automatisiert über einen Power-Automate-Flow durchgeführt. In jedem Durchlauf übergab der Flow dem Agenten eine Rechnung und die zugehörige Freigabe als Anhang und schrieb die Antwort zusammen mit Rechnungsnummer und Modell in eine Excel-Tabelle. Auf diese Weise wurde jeder Agent für jede der 100 Testrechnungen einmal ausgeführt.
 
 Für die Auswertung wurde aus jeder Antwort erfasst, ob das Modell eine Audit Exception meldet und welchen Grund es dafür angibt. Diese Angaben wurden über die Rechnungsnummer mit der Ground Truth abgeglichen und jede Antwort als \ac{TP}, \ac{FP}, \ac{TN} oder \ac{FN} eingeordnet. Als \ac{TP} zählte eine Antwort nur, wenn der genannte Grund der Audit Exception mit dem in der Ground Truth hinterlegten Grund übereinstimmt. Weicht der Grund ab, wurde die Antwort als \ac{FN} eingeordnet. Die als \ac{TN}, \ac{FP} und \ac{FN} eingeordneten Antworten wurden zusätzlich manuell gesichtet, um technische Fehler und andere Auffälligkeiten auszuschließen.
 
@@ -17,75 +17,75 @@ Tabelle~\ref{tab:konfusion_rechnungen} zeigt die Konfusionswerte je Modell, Tabe
 
 \begin{table}[H]
   \centering
-  \caption{Konfusionswerte je Modell}
-  \label{tab:konfusion_rechnungen}
   \begin{tabular}{lcccc}
     \hline
     Modell & TP & FP & TN & FN \\
     \hline
-    Opus 4.7   & 22 &  1 & 75 &  2 \\
     Opus 4.8   & 20 &  2 & 74 &  4 \\
+    Opus 4.7   & 22 &  1 & 75 &  2 \\
     Opus 4.6   & 21 & 12 & 64 &  3 \\
     Sonnet 4.6 & 20 & 12 & 64 &  4 \\
-    GPT 4.1    & 13 &  2 & 74 & 11 \\
-    GPT 5.5    & 19 & 21 & 55 &  5 \\
-    GPT 5.3    & 18 & 21 & 55 &  6 \\
-    GPT 5      & 13 & 16 & 60 & 11 \\
+    GPT-5.5    & 19 & 21 & 55 &  5 \\
+    GPT-5.3    & 18 & 21 & 55 &  6 \\
+    GPT-5      & 13 & 16 & 60 & 11 \\
+    GPT-4.1    & 13 &  2 & 74 & 11 \\
     \hline
   \end{tabular}
+    \caption{Konfusionswerte je Modell}
+    \label{tab:konfusion_rechnungen}
 \end{table}
 
 \begin{table}[H]
   \centering
-  \caption{Kennzahlen der Erkennungsleistung je Modell (in \%)}
-  \label{tab:metriken_rechnungen}
   \begin{tabular}{lcc}
     \hline
     Modell & Precision & Recall \\
     \hline
-    Opus 4.7   & 95,7 & 91,7 \\
     Opus 4.8   & 90,9 & 83,3 \\
+    Opus 4.7   & 95,7 & 91,7 \\
     Opus 4.6   & 63,6 & 87,5 \\
     Sonnet 4.6 & 62,5 & 83,3 \\
-    GPT 4.1    & 86,7 & 54,2 \\
-    GPT 5.5    & 47,5 & 79,2 \\
-    GPT 5.3    & 46,2 & 75,0 \\
-    GPT 5      & 44,8 & 54,2 \\
+    GPT-5.5    & 47,5 & 79,2 \\
+    GPT-5.3    & 46,2 & 75,0 \\
+    GPT-5      & 44,8 & 54,2 \\
+    GPT-4.1    & 86,7 & 54,2 \\
     \hline
   \end{tabular}
+    \caption{Kennzahlen der Erkennungsleistung je Modell (in \%)}
+    \label{tab:metriken_rechnungen}
 \end{table}
 
 Die beste Erkennungsleistung erreicht Opus 4.7 mit einer Precision von 95,7\,\% und einem Recall von 91,7\,\%. Das Modell meldet nur eine unberechtigte Exception und übersieht zwei der 24 tatsächlichen Exceptions. Dahinter folgt Opus 4.8 mit zwei unberechtigten und vier übersehenen Exceptions. Nur diese beiden Modelle erreichen bei Precision und Recall jeweils mehr als 80\,\%.
 
 Bei den übrigen sechs Modellen liegen Precision und Recall deutlich auseinander. Dabei zeigen sich zwei gegensätzliche Fehlerbilder. Opus 4.6, Sonnet 4.6, GPT 5.5 und GPT 5.3 erkennen mit einem Recall zwischen 75,0\,\% und 87,5\,\% den Großteil der tatsächlichen Exceptions. Bei allen vier Modellen ist die Precision mit Werten zwischen 46,2\,\% und 63,6\,\% jedoch deutlich schwächer als der Recall. Die Modelle melden also auch viele Rechnungen, die keine Exception enthalten. Bei Opus 4.6 und Sonnet 4.6 ist etwa jede dritte gemeldete Exception unberechtigt. Besonders schwach ist die Precision bei GPT 5.5 und GPT 5.3. Beide kommen auf jeweils 21 \ac{FP} und melden damit mehr unberechtigte als berechtigte Exceptions. Diese Fehlalarme sind für die Prüfung kein inhaltliches Risiko, da sie bei der Nachprüfung durch die Auditoren erkannt werden. Sie verursachen aber bei allen vier Modellen zusätzlichen Aufwand, weil jede Meldung einzeln geprüft werden muss.
 
-GPT 4.1 zeigt das umgekehrte Fehlerbild. Mit einer Precision von 86,7\,\% sind die gemeldeten Exceptions meist berechtigt. Bei einem Recall von 54,2\,\% übersieht das Modell aber 11 der 24 tatsächlichen Exceptions und damit fast die Hälfte. Für die Prüfung wiegt dieses Fehlerbild schwerer, weil ein Fehlalarm bei der Nachprüfung auffällt, eine übersehene Exception dagegen unentdeckt bleibt. GPT 5 vereint beide Schwächen. Das Modell übersieht ebenfalls 11 Exceptions und meldet zusätzlich 16 unberechtigte. Es erreicht damit die niedrigste Precision aller Modelle und teilt sich mit GPT 4.1 den niedrigsten Recall.
+GPT-4.1 zeigt das umgekehrte Fehlerbild. Mit einer Precision von 86,7\,\% sind die gemeldeten Exceptions meist berechtigt. Bei einem Recall von 54,2\,\% übersieht das Modell aber 11 der 24 tatsächlichen Exceptions und damit fast die Hälfte. Für die Prüfung wiegt dieses Fehlerbild schwerer, weil ein Fehlalarm bei der Nachprüfung auffällt, eine übersehene Exception dagegen häufig unentdeckt bleibt. GPT-5 schneidet am schlechtsten ab. Das Modell übersieht ebenfalls 11 Exceptions und meldet zusätzlich 16 unberechtigte. Es erreicht damit die niedrigste Precision aller Modelle und teilt sich mit GPT-4.1 den niedrigsten Recall.
 
 Tabelle~\ref{tab:konsistenz} zeigt die Konsistenz $K$ je Modell über die fünf Durchläufe sowie den normierten Wert $K_{\text{norm}}$, der in die Nutzwertanalyse eingeht. Die Ergebnisse der einzelnen Durchläufe sind ebenfalls im Anhang dokumentiert.
 
 \begin{table}[H]
   \centering
-  \caption{Konsistenz je Modell}
-  \label{tab:konsistenz}
   \begin{tabular}{lcc}
     \hline
     Modell & Konsistenz $K$ (in \%) & $K_{\text{norm}}$ \\
     \hline
-    Opus 4.8   & 98,0 & 95,0 \\
+    Opus 4.8   & 98,7 & 96,8 \\
+    Opus 4.7   & 96,7 & 91,8 \\
+    Opus 4.6   & 98,0 & 94,8 \\
     Sonnet 4.6 & 98,0 & 95,0 \\
-    Opus 4.7   & 96,7 & 91,7 \\
-    Opus 4.6   & [XX] & [XX] \\
-    GPT 4.1    & 93,3 & 83,3 \\
-    GPT 5.5    & [XX] & [XX] \\
-    GPT 5.3    & 91,3 & 78,3 \\
-    GPT 5      & 82,0 & 55,0 \\
+    GPT-5.5    & 84,7 & 61,8 \\
+    GPT-5.3    & 92,0 & 80,0 \\
+    GPT-5      & 82,0 & 55,0 \\
+    GPT-4.1    & 95,3 & 88,3 \\
     \hline
   \end{tabular}
+    \caption{Konsistenz je Modell}
+    \label{tab:konsistenz}
 \end{table}
 
-Die höchste Konsistenz erreichen Opus 4.8 und Sonnet 4.6 mit jeweils 98,0\,\%, gefolgt von Opus 4.7 mit 96,7\,\% und Opus 4.6 mit [XX]\,\%.\todo{Reihenfolge prüfen, sobald die Werte für Opus 4.6 und GPT 5.5 vorliegen} Opus 4.8 und Sonnet 4.6 entscheiden damit bei höchstens drei der 30 Rechnungen nicht in allen Durchläufen gleich, Opus 4.7 bei höchstens fünf. GPT 4.1, GPT 5.5 und GPT 5.3 liegen mit 93,3\,\%, [XX]\,\% und 91,3\,\% im Mittelfeld. Deutlich dahinter liegt GPT 5 mit 82,0\,\%. Das Modell entscheidet bei mindestens 14 der 30 Rechnungen nicht in allen Durchläufen gleich. Für den Einsatz in der Prüfung ist das kritisch, weil dieselbe Rechnung bei einer erneuten Auswertung anders bewertet werden kann.
+Die Modelle von Anthropic liegen bei der Konsistenz eng beieinander. Opus 4.8 erreicht mit 98,7\,\% den höchsten Wert, dicht gefolgt von Sonnet 4.6, Opus 4.6 und Opus 4.7 mit Werten zwischen 96,7\,\% und 98,0\,\%. Alle vier Modelle treffen damit bei fast jeder Rechnung in allen fünf Durchläufen dieselbe Entscheidung. Bei OpenAI fallen die Werte deutlich unterschiedlicher aus. GPT-4.1 kommt mit 95,3\,\% noch nah an die Modelle von Anthropic heran, GPT-5.3 liegt mit 92,0\,\% bereits etwas dahinter. Deutlich schwächer sind GPT-5.5 mit 84,7\,\% und GPT-5 mit 82,0\,\%. Bei diesen beiden Modellen kommt es regelmäßig vor, dass dieselbe Rechnung in verschiedenen Durchläufen unterschiedlich bewertet wird. Für den Einsatz in der Prüfung ist das kritisch, weil sich das Ergebnis einer Auswertung dann nicht zuverlässig wiederholen lässt.
 
-Eine hohe Konsistenz bedeutet allerdings keine hohe Erkennungsleistung. Sonnet 4.6 entscheidet fast immer gleich, erreicht aber nur eine Precision von 62,5\,\% und liegt damit deutlich hinter Opus 4.7 und Opus 4.8. Die Konsistenz zeigt also, wie verlässlich ein Modell seine Entscheidung wiederholt, sagt aber nichts darüber aus, ob diese Entscheidung richtig ist.
+Eine hohe Konsistenz bedeutet allerdings keine hohe Erkennungsleistung. Sonnet 4.6 und Opus 4.6 entscheiden fast immer gleich, erreichen aber nur eine Precision von 62,5\,\% und 63,6\,\% und liegen damit deutlich hinter Opus 4.7 und Opus 4.8. Die Konsistenz zeigt also, wie verlässlich ein Modell seine Entscheidung wiederholt, sagt aber nichts darüber aus, ob diese Entscheidung richtig ist.
 
 \section{Auswertung der Bewertungsmatrix}
 \label{sec:auswertung_bewertungsmatrix}
@@ -98,41 +98,41 @@ und kann höchstens 100 Punkte erreichen. Tabelle~\ref{tab:bewertungsmatrix} zei
 
 \begin{table}[H]
   \centering
-  \caption{Bewertungsmatrix der Nutzwertanalyse}
-  \label{tab:bewertungsmatrix}
   \begin{tabular}{lcccc}
     \hline
     Modell & Recall & Precision & $K_{\text{norm}}$ & Nutzwert \\
            & (40\,\%) & (30\,\%) & (30\,\%) & \\
     \hline
-    Opus 4.7   & 91,7 & 95,7 & 91,7 & 92,9 \\
-    Opus 4.8   & 83,3 & 90,9 & 95,0 & 89,1 \\
-    Opus 4.6   & 87,5 & 63,6 & [XX] & [XX] \\
+    Opus 4.7   & 91,7 & 95,7 & 91,8 & 92,9 \\
+    Opus 4.8   & 83,3 & 90,9 & 96,8 & 89,6 \\
+    Opus 4.6   & 87,5 & 63,6 & 94,8 & 82,5 \\
     Sonnet 4.6 & 83,3 & 62,5 & 95,0 & 80,6 \\
-    GPT 4.1    & 54,2 & 86,7 & 83,3 & 72,7 \\
-    GPT 5.5    & 79,2 & 47,5 & [XX] & [XX] \\
-    GPT 5.3    & 75,0 & 46,2 & 78,3 & 67,3 \\
-    GPT 5      & 54,2 & 44,8 & 55,0 & 51,6 \\
+    GPT-4.1    & 54,2 & 86,7 & 88,3 & 74,2 \\
+    GPT-5.3    & 75,0 & 46,2 & 80,0 & 67,9 \\
+    GPT-5.5    & 79,2 & 47,5 & 61,8 & 64,5 \\
+    GPT-5      & 54,2 & 44,8 & 55,0 & 51,6 \\
     \hline
   \end{tabular}
+    \caption{Bewertungsmatrix der Nutzwertanalyse}
+    \label{tab:bewertungsmatrix}
 \end{table}
 
-Den höchsten Nutzwert erreicht Opus 4.7 mit 92,9 Punkten. Das Modell liegt bei Recall und Precision vor allen anderen Modellen und bleibt nur bei der Konsistenz knapp hinter Opus 4.8 und Sonnet 4.6 zurück. Auf Platz zwei folgt Opus 4.8 mit 89,1 Punkten. Der Abstand von 3,8 Punkten entsteht vor allem durch den höheren Recall von Opus 4.7, der mit 40\,\% am stärksten gewichtet ist. Die etwas höhere Konsistenz von Opus 4.8 gleicht diesen Nachteil nur zum Teil aus.
+Den höchsten Nutzwert erreicht Opus 4.7 mit 92,9 Punkten. Das Modell liegt bei Recall und Precision vor allen anderen Modellen und bleibt nur bei der Konsistenz knapp hinter den übrigen drei Modellen von Anthropic zurück. Auf Platz zwei folgt Opus 4.8 mit 89,6 Punkten. Der Abstand von 3,3 Punkten entsteht durch den höheren Recall von Opus 4.7, der mit 40\,\% am stärksten gewichtet ist. Die höhere Konsistenz von Opus 4.8 gleicht dabei etwa den Vorsprung von Opus 4.7 bei der Precision aus.
 
-Auf den Plätzen drei und vier folgen Sonnet 4.6 mit 80,6 Punkten und Opus 4.6 mit [XX] Punkten.\todo{Reihenfolge von Sonnet 4.6 und Opus 4.6 prüfen} Beide Modelle erreichen einen hohen Recall, verlieren durch ihre niedrige Precision aber deutlich an Punkten. Bei Sonnet 4.6 gleicht die hohe Konsistenz einen Teil dieses Rückstands aus.
+Auf den Plätzen drei und vier folgen Opus 4.6 mit 82,5 Punkten und Sonnet 4.6 mit 80,6 Punkten. Beide Modelle erreichen einen hohen Recall und eine hohe Konsistenz, verlieren durch ihre niedrige Precision aber deutlich an Punkten. Da sich beide bei Precision und Konsistenz kaum unterscheiden, liegt Opus 4.6 vor allem wegen seines höheren Recalls vorne.
 
-Bestes Modell von OpenAI ist GPT 4.1 mit 72,7 Punkten auf Platz fünf. Das Modell profitiert von seiner hohen Precision, verliert durch den niedrigen Recall aber gerade beim am stärksten gewichteten Kriterium viele Punkte. GPT 5.5 mit [XX] Punkten und GPT 5.3 mit 67,3 Punkten erreichen zwar einen deutlich höheren Recall, liegen wegen ihrer Precision unter 50\,\% aber dahinter. Den letzten Platz belegt GPT 5 mit 51,6 Punkten. Damit belegen die vier Modelle von Anthropic die Plätze eins bis vier und die vier Modelle von OpenAI die Plätze fünf bis acht.
+Bestes Modell von OpenAI ist GPT-4.1 mit 74,2 Punkten auf Platz fünf. Das Modell profitiert von seiner hohen Precision und der höchsten Konsistenz unter den Modellen von OpenAI, verliert durch den niedrigen Recall aber gerade beim am stärksten gewichteten Kriterium viele Punkte. GPT-5.3 mit 67,9 Punkten und GPT-5.5 mit 64,5 Punkten erreichen zwar einen deutlich höheren Recall, liegen wegen ihrer Precision unter 50\,\% aber dahinter. GPT-5.5 erkennt dabei von allen Modellen von OpenAI die meisten Exceptions, fällt wegen seiner geringen Konsistenz aber noch hinter GPT-5.3 zurück. Den letzten Platz belegt GPT-5 mit 51,6 Punkten. Damit belegen die vier Modelle von Anthropic die Plätze eins bis vier und die vier Modelle von OpenAI die Plätze fünf bis acht.
 
 \section{Vergleich der Modelle}
 \label{sec:vergleich_modelle}
 
-Der deutlichste Unterschied in den Ergebnissen besteht zwischen den beiden Anbietern. Alle Modelle von Anthropic erreichen einen höheren Recall als die Modelle von OpenAI: Der niedrigste Recall bei Anthropic liegt mit 83,3\,\% über dem höchsten bei OpenAI mit 79,2\,\%. Dasselbe gilt für die Konsistenz.\todo{Aussage zur Konsistenz mit den Werten für Opus 4.6 und GPT 5.5 prüfen} Im Mittel übersieht ein Modell von OpenAI gut acht der 24 tatsächlichen Exceptions, ein Modell von Anthropic gut drei. Auch Fehlalarme treten bei OpenAI mit durchschnittlich 15 \ac{FP} je Modell mehr als doppelt so häufig auf wie bei Anthropic mit knapp sieben. Einzig bei der Precision übertrifft GPT 4.1 mit 86,7\,\% zwei Modelle von Anthropic, allerdings auf Kosten des niedrigsten Recalls.
+Der deutlichste Unterschied in den Ergebnissen besteht zwischen den beiden Anbietern. Alle Modelle von Anthropic erreichen einen höheren Recall als die Modelle von OpenAI. Der niedrigste Recall bei Anthropic liegt mit 83,3\,\% über dem höchsten bei OpenAI mit 79,2\,\%. Dasselbe gilt für die Konsistenz, bei der der niedrigste Wert bei Anthropic mit 96,7\,\% über dem höchsten bei OpenAI mit 95,3\,\% liegt. Im Mittel übersieht ein Modell von OpenAI gut acht der 24 tatsächlichen Exceptions, ein Modell von Anthropic gut drei. Auch Fehlalarme treten bei OpenAI mit durchschnittlich 15 \ac{FP} je Modell mehr als doppelt so häufig auf wie bei Anthropic mit knapp sieben. Einzig bei der Precision übertrifft GPT-4.1 mit 86,7\,\% zwei Modelle von Anthropic, allerdings auf Kosten des niedrigsten Recalls.
 
 Besonders klar ist der Abstand bei den beiden führenden Modellen. Opus 4.7 und Opus 4.8 schneiden bei allen drei Kriterien besser ab als jedes Modell von OpenAI. Ihr Vorsprung bliebe damit bei jeder anderen Gewichtung der Kriterien bestehen.
 
-Die Modelle von OpenAI scheitern dabei an unterschiedlichen Stellen. GPT 4.1 meldet zu wenig und übersieht fast die Hälfte der Exceptions. GPT 5, GPT 5.3 und GPT 5.5 melden dagegen zu viel: Bei allen drei Versionen ist mehr als die Hälfte der gemeldeten Exceptions unberechtigt. Mit jeder neueren Version steigt zwar der Recall von 54,2\,\% auf 79,2\,\%, die Precision bleibt aber durchgehend unter 50\,\%. Keines der Modelle von OpenAI verbindet damit einen hohen Recall mit einer hohen Precision. Genau diese Kombination erreichen Opus 4.7 und Opus 4.8.
+Die Modelle von OpenAI scheitern dabei an unterschiedlichen Stellen. GPT-4.1 meldet zu wenig und übersieht fast die Hälfte der Exceptions. GPT-5, GPT-5.3 und GPT-5.5 melden dagegen zu viel. Bei allen drei Versionen ist mehr als die Hälfte der gemeldeten Exceptions unberechtigt. Mit jeder neueren Version steigt zwar der Recall von 54,2\,\% auf 79,2\,\%, die Precision bleibt aber durchgehend unter 50\,\%. Keines der Modelle von OpenAI verbindet damit einen hohen Recall mit einer hohen Precision. Genau diese Kombination erreichen Opus 4.7 und Opus 4.8.
 
-Die Ergebnisse zeigen außerdem, dass ein neueres Modell nicht automatisch besser geeignet ist. Bei Anthropic liegt Opus 4.7 vor dem neueren Opus 4.8, bei OpenAI erreicht das ältere GPT 4.1 einen höheren Nutzwert als alle Versionen von GPT 5. Die Eignung eines Modells lässt sich daher nicht aus seiner Versionsnummer ableiten und muss im konkreten Prüfkontext getestet werden.
+Die Ergebnisse zeigen außerdem, dass ein neueres Modell nicht automatisch besser geeignet ist. Bei Anthropic liegt Opus 4.7 vor dem neueren Opus 4.8. Bei OpenAI erreicht das ältere GPT-4.1 einen höheren Nutzwert als alle Versionen von GPT-5, und auch GPT-5.3 liegt vor dem neueren GPT-5.5. Die Eignung eines Modells lässt sich daher nicht aus seiner Versionsnummer ableiten und muss im konkreten Prüfkontext getestet werden.
 
 Bei der Einordnung der Ergebnisse ist die Größe der Stichprobe zu berücksichtigen. Bei 24 tatsächlichen Exceptions verändert jede zusätzlich erkannte oder übersehene Exception den Recall um 4,2 Prozentpunkte. Der Abstand zwischen Opus 4.7 und Opus 4.8 beruht beim Recall auf zwei Rechnungen und bei der Precision auf einer Rechnung und sollte daher nicht überbewertet werden. Der Unterschied zwischen den Modellen von Anthropic und OpenAI zeigt sich dagegen bei allen acht Modellen und über mehrere Kriterien hinweg und ist damit deutlich belastbarer.
 
