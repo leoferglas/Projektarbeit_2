@@ -4,7 +4,7 @@
 \section{Zusammenfassung der zentralen Erkenntnisse}
 \label{sec:zusammenfassung}
 
-Ziel dieser Arbeit war es, verschiedene \acp{LLM} hinsichtlich ihrer Eignung zur Unterstützung von Stichprobenanalysen im Internal Audit der Freudenberg Gruppe zu vergleichen. Dazu wurden acht Modelle von Anthropic und OpenAI, die in Copilot Studio verfügbar sind, als Agenten mit identischen Instruktionen auf 100 Rechnungen mit den zugehörigen Freigaben angewendet. Bewertet wurden die Modelle über eine Nutzwertanalyse mit den Kriterien Recall, Precision und Konsistenz.
+Ziel dieser Arbeit war es, verschiedene \acp{LLM} hinsichtlich ihrer Eignung zur Unterstützung von Stichprobenanalysen im Internal Audit der Freudenberg Group zu vergleichen. Dazu wurden acht Modelle von Anthropic und OpenAI, die in Copilot Studio verfügbar sind, als Agenten mit identischen Instruktionen auf 100 Rechnungen mit den zugehörigen Freigaben angewendet. Bewertet wurden die Modelle über eine Nutzwertanalyse mit den Kriterien Recall, Precision und Konsistenz.
 
 Den höchsten Nutzwert erreicht Opus 4.7 mit 92,9 Punkten, gefolgt von Opus 4.8 mit 89,6 Punkten. Beide Modelle erkennen den Großteil der eingebauten Exceptions, melden kaum Fehlalarme und treffen bei wiederholter Auswertung fast immer dieselbe Entscheidung. Die übrigen Modelle melden dagegen entweder viele unberechtigte Exceptions oder übersehen einen großen Teil der tatsächlichen Fehler. Insgesamt belegen die vier Modelle von Anthropic die Plätze eins bis vier und die vier Modelle von OpenAI die Plätze fünf bis acht. Diese Rangfolge bleibt auch bei veränderter Gewichtung der Kriterien stabil. Außerdem fällt auf, dass neuere Modellversionen nicht automatisch besser abschneiden als ältere.
 
@@ -26,7 +26,7 @@ Alle Modelle wurden mit demselben Prompt getestet. Da Modelle unterschiedlich au
 \section{Handlungsempfehlungen und Ausblick}
 \label{sec:handlungsempfehlungen}
 
-Für die Stichprobenanalyse im Internal Audit der Freudenberg Gruppe empfiehlt sich der Einsatz von Modellen von Anthropic. Konkret sollten Opus 4.7 oder Opus 4.8 als Modell hinter dem Agenten in Copilot Studio genutzt werden, da sie den höchsten Nutzwert erreichen. Opus 4.6 und Sonnet 4.6 sind weniger geeignet, da etwa jede dritte gemeldete Exception unberechtigt ist und dadurch zusätzlicher Prüfaufwand entsteht.
+Für die Stichprobenanalyse im Internal Audit der Freudenberg Group empfiehlt sich der Einsatz von Modellen von Anthropic. Konkret sollten Opus 4.7 oder Opus 4.8 als Modell hinter dem Agenten in Copilot Studio genutzt werden, da sie den höchsten Nutzwert erreichen. Opus 4.6 und Sonnet 4.6 sind weniger geeignet, da etwa jede dritte gemeldete Exception unberechtigt ist und dadurch zusätzlicher Prüfaufwand entsteht.
 
 Der Agent sollte als Unterstützung bei der Vorprüfung eingesetzt werden. Er bereitet jede Rechnung nach einem festen Prüfschema auf und markiert Auffälligkeiten. Der Auditor kontrolliert anschließend jede gemeldete Exception und jede empfohlene menschliche Nachprüfung und trifft die abschließende Bewertung. Vor dem produktiven Einsatz sollte der Agent in einem Pilotprojekt auf echten Rechnungen und Freigaben erprobt werden. Ein solches Pilotprojekt würde gleichzeitig mehrere Limitationen dieser Arbeit adressieren. Es ermöglicht einen größeren Datensatz aus realen Unterlagen, eine gezieltere Auswertung der einzelnen Fehlerkategorien und eine Messung der tatsächlichen Zeitersparnis.
 

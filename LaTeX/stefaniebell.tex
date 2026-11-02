@@ -1,0 +1,112 @@
+\documentclass[
+    fontsize=12pt,
+    BCOR=5mm,
+    DIV=12,
+    parskip=half,
+    listof=totoc,
+    paper=a4,
+    toc=bibliography,
+    numbers=noenddot
+]{scrreprt}
+
+% Zentrale Konfiguration laden
+\input{config}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PERSÖNLICHE ANGABEN
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ArtDerArbeit{Projektarbeit 2}
+
+\TitelDerArbeit{
+Einsatz von LLMs zur Unterstützung von Stichprobenanalysen im Audit-Bereich. Ein Vergleich verschiedener KI-Modelle hinsichtlich ihrer Eignung für interne Prüfungsprozesse bei der Freudenberg Group
+}
+
+\AutorDerArbeit{Leonard Verclas}
+
+%\Abteilung{xyz}
+
+\Firma{Freudenberg \& Co. Kommanditgesellschaft}
+
+\Kurs{WDSKI24B}
+
+\Studienrichtung{Data Science und Künstliche Intelligenz}
+
+\Matrikelnummer{3317974}
+
+\Studiengangsleiter{Prof. Dr. Bernhard Drabant}
+
+\WissBetreuer{Stefanie Bell}
+
+\FirmenBetreuer{Andreas Hass}
+
+\Bearbeitungszeitraum{03.08.2026 - 09.11.2026}
+
+\Abgabedatum{09.11.2026}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DOKUMENT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\setTitlepage
+%\input{ewerkl}
+
+%\input{nondisclosurenotice}
+%\cleardoublepage
+
+%\input{acknowledge}
+\cleardoublepage
+
+\tableofcontents
+\cleardoublepage
+
+\phantomsection
+\addcontentsline{toc}{chapter}{\listfigurename}
+\listoffigures
+\cleardoublepage
+
+\phantomsection
+\addcontentsline{toc}{chapter}{\listtablename}
+\listoftables
+\cleardoublepage
+
+\lstlistoflistings
+\cleardoublepage
+
+\input{acronyms}
+\cleardoublepage
+
+\onehalfspacing
+
+\input{abstract}
+\cleardoublepage
+
+\initializeText
+
+\input{evaluationsdurchführung}
+
+\input{conclusion}
+
+% Anhang ein-/ausblenden: \mitAnhangtrue bzw. \mitAnhangfalse
+\newif\ifmitAnhang
+\mitAnhangtrue
+
+\ifmitAnhang
+\initializeAppendix
+
+\input{appendix1}
+\input{appendix2}
+\fi
+
+\singlespacing
+
+\printbibliography
+
+\cleardoublepage
+
+%\addcontentsline{toc}{chapter}{Index}
+%\printindex
+
+\end{document}

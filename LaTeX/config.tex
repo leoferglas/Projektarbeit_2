@@ -70,6 +70,14 @@
 \usepackage{amsmath}
 \usepackage{placeins}
 \usepackage{float}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{ragged2e}
+\usepackage{pdflscape}
+\usepackage{eurosym}
+\newcolumntype{L}[1]{>{\RaggedRight\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\Centering\arraybackslash}p{#1}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % LITERATUR
@@ -200,6 +208,7 @@
 
 \newcommand{\initializeAppendix}{
     \appendix
+    \renewcommand{\thechapter}{A\arabic{chapter}}
     \ihead{}
     \cftaddtitleline{toc}{chapter}{Anhang}{}
 }

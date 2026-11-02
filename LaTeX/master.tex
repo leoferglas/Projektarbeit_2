@@ -51,7 +51,6 @@ Einsatz von LLMs zur Unterstützung von Stichprobenanalysen im Audit-Bereich. Ei
 \begin{document}
 
 \setTitlepage
-\listoftodos
 %\input{ewerkl}
 
 %\input{nondisclosurenotice}
@@ -96,9 +95,16 @@ Einsatz von LLMs zur Unterstützung von Stichprobenanalysen im Audit-Bereich. Ei
 
 \input{conclusion}
 
+% Anhang ein-/ausblenden: \mitAnhangtrue bzw. \mitAnhangfalse
+\newif\ifmitAnhang
+\mitAnhangtrue
+
+\ifmitAnhang
 \initializeAppendix
 
 \input{appendix1}
+\input{appendix2}
+\fi
 
 \singlespacing
 

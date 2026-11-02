@@ -1,7 +1,5 @@
 % !TEX root =  master.tex
-\chapter{Anhang}
-
-\section{Instruktionen}
+\chapter{Instruktionen}
 \label{anh:prompt}
 \begin{lstlisting}[
     numbers=none,
@@ -43,7 +41,7 @@ Rechnung (Ist): PDF. Referenztabelle_Rechnungen.xlsx: führend für Soll. Freiga
 a) Rechnerisch: Menge × Einzelpreis = Position; Σ Positionen = Netto; Netto × Satz = USt; Netto + USt = Brutto.
 b) Formal vorhanden: Anschriften, St-Nr./USt-IdNr., Rechnungsdatum/-nr., Leistung, Leistungszeitpunkt, Entgelt, Steuersatz, Steuerbetrag. Keine Aussage zu Fortlaufendheit.
 c) Plausibilität: Leistungs- nicht nach Rechnungsdatum; Währung, Steuersatz, Empfänger, IBAN, Zahlungsziel konsistent. Marktüblichkeit, Steuerrecht, IBAN-Inhaber ohne Vergleich: „nicht prüfbar".
-d) Red Flags (nur belegt, je Sachverhalt einmal): runde Beträge, knapp unter Limit, Splitting, Rechnungs-/Freigabedatum an Wochenende oder bundesweitem Feiertag (DE), IBAN oder USt-IdNr. geändert/abweichend, fehlende Bestellnr., fehlende Freigabereferenz, generische Leistung, Dubletten, ungewöhnliche Nummernkreise, Layoutbrüche, Freigabe über externe Adresse, Genehmiger = Besteller.
+d) Red Flags (nur belegt, je Sachverhalt einmal): runde Beträge, knapp unter Limit, Splitting, Freigabedatum an Wochenende oder bundesweitem Feiertag (DE), IBAN oder USt-IdNr. geändert/abweichend, fehlende Bestellnr., fehlende Freigabereferenz, generische Leistung, Dubletten, ungewöhnliche Nummernkreise, Layoutbrüche, Freigabe über externe Adresse, Genehmiger = Besteller.
 e) Betrugsindikatoren: ungültiges oder zukünftiges Datum; Rechnung vor Bestellung; sehr kurzes Zahlungsziel; Druck-, Geheimhaltungs- oder Umgehungsformulierungen; Bankänderung per Nachricht; Mahnung ohne Vorrechnung; Angebot in Rechnungsoptik; Absenderdomain ähnlich, ungleich Lieferant; Freemail; IBAN-Land ungleich Lieferantensitz; Bearbeitungsspuren; Lieferant nicht in Referenztabelle.
 # Risiko (Begründung in 1 Satz; ohne Einfluss auf AE/MN)
 Hoch: Zahlungsfluss/Empfänger/IBAN, materielle Betragsabweichung, Doppelzahlung, Freigabe unberechtigt/über Limit/nach Zahlung. Mittel: Kontrolle/Zuordnung eingeschränkt, fehlende Bestellreferenz, Datumsinkonsistenz. Niedrig: formal, ohne Auswirkung.
@@ -54,7 +52,7 @@ AE = Ja bei mind. einer belegten Feststellung:
 - rechnerischer Fehler; fehlende Pflichtangabe oder Rechnungsnr.
 - Leistungs- nach Rechnungsdatum; falsche Periode
 - fehlerhafte Freigabe: nicht berechtigt, Limit überschritten, nach Zahlung, vor Rechnungsdatum ohne Vorabgenehmigung
-- belegter Betrugsindikator (11e) oder Red Flag (11d), außer runde Beträge, generische Leistung, fehlende Bestellnr./Freigabereferenz
+- belegter Betrugsindikator (11e) oder Red Flag (11d), außer runde Beträge, generische Leistung, fehlende Bestellnr./Freigabereferenz, Freigabe an Wochenende/Feiertag
 Belegtes Merkmal genügt für AE.
 Sonst Nein. Keine nachweisbare Freigabe ist nie AE (Ursache evtl. technisch); in 12: „Audit-Exception-relevant: Nein".
 MN = Ja nur bei Unsicherheit: keine nachweisbare Freigabe; Unterlagen fehlend, unleserlich oder widersprüchlich (auch Freigabenachweise); Zuordnung oder Berechtigung nicht eindeutig; Nichtprüfbares mit Ergebnisauswirkung. Sonst Nein, auch bei AE = Ja.
@@ -98,3 +96,4 @@ Ja: fehlende Information|Prüfschritt|Prüfhandlung. Nein: Begründung.
 ### 15 Audit Exception: Ja/Nein
 1–3 Sätze zu ausschlaggebenden Feststellungen. Bei Ja: alle Punkte aus 12 mit „Audit-Exception-relevant: Ja". Bei Nein: kurze Begründung. Ohne nachweisbare Freigabe immer zusätzlich: „Hinweis: Keine Freigabe nachweisbar. Keine Audit Exception, menschliche Nachprüfung erforderlich."
 \end{lstlisting}
+
