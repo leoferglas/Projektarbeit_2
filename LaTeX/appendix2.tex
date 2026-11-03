@@ -27,38 +27,38 @@ Die nachfolgende Tabelle zeigt die Ground Truth der 100 für die Evaluation verw
 \bottomrule
 \endlastfoot
 1 & Nein & -- & -- \\
-2 & Ja & Rechnungsfehler & Bruttobetrag: 6.000 \euro{} statt 5xxx \euro{}. \\
-3 & Ja & Betrug & 22 Beratertage abgerechnet, obwohl der Mai 2026 nur 18 Arbeitstage hat. \\
+2 & Ja & Rechenfehler & Bruttobetrag: 6.000 \euro{} statt 5.804,82 \euro{}. \\
+3 & Ja & Betrugsmuster & 22 Beratertage abgerechnet, obwohl der Mai 2026 nur 18 Arbeitstage hat. \\
 4 & Ja & Fehlende Rechnungsnummer & Die Rechnungsnummer fehlt. \\
-5 & Ja & Abgleich Stammdaten & Der Lieferantenname weicht von den Stammdaten ab. \\
-6 & Ja & Freigabe & Person C gibt die Rechnung frei, obwohl die Freigabegrenze bei 25.000 \euro{} liegt. Die Person ist nicht zur Freigabe berechtigt. \\
+5 & Ja & Stammdatenabweichung & Der Lieferantenname weicht von den Stammdaten ab. \\
+6 & Ja & Freigabefehler & Person C gibt die Rechnung frei, obwohl die Freigabegrenze bei 25.000 \euro{} liegt und der Rechnungsbetrag 34.279,14 \euro{} beträgt. Die Person ist nicht zur Freigabe berechtigt. \\
 7 & Ja & Fehlende Rechnungsnummer & Die Rechnungsnummer fehlt. \\
-8 & Ja & Freigabe & Person D gibt die Rechnung frei, obwohl die Freigabegrenze bei 1.000 \euro{} liegt. Die Person ist nicht zur Freigabe berechtigt. \\
-9 & Ja & Betrug & Sanitärreinigung und Material sind laut Leistungsbeschreibung bereits in der Pauschale enthalten, werden in Position 2 jedoch zusätzlich berechnet. \\
+8 & Ja & Freigabefehler & Person D gibt die Rechnung frei, obwohl die Freigabegrenze bei 1.000 \euro{} liegt und der Rechnungsbetrag 7.888,51 \euro{} beträgt. Die Person ist nicht zur Freigabe berechtigt. \\
+9 & Ja & Betrugsmuster & Sanitärreinigung und Material sind laut Leistungsbeschreibung bereits in der Pauschale enthalten, werden in Position 2 jedoch zusätzlich berechnet. \\
 10 & Nein & -- & -- \\
 11 & Nein & -- & -- \\
-12 & Ja & Abgleich Stammdaten & Netto- und Bruttobetrag weichen von den Stammdaten ab. \\
+12 & Ja & Stammdatenabweichung & Netto- und Bruttobetrag weichen von den Stammdaten ab. \\
 13 & Nein & -- & -- \\
 14 & Nein & -- & -- \\
 15 & Nein & -- & -- \\
-16 & Ja & Abgleich Stammdaten & Das Zahlungsziel beträgt 14 Tage statt der vereinbarten 30 Tage. Die Fälligkeit ist entsprechend mit dem 30.03.2026 statt dem 15.04.2026 angegeben. \\
+16 & Ja & Stammdatenabweichung & Das Zahlungsziel beträgt 14 Tage statt der vereinbarten 30 Tage. Die Fälligkeit ist entsprechend mit dem 30.03.2026 statt dem 15.04.2026 angegeben. \\
 17 & Nein & -- & -- \\
 18 & Nein & -- & -- \\
 19 & Nein & -- & -- \\
-20 & Ja & Betrug & Service und Reifeneinlagerung werden für 46 Fahrzeuge abgerechnet, obwohl nur 42 Fahrzeuge geleast sind. \\
+20 & Ja & Betrugsmuster & Service und Reifeneinlagerung werden für 46 Fahrzeuge abgerechnet, obwohl nur 42 Fahrzeuge geleast sind. \\
 21 & Nein & -- & -- \\
 22 & Nein & -- & -- \\
 23 & Nein & -- & -- \\
-24 & Ja & Rechnungsfehler & Der Nettobetrag ist mit 5.350 \euro{} statt 5.305 \euro{} angegeben. Es handelt sich um einen Zahlendreher. Umsatzsteuer und Bruttobetrag wurden ausgehend vom falschen Nettobetrag korrekt weiterberechnet. \\
+24 & Ja & Rechenfehler & Der Nettobetrag ist mit 5.350 \euro{} statt 5.305 \euro{} angegeben. Es handelt sich um einen Zahlendreher. Umsatzsteuer und Bruttobetrag wurden ausgehend vom falschen Nettobetrag korrekt weiterberechnet. \\
 25 & Nein & -- & -- \\
 26 & Nein & -- & -- \\
 27 & Nein & -- & -- \\
 28 & Nein & -- & -- \\
 29 & Nein & -- & -- \\
-30 & Ja & Datum & Der Leistungszeitraum endet am 30.02.2026. Dieses Datum existiert nicht. \\
+30 & Ja & Datums- und Periodenfehler & Der Leistungszeitraum endet am 30.02.2026. Dieses Datum existiert nicht. \\
 31 & Nein & -- & -- \\
 32 & Nein & -- & -- \\
-33 & Ja & Datum & Das Leistungsdatum ist mit dem 11.02.2025 angegeben, während die Rechnung vom 13.02.2026 stammt. Das Leistungsdatum liegt somit im Vorjahr. \\
+33 & Ja & Datums- und Periodenfehler & Das Leistungsdatum ist mit dem 11.02.2025 angegeben, während die Rechnung vom 13.02.2026 stammt. Das Leistungsdatum liegt somit im Vorjahr. \\
 34 & Nein & -- & -- \\
 35 & Nein & -- & -- \\
 36 & Nein & -- & -- \\
@@ -67,17 +67,17 @@ Die nachfolgende Tabelle zeigt die Ground Truth der 100 für die Evaluation verw
 39 & Nein & -- & -- \\
 40 & Nein & -- & -- \\
 41 & Nein & -- & -- \\
-42 & Ja & Rechnungsfehler & Position 2 wurde falsch multipliziert. Das Produkt aus 360 und 8,20 \euro{} beträgt 2.952,00 \euro{}, ausgewiesen sind jedoch 3.052,00 \euro{}. \\
+42 & Ja & Rechenfehler & Position 2 wurde falsch multipliziert. Das Produkt aus 360 und 8,20 \euro{} beträgt 2.952,00 \euro{}, ausgewiesen sind jedoch 3.052,00 \euro{}. \\
 43 & Nein & -- & -- \\
-44 & Ja & Betrug & Es liegt eine mögliche Zahlungsumleitung vor. Angegeben sind eine neue litauische Bankverbindung, ein Hinweis auf geänderte Bankdaten, das Zahlungsziel „sofort“ und eine leicht abgewandelte E-Mail-Domain. \\
+44 & Ja & Betrugsmuster & Es liegt eine mögliche Zahlungsumleitung vor. Angegeben sind eine neue litauische Bankverbindung, ein Hinweis auf geänderte Bankdaten, das Zahlungsziel „sofort“ und eine leicht abgewandelte E-Mail-Domain. \\
 45 & Nein & -- & -- \\
 46 & Nein & -- & -- \\
-47 & Ja & Freigabe & Der Absender „Person A“ verwendet die externe E-Mail-Adresse \texttt{rechungsfreigabe24@mailbox-service.example}. \\
+47 & Ja & Freigabefehler & Der Absender „Person A“ verwendet die externe E-Mail-Adresse \texttt{rechungsfreigabe24@mailbox-service.example}. \\
 48 & Nein & -- & -- \\
 49 & Nein & -- & -- \\
 50 & Nein & -- & -- \\
-51 & Ja & Abgleich Stammdaten & Die Kundennummer ist mit AB-4417 statt AB 4471 angegeben. \\
-52 & Ja & Betrug & Als Lieferanschrift ist eine Privatadresse der bestellenden Person angegeben und kein Unternehmensstandort. \\
+51 & Ja & Stammdatenabweichung & Die Kundennummer ist mit AB-4417 statt AB-4471 angegeben. \\
+52 & Ja & Betrugsmuster & Als Lieferanschrift ist eine Privatadresse der bestellenden Person angegeben und kein Unternehmensstandort. \\
 53 & Nein & -- & -- \\
 54 & Nein & -- & -- \\
 55 & Nein & -- & -- \\
@@ -98,7 +98,7 @@ Die nachfolgende Tabelle zeigt die Ground Truth der 100 für die Evaluation verw
 70 & Nein & -- & -- \\
 71 & Nein & -- & -- \\
 72 & Nein & -- & -- \\
-73 & Ja & Freigabe & Der Absender „Person B“ verwendet die gefälschte Domain \texttt{person.b@freuden.berg.exapmle}. \\
+73 & Ja & Freigabefehler & Der Absender „Person B“ verwendet die gefälschte Domain \texttt{person.b@freuden.berg.example}. \\
 74 & Nein & -- & -- \\
 75 & Nein & -- & -- \\
 76 & Nein & -- & -- \\
@@ -112,19 +112,19 @@ Die nachfolgende Tabelle zeigt die Ground Truth der 100 für die Evaluation verw
 84 & Nein & -- & -- \\
 85 & Nein & -- & -- \\
 86 & Nein & -- & -- \\
-87 & Ja & Betrug & Der Kontoinhaber weicht vom Rechnungssteller ab und entspricht der internen Ansprechperson. \\
+87 & Ja & Betrugsmuster & Der Kontoinhaber weicht vom Rechnungssteller ab und entspricht der internen Ansprechperson. \\
 88 & Nein & -- & -- \\
 89 & Nein & -- & -- \\
 90 & Nein & -- & -- \\
 91 & Nein & -- & -- \\
-92 & Ja & Rechnungsfehler & Der Bruttobetrag ist mit 6.979,20 \euro{} statt 6.997,20 \euro{} angegeben. \\
+92 & Ja & Rechenfehler & Der Bruttobetrag ist mit 6.979,20 \euro{} statt 6.997,20 \euro{} angegeben. \\
 93 & Nein & -- & -- \\
 94 & Nein & -- & -- \\
 95 & Nein & -- & -- \\
 96 & Nein & -- & -- \\
 97 & Nein & -- & -- \\
-98 & Ja & Freigabe & Person E gibt die Rechnung frei, obwohl die Person nicht zur Freigabe berechtigt ist. \\
+98 & Ja & Freigabefehler & Person E gibt die Rechnung frei, obwohl die Person nicht zur Freigabe berechtigt ist. \\
 99 & Nein & -- & -- \\
-100 & Ja & Datum & Das Leistungsdatum 25.06.2026 liegt nach dem Rechnungsdatum 18.06.2026. \\
+100 & Ja & Datums- und Periodenfehler & Das Leistungsdatum 25.06.2026 liegt nach dem Rechnungsdatum 18.06.2026. \\
 \end{longtable}
 }
