@@ -5,13 +5,22 @@
 Nachfolgend sind die 100 für die Evaluation verwendeten Rechnungen abgebildet. Die Nummerierung entspricht der Nummerierung im Ground-Truth-Datensatz (Anhang~\ref{anhang:ground-truth}). Die zugehörigen Freigaben sind in Anhang~\ref{anhang:freigaben} dokumentiert.
 
 % #1: Nummer der Rechnung, #2: Dateiname im Ordner Rechnungen_Mixed
+% Die erste Rechnung steht ohne Seitenumbruch (und etwas kleiner) direkt unter dem Einleitungstext
+\newif\ifersteRechnung
+\ersteRechnungtrue
 \newcommand{\AnhangRechnung}[2]{%
-    \clearpage
+    \ifersteRechnung
+        \global\ersteRechnungfalse
+        \def\RechnungHoehe{\dimexpr\textheight-12\baselineskip\relax}%
+    \else
+        \clearpage
+        \def\RechnungHoehe{\dimexpr\textheight-5\baselineskip\relax}%
+    \fi
     \section*{Rechnung~#1}
     \begin{center}
         \includegraphics[
             width=\textwidth,
-            height=\dimexpr\textheight-5\baselineskip\relax,
+            height=\RechnungHoehe,
             keepaspectratio
         ]{../Rechnungen_Mixed/#2}
     \end{center}

@@ -74,7 +74,6 @@
 \usepackage{booktabs}
 \usepackage{array}
 \usepackage{ragged2e}
-\usepackage{pdflscape}
 \usepackage{eurosym}
 \newcolumntype{L}[1]{>{\RaggedRight\arraybackslash}p{#1}}
 \newcolumntype{C}[1]{>{\Centering\arraybackslash}p{#1}}
@@ -162,6 +161,18 @@
 \newcommand{\nowrite}[1]{}
 \newcommand{\NN}{{\mathbb N}}
 \newcommand{\imagedir}{img}
+
+% Echte Querformatseiten (inkl. Kopf-/Fußzeile), z. B. für breite Tabellen im Anhang
+\newcommand{\QuerformatStart}{%
+    \clearpage
+    \KOMAoptions{paper=landscape,pagesize}%
+    \recalctypearea
+}
+\newcommand{\QuerformatEnde}{%
+    \clearpage
+    \KOMAoptions{paper=portrait,pagesize}%
+    \recalctypearea
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % METADATEN
