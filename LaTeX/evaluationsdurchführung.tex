@@ -35,7 +35,7 @@ Tabelle~\ref{tab:ergebnisse} zeigt die Konfusionswerte, die daraus berechnete Pr
   \label{tab:ergebnisse}
 \end{table}
 
-Die beste Erkennungsleistung erreichen Opus 4.8 und Opus 4.7. Nur diese beiden Modelle erreichen bei Precision und Recall jeweils mehr als 80\,\%. Opus 4.8 meldet zwei unberechtigte Exceptions und übersieht vier der 24 tatsächlichen Exceptions. Opus 4.7 meldet nur eine unberechtigte Exception und übersieht zwei der 24 Exceptions und liegt damit bei Precision und Recall noch vor Opus 4.8 und damit vor allen anderen Modellen.
+Die beste Erkennungsleistung erreichen Opus 4.8 und Opus 4.7. Nur diese beiden Modelle erreichen bei Precision und Recall jeweils mehr als 80~\%. Opus 4.8 meldet zwei unberechtigte Exceptions und übersieht vier der 24 tatsächlichen Exceptions. Opus 4.7 meldet nur eine unberechtigte Exception und übersieht zwei der 24 Exceptions und liegt damit bei Precision und Recall noch vor Opus 4.8 und damit vor allen anderen Modellen.
 
 Bei den übrigen sechs Modellen liegen Precision und Recall deutlich auseinander. Dabei zeigen sich zwei gegensätzliche Fehlerbilder. Opus 4.6, Sonnet 4.6, GPT-5.5 und GPT-5.3 erkennen den Großteil der tatsächlichen Exceptions. Bei allen vier Modellen ist die Precision jedoch deutlich schwächer als der Recall. Die Modelle melden also auch viele Rechnungen, die keine Exception enthalten. Bei Opus 4.6 und Sonnet 4.6 ist etwa jede dritte gemeldete Exception unberechtigt. Besonders schwach ist die Precision bei GPT-5.5 und GPT-5.3, die sogar mehr unberechtigte als berechtigte Exceptions melden. Da jede Meldung vom Auditor einzeln geprüft werden muss, verursachen diese Fehlalarme bei allen vier Modellen zusätzlichen Aufwand.
 
@@ -48,7 +48,7 @@ Eine hohe Konsistenz bedeutet allerdings keine hohe Erkennungsleistung. Opus 4.6
 \section{Auswertung der Bewertungsmatrix}
 \label{sec:auswertung_bewertungsmatrix}
 
-Die Ergebnisse der Stichprobenanalysen fließen mit der festgelegten Gewichtung in die Nutzwertanalyse ein. Der Recall geht mit 40\,\% ein, die Precision und die normierte Konsistenz mit jeweils 30\,\%. Der Nutzwert $N$ eines Modells ergibt sich damit als
+Die Ergebnisse der Stichprobenanalysen fließen mit der festgelegten Gewichtung in die Nutzwertanalyse ein. Der Recall geht mit 40~\% ein, die Precision und die normierte Konsistenz mit jeweils 30~\%. Der Nutzwert $N$ eines Modells ergibt sich damit als
 \begin{equation}
   N = 0{,}4 \cdot \text{Recall} + 0{,}3 \cdot \text{Precision} + 0{,}3 \cdot K_{\text{norm}}
 \end{equation}
@@ -59,7 +59,7 @@ und kann höchstens 100 Punkte erreichen. Tabelle~\ref{tab:bewertungsmatrix} zei
   \begin{tabular}{lcccc}
     \hline
     Modell & Recall & Precision & $K_{\text{norm}}$ & Nutzwert \\
-           & (40\,\%) & (30\,\%) & (30\,\%) & \\
+           & (40~\%) & (30~\%) & (30~\%) & \\
     \hline
     Opus 4.7   & 91,7 & 95,7 & 91,7 & 92,9 \\
     Opus 4.8   & 83,3 & 90,9 & 96,7 & 89,6 \\
@@ -75,16 +75,16 @@ und kann höchstens 100 Punkte erreichen. Tabelle~\ref{tab:bewertungsmatrix} zei
     \label{tab:bewertungsmatrix}
 \end{table}
 
-Den höchsten Nutzwert erreicht Opus 4.7. Das Modell liegt bei Recall und Precision vor allen anderen Modellen und bleibt nur bei der Konsistenz knapp hinter den übrigen drei Modellen von Anthropic zurück. Auf Platz zwei folgt Opus 4.8. Der Abstand von 3,3 Punkten entsteht durch den höheren Recall von Opus 4.7, der mit 40\,\% am stärksten gewichtet ist. Die höhere Konsistenz von Opus 4.8 gleicht dabei etwa den Vorsprung von Opus 4.7 bei der Precision aus.
+Den höchsten Nutzwert erreicht Opus 4.7. Das Modell liegt bei Recall und Precision vor allen anderen Modellen und bleibt nur bei der Konsistenz knapp hinter den übrigen drei Modellen von Anthropic zurück. Auf Platz zwei folgt Opus 4.8. Der Abstand von 3,3 Punkten entsteht durch den höheren Recall von Opus 4.7, der mit 40~\% am stärksten gewichtet ist. Die höhere Konsistenz von Opus 4.8 gleicht dabei etwa den Vorsprung von Opus 4.7 bei der Precision aus.
 
 Auf den Plätzen drei und vier folgen Opus 4.6 und Sonnet 4.6. Beide Modelle erreichen einen hohen Recall und eine hohe Konsistenz, verlieren durch ihre niedrige Precision aber deutlich an Punkten. Da sich beide bei Precision und Konsistenz kaum unterscheiden, liegt Opus 4.6 vor allem wegen seines höheren Recalls vorne.
 
-Bestes Modell von OpenAI ist GPT-4.1 auf Platz fünf. Das Modell profitiert von seiner hohen Precision und der höchsten Konsistenz unter den Modellen von OpenAI, verliert durch den niedrigen Recall aber gerade beim am stärksten gewichteten Kriterium viele Punkte. GPT-5.3 und GPT-5.5 erreichen zwar einen deutlich höheren Recall, liegen wegen ihrer Precision unter 50\,\% aber dahinter. GPT-5.5 erkennt dabei von allen Modellen von OpenAI die meisten Exceptions, fällt wegen seiner geringen Konsistenz aber noch hinter GPT-5.3 zurück. Den letzten Platz belegt GPT-5. Damit belegen die vier Modelle von Anthropic die Plätze eins bis vier und die vier Modelle von OpenAI die Plätze fünf bis acht.
+Bestes Modell von OpenAI ist GPT-4.1 auf Platz fünf. Das Modell profitiert von seiner hohen Precision und der höchsten Konsistenz unter den Modellen von OpenAI, verliert durch den niedrigen Recall aber gerade beim am stärksten gewichteten Kriterium viele Punkte. GPT-5.3 und GPT-5.5 erreichen zwar einen deutlich höheren Recall, liegen wegen ihrer Precision unter 50~\% aber dahinter. GPT-5.5 erkennt dabei von allen Modellen von OpenAI die meisten Exceptions, fällt wegen seiner geringen Konsistenz aber noch hinter GPT-5.3 zurück. Den letzten Platz belegt GPT-5. Damit belegen die vier Modelle von Anthropic die Plätze eins bis vier und die vier Modelle von OpenAI die Plätze fünf bis acht.
 
 \section{Sensitivitätsanalyse}
 \label{sec:sensitivitaetsanalyse}
 
-Die Gewichtung der Kriterien beruht auf einer subjektiven Einschätzung. Deshalb wird geprüft, wie stark die Rangfolge von dieser Wahl abhängt. Dazu werden vier zusätzliche Szenarien berechnet. In S1 und S2 wird das gemeinsame Gewicht von Recall und Precision von 70\,\% auf 60\,\% beziehungsweise 80\,\% verändert, ihr Verhältnis zueinander bleibt dabei gleich. In S3 und S4 wird stattdessen das Verhältnis zwischen Recall und Precision verschoben, während die Konsistenz bei 30\,\% bleibt.
+Die Gewichtung der Kriterien beruht auf einer subjektiven Einschätzung. Deshalb wird geprüft, wie stark die Rangfolge von dieser Wahl abhängt. Dazu werden vier zusätzliche Szenarien berechnet. In S1 und S2 wird das gemeinsame Gewicht von Recall und Precision von 70~\% auf 60~\% beziehungsweise 80~\% verändert, ihr Verhältnis zueinander bleibt dabei gleich. In S3 und S4 wird stattdessen das Verhältnis zwischen Recall und Precision verschoben, während die Konsistenz bei 30~\% bleibt.
 
 \begin{table}[H]
   \centering
@@ -92,11 +92,11 @@ Die Gewichtung der Kriterien beruht auf einer subjektiven Einschätzung. Deshalb
     \hline
     Szenario & Recall & Precision & Konsistenz \\
     \hline
-    Basis & 40\,\% & 30\,\% & 30\,\% \\
-    S1    & 34,3\,\% & 25,7\,\% & 40\,\% \\
-    S2    & 45,7\,\% & 34,3\,\% & 20\,\% \\
-    S3    & 35\,\% & 35\,\% & 30\,\% \\
-    S4    & 30\,\% & 40\,\% & 30\,\% \\
+    Basis & 40~\% & 30~\% & 30~\% \\
+    S1    & 34,3~\% & 25,7~\% & 40~\% \\
+    S2    & 45,7~\% & 34,3~\% & 20~\% \\
+    S3    & 35~\% & 35~\% & 30~\% \\
+    S4    & 30~\% & 40~\% & 30~\% \\
     \hline
   \end{tabular}
   \caption{Gewichtung der Kriterien in den Szenarien der Sensitivitätsanalyse}
@@ -123,7 +123,7 @@ Die Gewichtung der Kriterien beruht auf einer subjektiven Einschätzung. Deshalb
   \label{tab:sensitivitaet}
 \end{table}
 
-Tabelle~\ref{tab:sensitivitaet} zeigt, dass die Rangfolge in allen Szenarien gleich bleibt. Opus 4.7 liegt durchgehend vorne, und die Modelle von Anthropic belegen stets die ersten vier Plätze. Eine Verschiebung zwischen Recall und Precision ändert an der Spitze nichts, da Opus 4.7 bei beiden Kriterien vor Opus 4.8 liegt. Opus 4.8 würde erst dann auf Platz eins rücken, wenn die Konsistenz mit mehr als 58\,\% gewichtet wird. Die Konsistenz wäre damit fast doppelt so stark gewichtet wie in der Basisgewichtung und das mit Abstand wichtigste Kriterium. Auf den mittleren Plätzen reichen kleinere Änderungen. GPT-5.5 zieht an GPT-5.3 vorbei, sobald die Konsistenz mit weniger als 14\,\% gewichtet wird, und GPT-4.1 überholt Sonnet 4.6, sobald die Precision mit mehr als 42\,\% gewichtet wird.
+Tabelle~\ref{tab:sensitivitaet} zeigt, dass die Rangfolge in allen Szenarien gleich bleibt. Opus 4.7 liegt durchgehend vorne, und die Modelle von Anthropic belegen stets die ersten vier Plätze. Eine Verschiebung zwischen Recall und Precision ändert an der Spitze nichts, da Opus 4.7 bei beiden Kriterien vor Opus 4.8 liegt. Opus 4.8 würde erst dann auf Platz eins rücken, wenn die Konsistenz mit mehr als 58~\% gewichtet wird. Die Konsistenz wäre damit fast doppelt so stark gewichtet wie in der Basisgewichtung und das mit Abstand wichtigste Kriterium. Auf den mittleren Plätzen reichen kleinere Änderungen. GPT-5.5 zieht an GPT-5.3 vorbei, sobald die Konsistenz mit weniger als 14~\% gewichtet wird, und GPT-4.1 überholt Sonnet 4.6, sobald die Precision mit mehr als 42~\% gewichtet wird.
 Innerhalb der untersuchten Szenarien ist das Ergebnis damit robust, vor allem bei der Spitzenposition von Opus 4.7.
 
 \section{Vergleich der Modelle}
@@ -133,7 +133,7 @@ Der deutlichste Unterschied in den Ergebnissen besteht zwischen den beiden Anbie
 
 Besonders klar ist der Abstand bei den beiden führenden Modellen. Opus 4.7 und Opus 4.8 schneiden bei allen drei Kriterien besser ab als jedes Modell von OpenAI. Ihr Vorsprung bliebe damit bei jeder anderen Gewichtung der Kriterien bestehen.
 
-Die Modelle von OpenAI scheitern dabei an unterschiedlichen Stellen. GPT-4.1 meldet zu wenig und übersieht fast die Hälfte der Exceptions. GPT-5, GPT-5.3 und GPT-5.5 melden dagegen zu viel. Bei allen drei Versionen ist mehr als die Hälfte der gemeldeten Exceptions unberechtigt. Mit jeder neueren Version steigt zwar der Recall deutlich, die Precision bleibt aber durchgehend unter 50\,\%. Keines der Modelle von OpenAI verbindet damit einen hohen Recall mit einer hohen Precision. Genau diese Kombination erreichen Opus 4.7 und Opus 4.8.
+Die Modelle von OpenAI scheitern dabei an unterschiedlichen Stellen. GPT-4.1 meldet zu wenig und übersieht fast die Hälfte der Exceptions. GPT-5, GPT-5.3 und GPT-5.5 melden dagegen zu viel. Bei allen drei Versionen ist mehr als die Hälfte der gemeldeten Exceptions unberechtigt. Mit jeder neueren Version steigt zwar der Recall deutlich, die Precision bleibt aber durchgehend unter 50~\%. Keines der Modelle von OpenAI verbindet damit einen hohen Recall mit einer hohen Precision. Genau diese Kombination erreichen Opus 4.7 und Opus 4.8.
 
 Die Ergebnisse zeigen außerdem, dass ein neueres Modell nicht automatisch besser geeignet ist. Bei Anthropic liegt Opus 4.7 vor dem neueren Opus 4.8. Bei OpenAI erreicht das ältere GPT-4.1 einen höheren Nutzwert als alle Versionen von GPT-5, und auch GPT-5.3 liegt vor dem neueren GPT-5.5. Die Eignung eines Modells lässt sich daher nicht aus seiner Versionsnummer ableiten und muss im konkreten Prüfkontext getestet werden.
 
