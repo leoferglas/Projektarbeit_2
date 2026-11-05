@@ -8,12 +8,12 @@ Für jedes der acht untersuchten Modelle wurde in Copilot Studio ein eigener Age
 
 Für die Auswertung wurde aus jeder Antwort erfasst, ob das Modell eine Audit Exception meldet und welchen Grund es dafür angibt. Diese Angaben wurden über die Rechnungsnummer mit der Ground Truth abgeglichen und jede Antwort als \ac{TP}, \ac{FP}, \ac{TN} oder \ac{FN} eingeordnet. Als \ac{TP} zählte eine Antwort nur, wenn der genannte Grund der Audit Exception mit dem in der Ground Truth hinterlegten Grund übereinstimmt. Weicht der Grund ab, wurde die Antwort als \ac{FN} eingeordnet. Die als \ac{TN}, \ac{FP} und \ac{FN} eingeordneten Antworten wurden zusätzlich manuell gesichtet, um technische Fehler und andere Auffälligkeiten auszuschließen.
 
-Zur Messung der Konsistenz wurden 30 zufällig ausgewählte Rechnungen über denselben Flow von jedem Modell viermal erneut ausgewertet. Zusammen mit dem ersten Durchlauf liegen damit für jede dieser Rechnungen fünf Antworten je Modell vor. Aus diesen Antworten wurde die Konsistenz der einzelnen Modelle berechnet.
+Zur Messung der Konsistenz wurden 30 Rechnungen ausgewählt und über denselben Flow von jedem Modell viermal erneut ausgewertet. Zusammen mit dem ersten Durchlauf liegen damit für jede dieser Rechnungen fünf Antworten je Modell vor. Aus diesen Antworten wurde die Konsistenz der einzelnen Modelle berechnet.
 
 \section{Ergebnisse der Stichprobenanalysen}
 \label{sec:ergebnisse_stichproben}
 
-Tabelle~\ref{tab:ergebnisse} zeigt die Konfusionswerte, die daraus berechnete Precision und den Recall sowie die Konsistenz $K$ über die fünf Durchläufe je Modell. Die einzelnen Antworten der Modelle und die Ergebnisse der einzelnen Durchläufe sind im Anhang dokumentiert.
+Tabelle~\ref{tab:ergebnisse} zeigt die Konfusionswerte, die daraus berechnete Precision und den Recall sowie die Konsistenz $K$ über die fünf Durchläufe je Modell.
 
 \begin{table}[H]
   \centering
@@ -48,7 +48,7 @@ Eine hohe Konsistenz bedeutet allerdings keine hohe Erkennungsleistung. Opus 4.6
 \section{Auswertung der Bewertungsmatrix}
 \label{sec:auswertung_bewertungsmatrix}
 
-Die Ergebnisse der Stichprobenanalysen fließen mit der im Evaluationsdesign festgelegten Gewichtung in die Nutzwertanalyse ein. Der Recall geht mit 40\,\% ein, die Precision und die normierte Konsistenz mit jeweils 30\,\%. Der Nutzwert $N$ eines Modells ergibt sich damit als
+Die Ergebnisse der Stichprobenanalysen fließen mit der festgelegten Gewichtung in die Nutzwertanalyse ein. Der Recall geht mit 40\,\% ein, die Precision und die normierte Konsistenz mit jeweils 30\,\%. Der Nutzwert $N$ eines Modells ergibt sich damit als
 \begin{equation}
   N = 0{,}4 \cdot \text{Recall} + 0{,}3 \cdot \text{Precision} + 0{,}3 \cdot K_{\text{norm}}
 \end{equation}
