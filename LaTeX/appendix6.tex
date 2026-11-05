@@ -6,18 +6,20 @@ Nachfolgend sind die Freigaben zu den drei Rechnungen aus Anhang~\ref{anhang:rec
 
 % #1: Nummer der Rechnung, #2: Dateiname im Ordner Freigaben_Mixed
 \newcommand{\AnhangFreigabe}[2]{%
-    \par\noindent
+    \par
+    \section{Freigabe zu Rechnung~#1}\label{anhang:freigabe-#1}
+    \nopagebreak\noindent
     \begin{minipage}{\textwidth}
-        \phantomsection\label{anhang:freigabe-#1}%
-        \section*{Freigabe zu Rechnung~#1}
         \centering
         \includegraphics[
             width=\textwidth,
             height=0.4\textheight,
             keepaspectratio
         ]{../Freigaben_Mixed/#2}
-    \end{minipage}
-    \par\vspace{\baselineskip}
+    \end{minipage}%
+    % parskip=half setzt \parfillskip auf 1em; ohne Rücksetzen ragt die Minipage in den Rand
+    {\parfillskip=0pt\par}%
+    \vspace{\baselineskip}
 }
 
 \vspace{\baselineskip}

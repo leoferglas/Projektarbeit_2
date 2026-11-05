@@ -1,976 +1,1415 @@
+% Modellantworten
 
 \chapter{Modellantworten}
 \label{anhang:modellantworten}
-Nachfolgend sind die Antworten des Modells Opus 4.7 und GPt 5.5 zu den drei Rechnungen aus Anhang~\ref{anhang:rechnungen} abgebildet.
+Nachfolgend sind die Antworten der Modelle Claude Opus 4.7 und GPT-5.5 zu den drei Rechnungen aus Anhang~\ref{anhang:rechnungen} abgebildet. Zu jeder Antwort ist angegeben, wie sie im Abgleich mit dem Ground-Truth-Datensatz (Anhang~\ref{anhang:ground-truth}) klassifiziert wurde. Die Antworten sind inhaltlich unverändert übernommen, einschließlich etwaiger Schreibfehler der Modelle. Lediglich die Markdown-Formatierung der Ausgaben wurde in ein einheitliches Layout überführt. Die Angaben in eckigen Klammern (z.\,B. [1]) sind Quellenverweise des Agenten auf die hinterlegten Wissensdokumente.
 
-% #1: Nummer der Rechnung, #2: Dateiname im Ordner Modellantworten
-\newcommand{\AnhangModellantwort}[2]{%
-    \par\noindent
-    \begin{minipage}{\textwidth}
-        \phantomsection\label{anhang:modellantwort-#1}%
-        \section*{Antwort zu Rechnung~#15}
-        \centering
-        \includegraphics[
-            width=\textwidth,
-            height=0.4\textheight,
-            keepaspectratio
-        ]{../Modellantworten/#2}
-    \end{minipage}
-    \par\vspace{\baselineskip}
+
+\newcommand{\Pruefschritt}[1]{%
+    \par
+    \ifdim\pagegoal<\maxdimen
+        \ifdim\dimexpr\pagegoal-\pagetotal\relax<9\baselineskip
+            \newpage
+        \fi
+    \fi
+    \medskip\noindent#1\par\nopagebreak
+}
+\newcommand{\RechnungKopfStil}{\par\medskip\noindent\RaggedRight}
+\newcommand{\Klassifikation}[1]{\noindent Klassifikation im Abgleich mit der Ground Truth: #1\par}
+% Dateinamen mit Unterstrichen, umbrechbar
+\DeclareUrlCommand\Datei{\urlstyle{same}\def\UrlBreaks{\do\_\do\-\do\.}}
+% Linksbündige Spalte, Breite als Anteil von \linewidth abzüglich Spaltenabstand;
+% \hspace{0pt} erlaubt die Silbentrennung auch beim ersten Wort einer Zelle
+\newcolumntype{Y}[1]{>{\RaggedRight\arraybackslash\hspace{0pt}}p{\dimexpr#1\linewidth-2\tabcolsep\relax}}
+\newenvironment{AntwortTab}[1]{%
+    \footnotesize
+    \setlength{\tabcolsep}{3pt}%
+    \setlength{\LTpre}{4pt}%
+    \setlength{\LTpost}{4pt}%
+    \renewcommand{\arraystretch}{1.15}%
+    \begin{longtable}{@{}#1@{}}%
+}{%
+    \end{longtable}%
 }
 
-\vspace{\baselineskip}
+% Zusätzlicher Dehnungsspielraum für lange Beträge, Dateinamen und Schrägstrich-Wörter
+\begingroup
+\setlength{\emergencystretch}{3em}
 
-# Opus 4.7
-Antwort 15 (\ac{TN}):
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% RECHNUNG 15
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-## Rechnung: CU-2026-0318 | 15_Rechnung_Kantinenbewirtschaftung_CU-2026-0318.pdf
+\section{Rechnung~15}
+\label{anhang:modellantwort-15}
 
-### 1 Rechnungsdaten
-- **Empfänger:** Freudenberg & Co. Kommanditgesellschaft, Zentraler Einkauf, Höhnerweg 2-4, 69469 Weinheim[1]
-- **Rechnungsnr.:** CU-2026-0318[2]
-- **Rechnungsdatum:** 02.04.2026[2]
-- **Leistungszeitraum:** 01.03.2026 - 31.03.2026[2]
-- **Kundennr.:** KUN-3312[2]
-- **Referenzart/-nr.:** Vertrag: BK-2023-09[2]
-- **Bestellnr.:** nicht vorhanden
-- **Lieferant:** Culina Betriebsgastronomie GmbH, Marktweg 18, 69115 Heidelberg[3]
-- **USt-IdNr. Lieferant:** DE 660 233 656[4]
-- **USt-IdNr. Empfänger:** DE 143 566 072[5]
-- **Leistung:** Abrechnung der Betriebsgastronomie für März 2026[2]
-- **Positionen:** 1 Mittagessen Vollverpflegung 18.420 Portionen × 3,85 € = 70.917,00 €; 2 Frühstücksausgabe 4.180 Portionen × 1,95 € = 8.151,00 €; 3 Bewirtung Besprechungen 62 Buchungen × 48,00 € = 2.976,00 €; 4 Betriebsführungspauschale 1 Monat × 4.200,00 € = 4.200,00 €[6]
-- **Netto:** 86.244,00 €[6]
-- **Steuersatz:** 19 %[7]
-- **USt:** 16.386,36 €[8]
-- **Brutto:** 102.630,36 €[8]
-- **Währung:** EUR
-- **Zahlungsziel:** nicht vorhanden auf Rechnung
-- **IBAN:** DE25 6709 0000 4948 9782 92 (Volksbank Kurpfalz, GENODE61HD3)[1]
-- **Freigabereferenz:** nicht vorhanden
+\subsection*{Antwort Claude Opus 4.7}
+\Klassifikation{\ac{TN}}
 
-### 2 Datensatz
-| Datensatz | Kriterium | Werte | Ergebnis |
-|---|---|---|---|
-| Referenztabelle Zeile CU-2026-0318 | Rechnungsnr. exakt | CU-2026-0318 = CU-2026-0318 | Treffer |
-| Referenztabelle Zeile CU-2026-0318 | Lieferant + Brutto + Datum | Culina Betriebsgastronomie GmbH / 102.630,36 € / 02.04.2026 | bestätigt |
+{\RechnungKopfStil Rechnung: CU-2026-0318 \textbar{} \Datei{15_Rechnung_Kantinenbewirtschaftung_CU-2026-0318.pdf}}\par
 
-### 3 Soll-Ist
-| Feld | Ist | Soll | Abweichung abs./% | Status |
-|---|---|---|---|---|
-| Empfänger | Freudenberg & Co. Kommanditgesellschaft | Freudenberg & Co. Kommanditgesellschaft[9] | – | Übereinstimmung |
-| Rechnungsnr. | CU-2026-0318 | CU-2026-0318[9] | – | Übereinstimmung |
-| Rechnungsdatum | 02.04.2026 | 02.04.2026[9] | – | Übereinstimmung |
-| Leistungszeitraum | 01.03.2026 - 31.03.2026 | 01.03.2026 - 31.03.2026[9] | – | Übereinstimmung |
-| Kundennr. | KUN-3312 | KUN-3312[9] | – | Übereinstimmung |
-| Referenzart | Vertrag | Vertrag[9] | – | Übereinstimmung |
-| Referenznr. | BK-2023-09 | BK-2023-09[9] | – | Übereinstimmung |
-| Lieferant | Culina Betriebsgastronomie GmbH | Culina Betriebsgastronomie GmbH[9] | – | Übereinstimmung |
-| Leistung | Abrechnung der Betriebsgastronomie für März 2026 | Kantinenbewirtschaftung[9] | – | Übereinstimmung (sinngemäß) |
-| Netto | 86.244,00 € | 86.244,00 €[9] | 0 / 0 % | Übereinstimmung |
-| Steuersatz | 19 % | 19 %[9] | – | Übereinstimmung |
-| USt | 16.386,36 € | 16.386,36 €[9] | 0 / 0 % | Übereinstimmung |
-| Brutto | 102.630,36 € | 102.630,36 €[9] | 0 / 0 % | Übereinstimmung |
-| Zahlungsziel | nicht vorhanden auf Rechnung | 02.05.2026[9] | – | nicht prüfbar (Ist fehlt) |
-| USt-IdNr. Lieferant | DE 660 233 656 | nicht in Referenztabelle enthalten | – | nicht prüfbar |
+\Pruefschritt{1 Rechnungsdaten}
+\begin{AntwortTab}{Y{0.27}Y{0.69}}
+\toprule
+\textit{Feld} & \textit{Wert} \\
+\midrule
+\endhead
+Empfänger & Freudenberg \& Co. Kommanditgesellschaft, Zentraler Einkauf, Höhnerweg 2-4, 69469 Weinheim[1] \\
+Rechnungsnr. & CU-2026-0318[2] \\
+Rechnungsdatum & 02.04.2026[2] \\
+Leistungszeitraum & 01.03.2026 -- 31.03.2026[2] \\
+Kundennr. & KUN-3312[2] \\
+Referenzart/-nr. & Vertrag: BK-2023-09[2] \\
+Bestellnr. & nicht vorhanden \\
+Lieferant & Culina Betriebsgastronomie GmbH, Marktweg 18, 69115 Heidelberg[3] \\
+USt-IdNr. Lieferant & DE 660 233 656[4] \\
+USt-IdNr. Empfänger & DE 143 566 072[5] \\
+Leistung & Abrechnung der Betriebsgastronomie für März 2026[2] \\
+Positionen & 1 Mittagessen Vollverpflegung 18.420 Portionen $\times$ 3,85 € = 70.917,00 €;\newline
+2 Frühstücksausgabe 4.180 Portionen $\times$ 1,95 € = 8.151,00 €;\newline
+3 Bewirtung Besprechungen 62 Buchungen $\times$ 48,00 € = 2.976,00 €;\newline
+4 Betriebsführungspauschale 1 Monat $\times$ 4.200,00 € = 4.200,00 €[6] \\
+Netto & 86.244,00 €[6] \\
+Steuersatz & 19\,\%[7] \\
+USt & 16.386,36 €[8] \\
+Brutto & 102.630,36 €[8] \\
+Währung & EUR \\
+Zahlungsziel & nicht vorhanden auf Rechnung \\
+IBAN & DE25 6709 0000 4948 9782 92 (Volksbank Kurpfalz, GENODE61HD3)[1] \\
+Freigabereferenz & nicht vorhanden \\
+\bottomrule
+\end{AntwortTab}
 
-### 4 Freigabenachweise
-| Dokument | Typ | Fundstelle | Absender | Genehmiger | Rolle | Wortlaut | Datum/Uhrzeit | Merkmale | Lesbarkeit | Evidenz |
-|---|---|---|---|---|---|---|---|---|---|---|
-| Screenshot E-Mail "AW: Rechnung CU-2026-0318 zur Freigabe" | E-Mail-Antwort | Posteingang Kreditorenbuchhaltung | Person B <person.b@freudenberg.example> | Person B | nicht angegeben | "Rechnung CU-2026-0318 ist freigegeben und kann bezahlt werden." | Di 07.04.2026 13:44 | Nr.: CU-2026-0318; Lieferant: nicht genannt; Betrag: nicht genannt | lesbar | mittel (eindeutige Freigabeerklärung, Rechnungsnr. referenziert; Lieferant und Betrag im Freigabetext fehlen, ergeben sich aber aus der ursprünglichen Anfrage im selben Thread vom 07.04.2026 11:21) |
+\Pruefschritt{2 Datensatz}
+\begin{AntwortTab}{Y{0.28}Y{0.22}Y{0.32}Y{0.14}}
+\toprule
+\textit{Datensatz} & \textit{Kriterium} & \textit{Werte} & \textit{Ergebnis} \\
+\midrule
+\endhead
+Referenztabelle Zeile CU-2026-0318 & Rechnungsnr. exakt & CU-2026-0318 = CU-2026-0318 & Treffer \\
+Referenztabelle Zeile CU-2026-0318 & Lieferant + Brutto + Datum & Culina Betriebsgastronomie GmbH / 102.630,36 € / 02.04.2026 & bestätigt \\
+\bottomrule
+\end{AntwortTab}
 
-### 5 Zuordnung
-| Nachweis | Merkmale | Werte Rechnung | Werte Nachweis | Ergebnis |
-|---|---|---|---|---|
-| E-Mail Person B 07.04.2026 | Rechnungsnr. exakt | CU-2026-0318 | CU-2026-0318 | eindeutig |
-| Ursprungsmail (im Thread) | Lieferant, Datum, Brutto | Culina / 02.04.2026 / 102.630,36 € | Culina Betriebsgastronomie GmbH / 02.04.2026 / 102.630,36 € | eindeutig |
+\Pruefschritt{3 Soll-Ist}
+\begin{AntwortTab}{Y{0.19}Y{0.23}Y{0.23}Y{0.15}Y{0.20}}
+\toprule
+\textit{Feld} & \textit{Ist} & \textit{Soll} & \textit{Abweichung abs./\%} & \textit{Status} \\
+\midrule
+\endhead
+Empfänger & Freudenberg \& Co. Kommanditgesellschaft & Freudenberg \& Co. Kommanditgesellschaft[9] & -- & Übereinstimmung \\
+Rechnungsnr. & CU-2026-0318 & CU-2026-0318[9] & -- & Übereinstimmung \\
+Rechnungsdatum & 02.04.2026 & 02.04.2026[9] & -- & Übereinstimmung \\
+Leistungszeitraum & 01.03.2026 -- 31.03.2026 & 01.03.2026 -- 31.03.2026[9] & -- & Übereinstimmung \\
+Kundennr. & KUN-3312 & KUN-3312[9] & -- & Übereinstimmung \\
+Referenzart & Vertrag & Vertrag[9] & -- & Übereinstimmung \\
+Referenznr. & BK-2023-09 & BK-2023-09[9] & -- & Übereinstimmung \\
+Lieferant & Culina Betriebsgastronomie GmbH & Culina Betriebsgastronomie GmbH[9] & -- & Übereinstimmung \\
+Leistung & Abrechnung der Betriebsgastronomie für März 2026 & Kantinenbewirtschaftung[9] & -- & Übereinstimmung (sinngemäß) \\
+Netto & 86.244,00 € & 86.244,00 €[9] & 0 / 0\,\% & Übereinstimmung \\
+Steuersatz & 19\,\% & 19\,\%[9] & -- & Übereinstimmung \\
+USt & 16.386,36 € & 16.386,36 €[9] & 0 / 0\,\% & Übereinstimmung \\
+Brutto & 102.630,36 € & 102.630,36 €[9] & 0 / 0\,\% & Übereinstimmung \\
+Zahlungsziel & nicht vorhanden auf Rechnung & 02.05.2026[9] & -- & nicht prüfbar (Ist fehlt) \\
+USt-IdNr. Lieferant & DE 660 233 656 & nicht in Referenztabelle enthalten & -- & nicht prüfbar \\
+\bottomrule
+\end{AntwortTab}
 
-### 6 Berechtigung
-| Betrag / Betragsart / Währung | Soll (Stufe, Person) | Ist (Genehmiger) | Status | Begründung |
-|---|---|---|---|---|
-| 102.630,36 € brutto / EUR | Person B: unbegrenzt, EUR, "Darf jede Rechnung freigeben"[10] | Person B | berechtigt | Bezugsgröße ist der Bruttobetrag; Person B ist in EUR unbegrenzt freigabeberechtigt[10] |
+\Pruefschritt{4 Freigabenachweise}
+\begin{AntwortTab}{Y{0.22}Y{0.74}}
+\toprule
+\textit{Feld} & \textit{Nachweis} \\
+\midrule
+\endhead
+Dokument & Screenshot E-Mail \enquote{AW: Rechnung CU-2026-0318 zur Freigabe} \\
+Typ & E-Mail-Antwort \\
+Fundstelle & Posteingang Kreditorenbuchhaltung \\
+Absender & Person B \textless{}person.b@freudenberg.example\textgreater{} \\
+Genehmiger & Person B \\
+Rolle & nicht angegeben \\
+Wortlaut & \enquote{Rechnung CU-2026-0318 ist freigegeben und kann bezahlt werden.} \\
+Datum/Uhrzeit & Di 07.04.2026 13:44 \\
+Merkmale & Nr.: CU-2026-0318; Lieferant: nicht genannt; Betrag: nicht genannt \\
+Lesbarkeit & lesbar \\
+Evidenz & mittel (eindeutige Freigabeerklärung, Rechnungsnr. referenziert; Lieferant und Betrag im Freigabetext fehlen, ergeben sich aber aus der ursprünglichen Anfrage im selben Thread vom 07.04.2026 11:21) \\
+\bottomrule
+\end{AntwortTab}
 
-### 7 Zeitfolge
-| Daten | nach Rechnung | vor Buchung | vor Zahlung |
-|---|---|---|---|
-| Rechnungsdatum 02.04.2026 → Freigabe 07.04.2026 13:44 → Buchung/Zahlung unbekannt | Ja | Nicht prüfbar | Nicht prüfbar |
+\Pruefschritt{5 Zuordnung}
+\begin{AntwortTab}{Y{0.2}Y{0.17}Y{0.2}Y{0.25}Y{0.14}}
+\toprule
+\textit{Nachweis} & \textit{Merkmale} & \textit{Werte Rechnung} & \textit{Werte Nachweis} & \textit{Ergebnis} \\
+\midrule
+\endhead
+E-Mail Person B 07.04.2026 & Rechnungsnr. exakt & CU-2026-0318 & CU-2026-0318 & eindeutig \\
+Ursprungsmail (im Thread) & Lieferant, Datum, Brutto & Culina / 02.04.2026 / 102.630,36 € & Culina Betriebsgastronomie GmbH / 02.04.2026 / 102.630,36 € & eindeutig \\
+\bottomrule
+\end{AntwortTab}
 
-### 8 Gesamtbewertung Freigabe
-- **Freigabe vorhanden und regelkonform.**
+\Pruefschritt{6 Berechtigung}
+\begin{AntwortTab}{Y{0.16}Y{0.24}Y{0.12}Y{0.12}Y{0.32}}
+\toprule
+\textit{Betrag / Betragsart / Währung} & \textit{Soll (Stufe, Person)} & \textit{Ist (Genehmiger)} & \textit{Status} & \textit{Begründung} \\
+\midrule
+\endhead
+102.630,36 € brutto / EUR & Person B: unbegrenzt, EUR, \enquote{Darf jede Rechnung freigeben}[10] & Person B & berechtigt & Bezugsgröße ist der Bruttobetrag; Person B ist in EUR unbegrenzt freigabeberechtigt[10] \\
+\bottomrule
+\end{AntwortTab}
 
-### 9 Rechnerische Prüfung
-| Werte | berechnet | ausgewiesen | Differenz | Bewertung |
-|---|---|---|---|---|
-| Pos. 1: 18.420 × 3,85 € | 70.917,00 € | 70.917,00 €[6] | 0 | korrekt |
-| Pos. 2: 4.180 × 1,95 € | 8.151,00 € | 8.151,00 €[6] | 0 | korrekt |
-| Pos. 3: 62 × 48,00 € | 2.976,00 € | 2.976,00 €[6] | 0 | korrekt |
-| Pos. 4: 1 × 4.200,00 € | 4.200,00 € | 4.200,00 €[6] | 0 | korrekt |
-| Σ Netto | 86.244,00 € | 86.244,00 €[6] | 0 | korrekt |
-| 19 % USt auf 86.244,00 € | 16.386,36 € | 16.386,36 €[8] | 0 | korrekt |
-| Brutto | 102.630,36 € | 102.630,36 €[8] | 0 | korrekt |
+\Pruefschritt{7 Zeitfolge}
+\begin{AntwortTab}{Y{0.42}Y{0.14}Y{0.2}Y{0.2}}
+\toprule
+\textit{Daten} & \textit{nach Rechnung} & \textit{vor Buchung} & \textit{vor Zahlung} \\
+\midrule
+\endhead
+Rechnungsdatum 02.04.2026 $\rightarrow$ Freigabe 07.04.2026 13:44 $\rightarrow$ Buchung/Zahlung unbekannt & Ja & Nicht prüfbar & Nicht prüfbar \\
+\bottomrule
+\end{AntwortTab}
 
-### 10 Formale Vollständigkeit
-| Pflichtangabe | Fundstelle | Status |
-|---|---|---|
-| Anschrift Lieferant | Culina Betriebsgastronomie GmbH, Marktweg 18, 69115 Heidelberg[3] | vorhanden |
-| Anschrift Empfänger | Freudenberg & Co. KG, Höhnerweg 2-4, 69469 Weinheim[1] | vorhanden |
-| USt-IdNr. Lieferant | DE 660 233 656[4] | vorhanden |
-| USt-IdNr./St-Nr. Empfänger | DE 143 566 072[5] | vorhanden |
-| Rechnungsdatum | 02.04.2026[2] | vorhanden |
-| Rechnungsnummer | CU-2026-0318[2] | vorhanden |
-| Leistung | Betriebsgastronomie, Positionen 1–4[11] | vorhanden |
-| Leistungszeitpunkt/-zeitraum | 01.03.2026 - 31.03.2026[2] | vorhanden |
-| Entgelt (Netto) | 86.244,00 €[6] | vorhanden |
-| Steuersatz | 19 %[8] | vorhanden |
-| Steuerbetrag | 16.386,36 €[8] | vorhanden |
+\Pruefschritt{8 Gesamtbewertung Freigabe}
+\begin{itemize}
+    \item Freigabe vorhanden und regelkonform.
+\end{itemize}
 
-### 11 Plausibilität und Betrugsindikatoren
-| Kriterium | Werte | Bewertung |
-|---|---|---|
-| Leistungszeitraum vor Rechnungsdatum | 01.–31.03.2026 vor 02.04.2026 | plausibel |
-| Währung konsistent | EUR durchgehend | plausibel |
-| Steuersatz / USt-Berechnung | 19 % korrekt angewandt | plausibel |
-| Empfänger konsistent | Freudenberg & Co. KG, Weinheim | plausibel |
-| IBAN-Land vs. Lieferantensitz | DE / DE | plausibel |
-| Freigabedatum Wochentag | 07.04.2026 = Dienstag | plausibel |
-| Rechnungsdatum Wochentag | 02.04.2026 = Donnerstag | plausibel |
-| Absenderdomain Freigabe | person.b@freudenberg.example (intern) | plausibel |
-| Rechnungsnummer in Referenztabelle | CU-2026-0318 vorhanden[9] | plausibel |
-| Fehlende Bestellnummer | Vertrag BK-2023-09 statt Bestellnr. | nicht auffällig (Vertragsreferenz vorhanden) |
-| Zahlungsziel auf Rechnung | fehlt | nicht prüfbar |
-| Marktüblichkeit Preise | kein Vergleichsmaßstab | nicht prüfbar |
+\Pruefschritt{9 Rechnerische Prüfung}
+\begin{AntwortTab}{Y{0.3}Y{0.17}Y{0.19}Y{0.14}Y{0.16}}
+\toprule
+\textit{Werte} & \textit{berechnet} & \textit{ausgewiesen} & \textit{Differenz} & \textit{Bewertung} \\
+\midrule
+\endhead
+Pos. 1: 18.420 $\times$ 3,85 € & 70.917,00 € & 70.917,00 €[6] & 0 & korrekt \\
+Pos. 2: 4.180 $\times$ 1,95 € & 8.151,00 € & 8.151,00 €[6] & 0 & korrekt \\
+Pos. 3: 62 $\times$ 48,00 € & 2.976,00 € & 2.976,00 €[6] & 0 & korrekt \\
+Pos. 4: 1 $\times$ 4.200,00 € & 4.200,00 € & 4.200,00 €[6] & 0 & korrekt \\
+$\Sigma$ Netto & 86.244,00 € & 86.244,00 €[6] & 0 & korrekt \\
+19\,\% USt auf 86.244,00 € & 16.386,36 € & 16.386,36 €[8] & 0 & korrekt \\
+Brutto & 102.630,36 € & 102.630,36 €[8] & 0 & korrekt \\
+\bottomrule
+\end{AntwortTab}
 
-### 12 Auffälligkeiten
+\Pruefschritt{10 Formale Vollständigkeit}
+\begin{AntwortTab}{Y{0.3}Y{0.5}Y{0.16}}
+\toprule
+\textit{Pflichtangabe} & \textit{Fundstelle} & \textit{Status} \\
+\midrule
+\endhead
+Anschrift Lieferant & Culina Betriebsgastronomie GmbH, Marktweg 18, 69115 Heidelberg[3] & vorhanden \\
+Anschrift Empfänger & Freudenberg \& Co. KG, Höhnerweg 2-4, 69469 Weinheim[1] & vorhanden \\
+USt-IdNr. Lieferant & DE 660 233 656[4] & vorhanden \\
+USt-IdNr./St-Nr. Empfänger & DE 143 566 072[5] & vorhanden \\
+Rechnungsdatum & 02.04.2026[2] & vorhanden \\
+Rechnungsnummer & CU-2026-0318[2] & vorhanden \\
+Leistung & Betriebsgastronomie, Positionen 1--4[11] & vorhanden \\
+Leistungszeitpunkt/-zeitraum & 01.03.2026 -- 31.03.2026[2] & vorhanden \\
+Entgelt (Netto) & 86.244,00 €[6] & vorhanden \\
+Steuersatz & 19\,\%[8] & vorhanden \\
+Steuerbetrag & 16.386,36 €[8] & vorhanden \\
+\bottomrule
+\end{AntwortTab}
+
+\Pruefschritt{11 Plausibilität und Betrugsindikatoren}
+\begin{AntwortTab}{Y{0.34}Y{0.36}Y{0.26}}
+\toprule
+\textit{Kriterium} & \textit{Werte} & \textit{Bewertung} \\
+\midrule
+\endhead
+Leistungszeitraum vor Rechnungsdatum & 01.--31.03.2026 vor 02.04.2026 & plausibel \\
+Währung konsistent & EUR durchgehend & plausibel \\
+Steuersatz / USt-Berechnung & 19\,\% korrekt angewandt & plausibel \\
+Empfänger konsistent & Freudenberg \& Co. KG, Weinheim & plausibel \\
+IBAN-Land vs. Lieferantensitz & DE / DE & plausibel \\
+Freigabedatum Wochentag & 07.04.2026 = Dienstag & plausibel \\
+Rechnungsdatum Wochentag & 02.04.2026 = Donnerstag & plausibel \\
+Absenderdomain Freigabe & person.b@freudenberg.example (intern) & plausibel \\
+Rechnungsnummer in Referenztabelle & CU-2026-0318 vorhanden[9] & plausibel \\
+Fehlende Bestellnummer & Vertrag BK-2023-09 statt Bestellnr. & nicht auffällig (Vertragsreferenz vorhanden) \\
+Zahlungsziel auf Rechnung & fehlt & nicht prüfbar \\
+Marktüblichkeit Preise & kein Vergleichsmaßstab & nicht prüfbar \\
+\bottomrule
+\end{AntwortTab}
+
+\Pruefschritt{12 Auffälligkeiten}
 Keine Auffälligkeiten festgestellt.
 
-### 13 Empfehlung
-- Prüfung im Quellsystem, ob Zahlungsziel und Buchungs-/Zahlungsdatum erfasst sind und die Zahlung erst nach dem 07.04.2026 (Freigabedatum) ausgeführt wurde.
-- Abgleich der Lieferanten-USt-IdNr. DE 660 233 656 mit dem Kreditorenstammsatz, da die Referenztabelle hierzu keinen Soll-Wert ausweist.
+\Pruefschritt{13 Empfehlung}
+\begin{itemize}
+    \item Prüfung im Quellsystem, ob Zahlungsziel und Buchungs-/Zahlungsdatum erfasst sind und die Zahlung erst nach dem 07.04.2026 (Freigabedatum) ausgeführt wurde.
+    \item Abgleich der Lieferanten-USt-IdNr. DE 660 233 656 mit dem Kreditorenstammsatz, da die Referenztabelle hierzu keinen Soll-Wert ausweist.
+\end{itemize}
 
-### 14 Menschliche Nachprüfung: Nein
+\Pruefschritt{14 Menschliche Nachprüfung: Nein}
 Begründung: Rechnung rechnerisch und formal vollständig, Soll-Ist-Abgleich ohne Abweichung, Freigabe durch Person B eindeutig der Rechnung zuordenbar (Rechnungsnr. exakt im Betreff und Freigabetext) und Person B ist in EUR unbegrenzt freigabeberechtigt[10]. Keine Unterlagen fehlend, unleserlich oder widersprüchlich.
 
-### 15 Audit Exception: Nein
+\Pruefschritt{15 Audit Exception: Nein}
 Es wurden keine belegten Fehler festgestellt: Soll-Ist stimmt in allen prüfbaren Feldern überein, die Rechnung ist rechnerisch korrekt und formal vollständig, und die Freigabe erfolgte nach Rechnungsdatum durch eine berechtigte Person innerhalb ihres Limits.
 
-GPT 5.5 
-Antwort 15 (\ac{FP}):
+%----------------------------------------------------------------------
 
-## Rechnung: [CU-2026-0318 | 15_Rechnung_Kantinenbewirtschaftung_CU-2026-0318.pdf]
+\clearpage
+\subsection*{Antwort GPT-5.5}
+\Klassifikation{\ac{FP}}
 
-### 1 Rechnungsdaten
-Empfänger: Freudenberg & Co. Kommanditgesellschaft | Rechnung, Anschrift Rechnung, Empfängerblock  
-Rechnungsnr.: CU-2026-0318 | Rechnung, Feld Rechnungsnummer  
-Rechnungsdatum: 02.04.2026 | Rechnung, Feld Rechnungsdatum  
-Leistungsdatum: 01.03.2026 - 31.03.2026 | Rechnung, Feld Leistungszeitraum  
-Kundennr.: KUN-3312 | Rechnung, Feld Kundennummer  
-Referenzart/-nr.: Vertrag / BK-2023-09 | Rechnung, Feld Vertrag  
-Bestellnr.: nicht vorhanden | Rechnung  
-Lieferant: Culina Betriebsgastronomie GmbH | Rechnung, Kopfbereich  
-Anschriften: Lieferant: Marktweg 18, 69115 Heidelberg; Empfänger: Höhnerweg 2-4, 69469 Weinheim | Rechnung  
-St-Nr./USt-IdNr.: Lieferant USt-IdNr. DE 660 233 656; Empfänger USt-IdNr. DE 143 566 072 | Rechnung  
-Leistung: Abrechnung der Betriebsgastronomie für März 2026; Mittagsessen Vollverpflegung, Frühstücksausgabe, Bewirtung Besprechungen, Betriebsführungspauschale | Rechnung  
-Menge: 18.420 Portionen; 4.180 Portionen; 62 Buchungen; 1 Monat | Rechnung  
-Einzelpreis: 3,85 €; 1,95 €; 48,00 €; 4.200,00 € | Rechnung  
-Positionen: 70.917,00 €; 8.151,00 €; 2.976,00 €; 4.200,00 € | Rechnung  
-Netto: 86.244,00 € | Rechnung  
-Steuersatz: 19 % | Rechnung  
-USt: 16.386,36 € | Rechnung  
-Brutto: 102.630,36 € | Rechnung  
-Währung: EUR | Rechnung  
-Zahlungsziel: nicht vorhanden | Rechnung  
-IBAN: DE25 6709 0000 4948 9782 92 | Rechnung, Fußbereich  
-Freigabereferenz: nicht vorhanden | Rechnung
+{\RechnungKopfStil Rechnung: [CU-2026-0318 \textbar{} \Datei{15_Rechnung_Kantinenbewirtschaftung_CU-2026-0318.pdf}]}\par
 
-### 2 Datensatz
-| Datensatz | Kriterium | Werte | Ergebnis |
-|---|---|---|---|
-| Referenztabelle_Rechnungen.xlsx | Rechnungsnummer exakt | CU-2026-0318 | Treffer eindeutig [1] |
+\Pruefschritt{1 Rechnungsdaten}
+\begin{AntwortTab}{Y{0.2}Y{0.48}Y{0.28}}
+\toprule
+\textit{Feld} & \textit{Wert} & \textit{Fundstelle} \\
+\midrule
+\endhead
+Empfänger & Freudenberg \& Co. Kommanditgesellschaft & Rechnung, Anschrift Rechnung, Empfängerblock \\
+Rechnungsnr. & CU-2026-0318 & Rechnung, Feld Rechnungsnummer \\
+Rechnungsdatum & 02.04.2026 & Rechnung, Feld Rechnungsdatum \\
+Leistungsdatum & 01.03.2026 -- 31.03.2026 & Rechnung, Feld Leistungszeitraum \\
+Kundennr. & KUN-3312 & Rechnung, Feld Kundennummer \\
+Referenzart/-nr. & Vertrag / BK-2023-09 & Rechnung, Feld Vertrag \\
+Bestellnr. & nicht vorhanden & Rechnung \\
+Lieferant & Culina Betriebsgastronomie GmbH & Rechnung, Kopfbereich \\
+Anschriften & Lieferant: Marktweg 18, 69115 Heidelberg;\newline Empfänger: Höhnerweg 2-4, 69469 Weinheim & Rechnung \\
+St-Nr./USt-IdNr. & Lieferant USt-IdNr. DE 660 233 656;\newline Empfänger USt-IdNr. DE 143 566 072 & Rechnung \\
+Leistung & Abrechnung der Betriebsgastronomie für März 2026; Mittagsessen Vollverpflegung, Frühstücksausgabe, Bewirtung Besprechungen, Betriebsführungspauschale & Rechnung \\
+Menge & 18.420 Portionen; 4.180 Portionen; 62 Buchungen; 1 Monat & Rechnung \\
+Einzelpreis & 3,85 €; 1,95 €; 48,00 €; 4.200,00 € & Rechnung \\
+Positionen & 70.917,00 €; 8.151,00 €; 2.976,00 €; 4.200,00 € & Rechnung \\
+Netto & 86.244,00 € & Rechnung \\
+Steuersatz & 19\,\% & Rechnung \\
+USt & 16.386,36 € & Rechnung \\
+Brutto & 102.630,36 € & Rechnung \\
+Währung & EUR & Rechnung \\
+Zahlungsziel & nicht vorhanden & Rechnung \\
+IBAN & DE25 6709 0000 4948 9782 92 & Rechnung, Fußbereich \\
+Freigabereferenz & nicht vorhanden & Rechnung \\
+\bottomrule
+\end{AntwortTab}
 
-### 3 Soll-Ist
-| Feld | Ist | Soll | Abweichung abs./% | Status |
-|---|---|---|---|---|
-| Empfänger | Freudenberg & Co. Kommanditgesellschaft | Freudenberg & Co. Kommanditgesellschaft | 0 / 0 % | Übereinstimmung |
-| Rechnungsnummer | CU-2026-0318 | CU-2026-0318 | 0 / 0 % | Übereinstimmung |
-| Rechnungsdatum | 02.04.2026 | 02.04.2026 | 0 / 0 % | Übereinstimmung |
-| Leistungszeitraum | 01.03.2026 - 31.03.2026 | 01.03.2026 - 31.03.2026 | 0 / 0 % | Übereinstimmung |
-| Kundennummer | KUN-3312 | KUN-3312 | 0 / 0 % | Übereinstimmung |
-| Referenzart | Vertrag | Vertrag | 0 / 0 % | Übereinstimmung |
-| Referenznummer | BK-2023-09 | BK-2023-09 | 0 / 0 % | Übereinstimmung |
-| Lieferant | Culina Betriebsgastronomie GmbH | Culina Betriebsgastronomie GmbH | 0 / 0 % | Übereinstimmung |
-| Leistungsbeschreibung | Abrechnung der Betriebsgastronomie für März 2026 | Kantinenbewirtschaftung | nicht berechenbar | Abweichung |
-| Netto | 86.244,00 € | 86.244,00 € | 0 / 0 % | Übereinstimmung |
-| Steuersatz | 19 % | 19 % | 0 / 0 % | Übereinstimmung |
-| USt | 16.386,36 € | 16.386,36 € | 0 / 0 % | Übereinstimmung |
-| Brutto | 102.630,36 € | 102.630,36 € | 0 / 0 % | Übereinstimmung |
-| USt-IdNr. Lieferant | DE 660 233 656 | nicht vorhanden | nicht berechenbar | nicht prüfbar |
+\Pruefschritt{2 Datensatz}
+\begin{AntwortTab}{Y{0.3}Y{0.24}Y{0.2}Y{0.22}}
+\toprule
+\textit{Datensatz} & \textit{Kriterium} & \textit{Werte} & \textit{Ergebnis} \\
+\midrule
+\endhead
+\Datei{Referenztabelle_Rechnungen.xlsx} & Rechnungsnummer exakt & CU-2026-0318 & Treffer eindeutig [1] \\
+\bottomrule
+\end{AntwortTab}
 
-### 4 Freigabenachweise (je Nachweis)
-| Dokument | Typ | Fundstelle | Absender | Genehmiger | Rolle | Wortlaut | Datum/Uhrzeit | Merkmale (Nr., Lieferant, Betrag) | Lesbarkeit | Evidenz |
-|---|---|---|---|---|---|---|---|---|---|---|
-| PNG-Screenshot E-Mail | E-Mail | Antwortnachricht | Person B <person.b@freudenberg.example> | Person B | nicht vorhanden | „Rechnung CU-2026-0318 ist freigegeben und kann bezahlt werden.“ | 07.04.2026 13:44 | Rechnungsnr. CU-2026-0318 | lesbar | hoch |
-| PNG-Screenshot E-Mail | Ursprungsnachricht | Eingebettete Nachricht | Kreditorenbuchhaltung <kreditoren@freudenberg.example> | nicht zutreffend | nicht zutreffend | Bitte um Prüfung und Freigabe | 07.04.2026 11:21 | CU-2026-0318; Culina Betriebsgastronomie GmbH; 102.630,36 € brutto | lesbar | mittel |
+\Pruefschritt{3 Soll-Ist}
+\begin{AntwortTab}{Y{0.19}Y{0.23}Y{0.23}Y{0.15}Y{0.20}}
+\toprule
+\textit{Feld} & \textit{Ist} & \textit{Soll} & \textit{Abweichung abs./\%} & \textit{Status} \\
+\midrule
+\endhead
+Empfänger & Freudenberg \& Co. Kommanditgesellschaft & Freudenberg \& Co. Kommanditgesellschaft & 0 / 0\,\% & Übereinstimmung \\
+Rechnungsnummer & CU-2026-0318 & CU-2026-0318 & 0 / 0\,\% & Übereinstimmung \\
+Rechnungsdatum & 02.04.2026 & 02.04.2026 & 0 / 0\,\% & Übereinstimmung \\
+Leistungszeitraum & 01.03.2026 -- 31.03.2026 & 01.03.2026 -- 31.03.2026 & 0 / 0\,\% & Übereinstimmung \\
+Kundennummer & KUN-3312 & KUN-3312 & 0 / 0\,\% & Übereinstimmung \\
+Referenzart & Vertrag & Vertrag & 0 / 0\,\% & Übereinstimmung \\
+Referenznummer & BK-2023-09 & BK-2023-09 & 0 / 0\,\% & Übereinstimmung \\
+Lieferant & Culina Betriebsgastronomie GmbH & Culina Betriebsgastronomie GmbH & 0 / 0\,\% & Übereinstimmung \\
+Leistungsbeschreibung & Abrechnung der Betriebsgastronomie für März 2026 & Kantinenbewirtschaftung & nicht berechenbar & Abweichung \\
+Netto & 86.244,00 € & 86.244,00 € & 0 / 0\,\% & Übereinstimmung \\
+Steuersatz & 19\,\% & 19\,\% & 0 / 0\,\% & Übereinstimmung \\
+USt & 16.386,36 € & 16.386,36 € & 0 / 0\,\% & Übereinstimmung \\
+Brutto & 102.630,36 € & 102.630,36 € & 0 / 0\,\% & Übereinstimmung \\
+USt-IdNr. Lieferant & DE 660 233 656 & nicht vorhanden & nicht berechenbar & nicht prüfbar \\
+\bottomrule
+\end{AntwortTab}
 
-### 5 Zuordnung
-| Nachweis | Merkmale | Werte Rechnung | Werte Nachweis | Ergebnis |
-|---|---|---|---|---|
-| E-Mail Freigabe Person B | Rechnungsnummer | CU-2026-0318 | CU-2026-0318 | eindeutig |
+\Pruefschritt{4 Freigabenachweise (je Nachweis)}
+\begin{AntwortTab}{Y{0.2}Y{0.38}Y{0.38}}
+\toprule
+\textit{Feld} & \textit{Nachweis 1} & \textit{Nachweis 2} \\
+\midrule
+\endhead
+Dokument & PNG-Screenshot E-Mail & PNG-Screenshot E-Mail \\
+Typ & E-Mail & Ursprungsnachricht \\
+Fundstelle & Antwortnachricht & Eingebettete Nachricht \\
+Absender & Person B \textless{}person.b@freudenberg.example\textgreater{} & Kreditorenbuchhaltung \textless{}kreditoren@freudenberg.example\textgreater{} \\
+Genehmiger & Person B & nicht zutreffend \\
+Rolle & nicht vorhanden & nicht zutreffend \\
+Wortlaut & \enquote{Rechnung CU-2026-0318 ist freigegeben und kann bezahlt werden.} & Bitte um Prüfung und Freigabe \\
+Datum/Uhrzeit & 07.04.2026 13:44 & 07.04.2026 11:21 \\
+Merkmale (Nr., Lieferant, Betrag) & Rechnungsnr. CU-2026-0318 & CU-2026-0318; Culina Betriebsgastronomie GmbH; 102.630,36 € brutto \\
+Lesbarkeit & lesbar & lesbar \\
+Evidenz & hoch & mittel \\
+\bottomrule
+\end{AntwortTab}
 
-### 6 Berechtigung
-| Betrag/Betragsart/Währung | Soll (Stufe, Person) | Ist (Genehmiger) | Status | Begründung |
-|---|---|---|---|---|
-| 102.630,36 € brutto / Brutto / EUR | Person A oder Person B, unbegrenzt [2] | Person B | Übereinstimmung | Person B ist für EUR-Rechnungen unbegrenzt freigabeberechtigt. [2] |
+\Pruefschritt{5 Zuordnung}
+\begin{AntwortTab}{Y{0.24}Y{0.2}Y{0.18}Y{0.18}Y{0.16}}
+\toprule
+\textit{Nachweis} & \textit{Merkmale} & \textit{Werte Rechnung} & \textit{Werte Nachweis} & \textit{Ergebnis} \\
+\midrule
+\endhead
+E-Mail Freigabe Person B & Rechnungsnummer & CU-2026-0318 & CU-2026-0318 & eindeutig \\
+\bottomrule
+\end{AntwortTab}
 
-### 7 Zeitfolge
-| Daten | nach Rechnung | vor Buchung | vor Zahlung (Ja/Nein/Nicht prüfbar) |
-|---|---|---|---|
-| Rechnungsdatum 02.04.2026; Freigabe 07.04.2026 13:44 | Ja | nicht prüfbar | Nicht prüfbar |
+\Pruefschritt{6 Berechtigung}
+\begin{AntwortTab}{Y{0.18}Y{0.22}Y{0.12}Y{0.15}Y{0.29}}
+\toprule
+\textit{Betrag / Betragsart / Währung} & \textit{Soll (Stufe, Person)} & \textit{Ist (Genehmiger)} & \textit{Status} & \textit{Begründung} \\
+\midrule
+\endhead
+102.630,36 € brutto / Brutto / EUR & Person A oder Person B, unbegrenzt [2] & Person B & Übereinstimmung & Person B ist für EUR-Rechnungen unbegrenzt freigabeberechtigt. [2] \\
+\bottomrule
+\end{AntwortTab}
 
-### 8 Gesamtbewertung Freigabe
-- Freigabe vorhanden und regelkonform.
+\Pruefschritt{7 Zeitfolge}
+\begin{AntwortTab}{Y{0.42}Y{0.14}Y{0.16}Y{0.24}}
+\toprule
+\textit{Daten} & \textit{nach Rechnung} & \textit{vor Buchung} & \textit{vor Zahlung (Ja/Nein/Nicht prüfbar)} \\
+\midrule
+\endhead
+Rechnungsdatum 02.04.2026; Freigabe 07.04.2026 13:44 & Ja & nicht prüfbar & Nicht prüfbar \\
+\bottomrule
+\end{AntwortTab}
 
-### 9 Rechnerische Prüfung
-| Werte | berechnet | ausgewiesen | Differenz | Bewertung |
-|---|---|---|---|---|
-| Summe Positionen | 86.244,00 € | 86.244,00 € | 0,00 € | Übereinstimmung |
-| USt 19 % auf 86.244,00 € | 16.386,36 € | 16.386,36 € | 0,00 € | Übereinstimmung |
-| Brutto | 102.630,36 € | 102.630,36 € | 0,00 € | Übereinstimmung |
+\Pruefschritt{8 Gesamtbewertung Freigabe}
+\begin{itemize}
+    \item Freigabe vorhanden und regelkonform.
+\end{itemize}
 
-### 10 Formale Vollständigkeit
-| Pflichtangabe | Fundstelle | Status |
-|---|---|---|
-| Anschrift Lieferant | Kopfbereich links | vorhanden |
-| Anschrift Empfänger | Empfängerblock | vorhanden |
-| USt-IdNr./St-Nr. Lieferant | Kopfbereich links | vorhanden |
-| Rechnungsdatum | Rechnungsdatenblock | vorhanden |
-| Rechnungsnummer | Rechnungsdatenblock | vorhanden |
-| Leistung | Leistungsbeschreibung/Positionen | vorhanden |
-| Leistungszeitpunkt | Leistungszeitraum | vorhanden |
-| Entgelt | Positions- und Summenbereich | vorhanden |
-| Steuersatz | Summenbereich | vorhanden |
-| Steuerbetrag | Summenbereich | vorhanden |
+\Pruefschritt{9 Rechnerische Prüfung}
+\begin{AntwortTab}{Y{0.3}Y{0.17}Y{0.17}Y{0.14}Y{0.18}}
+\toprule
+\textit{Werte} & \textit{berechnet} & \textit{ausgewiesen} & \textit{Differenz} & \textit{Bewertung} \\
+\midrule
+\endhead
+Summe Positionen & 86.244,00 € & 86.244,00 € & 0,00 € & Übereinstimmung \\
+USt 19\,\% auf 86.244,00 € & 16.386,36 € & 16.386,36 € & 0,00 € & Übereinstimmung \\
+Brutto & 102.630,36 € & 102.630,36 € & 0,00 € & Übereinstimmung \\
+\bottomrule
+\end{AntwortTab}
 
-### 11 Plausibilität und Betrugsindikatoren
-| Kriterium | Werte | plausibel/auffällig/nicht prüfbar |
-|---|---|---|
-| Leistungszeitraum vor Rechnungsdatum | 01.03.2026 - 31.03.2026; Rechnung 02.04.2026 | plausibel |
-| Währung konsistent | EUR | plausibel |
-| Steuersatz konsistent | 19 % | plausibel |
-| Empfänger konsistent | Freudenberg & Co. Kommanditgesellschaft | plausibel |
-| Zahlungsziel | nicht vorhanden | nicht prüfbar |
-| Fehlende Bestellnr. | nicht vorhanden | auffällig |
-| Fehlende Freigabereferenz | nicht vorhanden | auffällig |
-| Rechnungsdatum Wochenende/Feiertag | 02.04.2026 (Donnerstag) | plausibel |
-| Freigabedatum Wochenende/Feiertag | 07.04.2026 (Dienstag) | plausibel |
-| Generische Leistung | Kantinenbewirtschaftung/Betriebsgastronomie | auffällig |
+\Pruefschritt{10 Formale Vollständigkeit}
+\begin{AntwortTab}{Y{0.34}Y{0.42}Y{0.2}}
+\toprule
+\textit{Pflichtangabe} & \textit{Fundstelle} & \textit{Status} \\
+\midrule
+\endhead
+Anschrift Lieferant & Kopfbereich links & vorhanden \\
+Anschrift Empfänger & Empfängerblock & vorhanden \\
+USt-IdNr./St-Nr. Lieferant & Kopfbereich links & vorhanden \\
+Rechnungsdatum & Rechnungsdatenblock & vorhanden \\
+Rechnungsnummer & Rechnungsdatenblock & vorhanden \\
+Leistung & Leistungsbeschreibung/Positionen & vorhanden \\
+Leistungszeitpunkt & Leistungszeitraum & vorhanden \\
+Entgelt & Positions- und Summenbereich & vorhanden \\
+Steuersatz & Summenbereich & vorhanden \\
+Steuerbetrag & Summenbereich & vorhanden \\
+\bottomrule
+\end{AntwortTab}
 
-### 12 Auffälligkeiten
-1. Leistungsbeschreibung weicht vom Referenzdatensatz ab (Ist: „Abrechnung der Betriebsgastronomie für März 2026“; Soll: „Kantinenbewirtschaftung“) | Risiko: Niedrig | Audit-Exception-relevant: Ja | Begründung: Belegte Soll-Ist-Abweichung im Referenzabgleich | Quelle/Dokument: Rechnung; Referenztabelle_Rechnungen.xlsx [1] | Prüfhhandlung: Abgleich im Quellsystem und Klärung der abweichenden Bezeichnung
+\Pruefschritt{11 Plausibilität und Betrugsindikatoren}
+\begin{AntwortTab}{Y{0.34}Y{0.38}Y{0.24}}
+\toprule
+\textit{Kriterium} & \textit{Werte} & \textit{plausibel/auffällig/ nicht prüfbar} \\
+\midrule
+\endhead
+Leistungszeitraum vor Rechnungsdatum & 01.03.2026 -- 31.03.2026; Rechnung 02.04.2026 & plausibel \\
+Währung konsistent & EUR & plausibel \\
+Steuersatz konsistent & 19\,\% & plausibel \\
+Empfänger konsistent & Freudenberg \& Co. Kommanditgesellschaft & plausibel \\
+Zahlungsziel & nicht vorhanden & nicht prüfbar \\
+Fehlende Bestellnr. & nicht vorhanden & auffällig \\
+Fehlende Freigabereferenz & nicht vorhanden & auffällig \\
+Rechnungsdatum Wochenende/Feiertag & 02.04.2026 (Donnerstag) & plausibel \\
+Freigabedatum Wochenende/Feiertag & 07.04.2026 (Dienstag) & plausibel \\
+Generische Leistung & Kantinenbewirtschaftung/Betriebsgastronomie & auffällig \\
+\bottomrule
+\end{AntwortTab}
 
-2. Fehlende Bestellnummer | Risiko: Mittel | Audit-Exception-relevant: Nein | Begründung: Red Flag gemäß Prüfkatalog, jedoch nicht Audit-Exception-relevant | Quelle/Dokument: Rechnung | Prüfhhandlung: Prüfung, ob Bestellung im Quellsystem existiert
+\Pruefschritt{12 Auffälligkeiten}
+\begin{enumerate}
+    \item Leistungsbeschreibung weicht vom Referenzdatensatz ab (Ist: \enquote{Abrechnung der Betriebsgastronomie für März 2026}; Soll: \enquote{Kantinenbewirtschaftung})\newline
+    Risiko: Niedrig\newline
+    Audit-Exception-relevant: Ja\newline
+    Begründung: Belegte Soll-Ist-Abweichung im Referenzabgleich\newline
+    Quelle/Dokument: Rechnung; \Datei{Referenztabelle_Rechnungen.xlsx} [1]\newline
+    Prüfhhandlung: Abgleich im Quellsystem und Klärung der abweichenden Bezeichnung
+    \item Fehlende Bestellnummer\newline
+    Risiko: Mittel\newline
+    Audit-Exception-relevant: Nein\newline
+    Begründung: Red Flag gemäß Prüfkatalog, jedoch nicht Audit-Exception-relevant\newline
+    Quelle/Dokument: Rechnung\newline
+    Prüfhhandlung: Prüfung, ob Bestellung im Quellsystem existiert
+    \item Fehlende Freigabereferenz\newline
+    Risiko: Mittel\newline
+    Audit-Exception-relevant: Nein\newline
+    Begründung: Red Flag gemäß Prüfkatalog, jedoch nicht Audit-Exception-relevant\newline
+    Quelle/Dokument: Rechnung\newline
+    Prüfhhandlung: Nachweis der Verknüpfung zwischen Freigabe und Rechnung im Quellsystem
+\end{enumerate}
 
-3. Fehlende Freigabereferenz | Risiko: Mittel | Audit-Exception-relevant: Nein | Begründung: Red Flag gemäß Prüfkatalog, jedoch nicht Audit-Exception-relevant | Quelle/Dokument: Rechnung | Prüfhhandlung: Nachweis der Verknüpfung zwischen Freigabe und Rechnung im Quellsystem
-
-### 13 Empfehlung
+\Pruefschritt{13 Empfehlung}
 Prüfhandlungen; Abgleich der Leistungsbeschreibung mit dem Referenzdatensatz und den Stammdaten im Quellsystem. Prüfung, ob eine Bestellreferenz existiert. Prüfung der Verknüpfung zwischen Rechnungsbeleg und Freigabedokumentation im Quellsystem.
 
-### 14 Menschliche Nachprüfung: Nein
+\Pruefschritt{14 Menschliche Nachprüfung: Nein}
 Nein: Freigabe, Zuordnung und Berechtigung sind anhand der vorliegenden Unterlagen eindeutig prüfbar.
 
-### 15 Audit Exception: Ja
+\Pruefschritt{15 Audit Exception: Ja}
 Ausschlaggebend ist die belegte Soll-Ist-Abweichung der Leistungsbeschreibung zwischen Rechnung und Referenzdatensatz. Eine belegte Soll-Ist-Abweichung erfüllt die Kriterien für eine Audit Exception. Die Freigabe ist nachweisbar und regelkonform erfolgt.
 
-Opus 4.7
-Antwort 24 (\ac{TP}):
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% RECHNUNG 24
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\clearpage
+\section{Rechnung~24}
+\label{anhang:modellantwort-24}
+
+\subsection*{Antwort Claude Opus 4.7}
+\Klassifikation{\ac{TP}}
 
 Now I have all data needed. Let me perform calculations:
 
 Rechnung Ist:
-- Pos 1: 1 × 4.200,00 = 4.200,00
-- Pos 2: 1 × 40,00 = 40,00
-- Pos 3: 1 × 300,00 = 300,00
-- Pos 4: 9 × 85,00 = 765,00
-- Summe: 4.200 + 40 + 300 + 765 = 5.305,00 €
-- Rechnung weist Netto 5.350,00 € aus → Differenz +45,00 € zu berechneter Summe
-- USt 19% auf 5.350: 1.016,50 € (ausgewiesen) vs. korrekt auf 5.305 wäre 1.007,95 €
-- Brutto ausgewiesen: 6.366,50 €; korrekt wäre: 6.312,95 €
+\begin{itemize}
+    \item Pos 1: 1 $\times$ 4.200,00 = 4.200,00
+    \item Pos 2: 1 $\times$ 40,00 = 40,00
+    \item Pos 3: 1 $\times$ 300,00 = 300,00
+    \item Pos 4: 9 $\times$ 85,00 = 765,00
+    \item Summe: 4.200 + 40 + 300 + 765 = 5.305,00 €
+    \item Rechnung weist Netto 5.350,00 € aus $\rightarrow$ Differenz +45,00 € zu berechneter Summe
+    \item USt 19\% auf 5.350: 1.016,50 € (ausgewiesen) vs. korrekt auf 5.305 wäre 1.007,95 €
+    \item Brutto ausgewiesen: 6.366,50 €; korrekt wäre: 6.312,95 €
+\end{itemize}
 
 Soll laut Referenztabelle: Netto 5.305,00 €, USt 1.007,95 €, Brutto 6.312,95 €
 
 Rechnungsdatum 11.05.2026 = Montag. Freigabedatum 18.05.2026 = Montag. Beide Werktage.
 
-Freigabe nach Rechnungsdatum: Ja (18.05. > 11.05.). Person B ist unbegrenzt freigabeberechtigt.
+Freigabe nach Rechnungsdatum: Ja (18.05. \textgreater{} 11.05.). Person B ist unbegrenzt freigabeberechtigt.
 
-Screenshot nennt Betrag 6.312,95 € – entspricht dem Soll der Referenztabelle, nicht dem Ist der Rechnung (6.366,50 €).
+Screenshot nennt Betrag 6.312,95 € -- entspricht dem Soll der Referenztabelle, nicht dem Ist der Rechnung (6.366,50 €).
 
-## Rechnung: PA-26-0417 | 24_Rechnung_Patentanmeldung_PA-26-0417.pdf
+{\RechnungKopfStil Rechnung: PA-26-0417 \textbar{} \Datei{24_Rechnung_Patentanmeldung_PA-26-0417.pdf}}\par
 
-### 1 Rechnungsdaten
-- **Empfänger:** Freudenberg Sealing Technologies GmbH & Co. KG, Abteilung Beschaffung, Höhnerweg 2-4, 69469 Weinheim[1]
-- **Rechnungsnummer:** PA-26-0417[2]
-- **Rechnungsdatum:** 11.05.2026[2]
-- **Leistungsdatum:** 06.05.2026[2]
-- **Kundennummer:** P-2019[2]
-- **Referenzart/-nr.:** Aktenzeichen: DE 10 2026 004 118[2]
-- **Bestellnummer:** nicht vorhanden
-- **Lieferant:** Patentis Patentanwälte, Erfinderweg 3, 80331 München[3]
-- **USt-IdNr. Empfänger:** DE 143 566 072[4]
-- **USt-IdNr. Lieferant:** DE 746 517 229[5]
-- **Steuernummer Lieferant:** 19/577/78727[6]
-- **Leistung:** Gebühren und Honorar zur Patentanmeldung: Ausarbeitung Anmeldeunterlagen Dichtungssystem (14 Ansprüche), Amtsgebühr DPMA, Recherchegebühr, Zeichnungen[7]
-- **Positionen (Menge × Einzelpreis = Gesamt):** Pos. 1: 1 Pauschale × 4.200,00 € = 4.200,00 €; Pos. 2: 1 Position × 40,00 € = 40,00 €; Pos. 3: 1 Position × 300,00 € = 300,00 €; Pos. 4: 9 Blatt × 85,00 € = 765,00 €[8]
-- **Netto ausgewiesen:** 5.350,00 €[8]
-- **Steuersatz:** 19 %[9]
-- **USt ausgewiesen:** 1.016,50 €[9]
-- **Brutto ausgewiesen:** 6.366,50 €[9]
-- **Währung:** EUR
-- **Zahlungsziel:** 21 Tage, fällig am 01.06.2026[9]
-- **IBAN:** DE97 6709 0000 9796 9325 09 (VR Bank Rhein-Neckar, BIC GENODE61MA2)[6]
-- **Freigabereferenz auf Rechnung:** nicht vorhanden
+\Pruefschritt{1 Rechnungsdaten}
+\begin{AntwortTab}{Y{0.27}Y{0.69}}
+\toprule
+\textit{Feld} & \textit{Wert} \\
+\midrule
+\endhead
+Empfänger & Freudenberg Sealing Technologies GmbH \& Co. KG, Abteilung Beschaffung, Höhnerweg 2-4, 69469 Weinheim[1] \\
+Rechnungsnummer & PA-26-0417[2] \\
+Rechnungsdatum & 11.05.2026[2] \\
+Leistungsdatum & 06.05.2026[2] \\
+Kundennummer & P-2019[2] \\
+Referenzart/-nr. & Aktenzeichen: DE 10 2026 004 118[2] \\
+Bestellnummer & nicht vorhanden \\
+Lieferant & Patentis Patentanwälte, Erfinderweg 3, 80331 München[3] \\
+USt-IdNr. Empfänger & DE 143 566 072[4] \\
+USt-IdNr. Lieferant & DE 746 517 229[5] \\
+Steuernummer Lieferant & 19/577/78727[6] \\
+Leistung & Gebühren und Honorar zur Patentanmeldung: Ausarbeitung Anmeldeunterlagen Dichtungssystem (14 Ansprüche), Amtsgebühr DPMA, Recherchegebühr, Zeichnungen[7] \\
+Positionen (Menge $\times$ Einzelpreis = Gesamt) & Pos. 1: 1 Pauschale $\times$ 4.200,00 € = 4.200,00 €;\newline
+Pos. 2: 1 Position $\times$ 40,00 € = 40,00 €;\newline
+Pos. 3: 1 Position $\times$ 300,00 € = 300,00 €;\newline
+Pos. 4: 9 Blatt $\times$ 85,00 € = 765,00 €[8] \\
+Netto ausgewiesen & 5.350,00 €[8] \\
+Steuersatz & 19\,\%[9] \\
+USt ausgewiesen & 1.016,50 €[9] \\
+Brutto ausgewiesen & 6.366,50 €[9] \\
+Währung & EUR \\
+Zahlungsziel & 21 Tage, fällig am 01.06.2026[9] \\
+IBAN & DE97 6709 0000 9796 9325 09 (VR Bank Rhein-Neckar, BIC GENODE61MA2)[6] \\
+Freigabereferenz auf Rechnung & nicht vorhanden \\
+\bottomrule
+\end{AntwortTab}
 
-### 2 Datensatz
-| Datensatz | Kriterium | Werte | Ergebnis |
-|---|---|---|---|
-| PA-26-0417, Patentis Patentanwälte, 11.05.2026[10] | Rechnungsnr. exakt | Ist: PA-26-0417 / Soll: PA-26-0417 | Eindeutiger Treffer |
+\Pruefschritt{2 Datensatz}
+\begin{AntwortTab}{Y{0.3}Y{0.18}Y{0.3}Y{0.18}}
+\toprule
+\textit{Datensatz} & \textit{Kriterium} & \textit{Werte} & \textit{Ergebnis} \\
+\midrule
+\endhead
+PA-26-0417, Patentis Patentanwälte, 11.05.2026[10] & Rechnungsnr. exakt & Ist: PA-26-0417 / Soll: PA-26-0417 & Eindeutiger Treffer \\
+\bottomrule
+\end{AntwortTab}
 
-### 3 Soll-Ist
-| Feld | Ist | Soll | Abweichung abs./% | Status |
-|---|---|---|---|---|
-| Empfänger | Freudenberg Sealing Technologies GmbH & Co. KG | Freudenberg Sealing Technologies GmbH & Co. KG[10] | – | Übereinstimmung |
-| Rechnungsnr. | PA-26-0417 | PA-26-0417[10] | – | Übereinstimmung |
-| Rechnungsdatum | 11.05.2026 | 11.05.2026[10] | – | Übereinstimmung |
-| Leistungsdatum | 06.05.2026 | 06.05.2026 (Leistungsdatum)[10] | – | Übereinstimmung |
-| Kundennummer | P-2019 | P-2019[10] | – | Übereinstimmung |
-| Referenzart | Aktenzeichen | Aktenzeichen[10] | – | Übereinstimmung |
-| Referenznr. | DE 10 2026 004 118 | DE 10 2026 004 118[10] | – | Übereinstimmung |
-| Lieferant | Patentis Patentanwälte | Patentis Patentanwälte[10] | – | Übereinstimmung |
-| Leistung | Patentanmeldung | Patentanmeldung[10] | – | Übereinstimmung |
-| Nettobetrag | 5.350,00 € | 5.305,00 €[10] | +45,00 € / +0,85 % | Abweichung |
-| Steuersatz | 19 % | 19 %[10] | – | Übereinstimmung |
-| USt-Betrag | 1.016,50 € | 1.007,95 €[10] | +8,55 € / +0,85 % | Abweichung |
-| Brutto | 6.366,50 € | 6.312,95 €[10] | +53,55 € / +0,85 % | Abweichung |
-| Fälligkeit | 01.06.2026 | 01.06.2026[10] | – | Übereinstimmung |
-| USt-IdNr. Lieferant | DE 746 517 229 | nicht in Referenztabelle | – | nicht prüfbar |
+\Pruefschritt{3 Soll-Ist}
+\begin{AntwortTab}{Y{0.19}Y{0.23}Y{0.23}Y{0.15}Y{0.20}}
+\toprule
+\textit{Feld} & \textit{Ist} & \textit{Soll} & \textit{Abweichung abs./\%} & \textit{Status} \\
+\midrule
+\endhead
+Empfänger & Freudenberg Sealing Technologies GmbH \& Co. KG & Freudenberg Sealing Technologies GmbH \& Co. KG[10] & -- & Übereinstimmung \\
+Rechnungsnr. & PA-26-0417 & PA-26-0417[10] & -- & Übereinstimmung \\
+Rechnungsdatum & 11.05.2026 & 11.05.2026[10] & -- & Übereinstimmung \\
+Leistungsdatum & 06.05.2026 & 06.05.2026 (Leistungsdatum)[10] & -- & Übereinstimmung \\
+Kundennummer & P-2019 & P-2019[10] & -- & Übereinstimmung \\
+Referenzart & Aktenzeichen & Aktenzeichen[10] & -- & Übereinstimmung \\
+Referenznr. & DE 10 2026 004 118 & DE 10 2026 004 118[10] & -- & Übereinstimmung \\
+Lieferant & Patentis Patentanwälte & Patentis Patentanwälte[10] & -- & Übereinstimmung \\
+Leistung & Patentanmeldung & Patentanmeldung[10] & -- & Übereinstimmung \\
+Nettobetrag & 5.350,00 € & 5.305,00 €[10] & +45,00 € / +0,85\,\% & Abweichung \\
+Steuersatz & 19\,\% & 19\,\%[10] & -- & Übereinstimmung \\
+USt-Betrag & 1.016,50 € & 1.007,95 €[10] & +8,55 € / +0,85\,\% & Abweichung \\
+Brutto & 6.366,50 € & 6.312,95 €[10] & +53,55 € / +0,85\,\% & Abweichung \\
+Fälligkeit & 01.06.2026 & 01.06.2026[10] & -- & Übereinstimmung \\
+USt-IdNr. Lieferant & DE 746 517 229 & nicht in Referenztabelle & -- & nicht prüfbar \\
+\bottomrule
+\end{AntwortTab}
 
-### 4 Freigabenachweise
-| Dokument | Typ | Fundstelle | Absender | Genehmiger | Rolle | Wortlaut | Datum/Uhrzeit | Merkmale | Lesbarkeit | Evidenz |
-|---|---|---|---|---|---|---|---|---|---|---|
-| E-Mail-Screenshot | PNG | Betreff + Fließtext | Person B <person.b@freudenberg.example> | Person B | nicht angegeben | „Rechnung PA-26-0417 (Patentis Patentanwälte) vom 11.05.2026 über 6.312,95 € ist freigegeben." | Mo 18.05.2026 15:51 | Nr.: PA-26-0417; Lieferant: Patentis Patentanwälte; Betrag: 6.312,95 € | lesbar | mittel (Rolle fehlt; Betrag im Nachweis ≠ Rechnungsbetrag) |
+\Pruefschritt{4 Freigabenachweise}
+\begin{AntwortTab}{Y{0.22}Y{0.74}}
+\toprule
+\textit{Feld} & \textit{Nachweis} \\
+\midrule
+\endhead
+Dokument & E-Mail-Screenshot \\
+Typ & PNG \\
+Fundstelle & Betreff + Fließtext \\
+Absender & Person B \textless{}person.b@freudenberg.example\textgreater{} \\
+Genehmiger & Person B \\
+Rolle & nicht angegeben \\
+Wortlaut & \enquote{Rechnung PA-26-0417 (Patentis Patentanwälte) vom 11.05.2026 über 6.312,95 € ist freigegeben.} \\
+Datum/Uhrzeit & Mo 18.05.2026 15:51 \\
+Merkmale & Nr.: PA-26-0417; Lieferant: Patentis Patentanwälte; Betrag: 6.312,95 € \\
+Lesbarkeit & lesbar \\
+Evidenz & mittel (Rolle fehlt; Betrag im Nachweis $\neq$ Rechnungsbetrag) \\
+\bottomrule
+\end{AntwortTab}
 
-### 5 Zuordnung
-| Nachweis | Merkmale | Werte Rechnung | Werte Nachweis | Ergebnis |
-|---|---|---|---|---|
-| E-Mail-Screenshot | Rechnungsnr. | PA-26-0417 | PA-26-0417 | Übereinstimmung |
-| E-Mail-Screenshot | Lieferant | Patentis Patentanwälte | Patentis Patentanwälte | Übereinstimmung |
-| E-Mail-Screenshot | Rechnungsdatum | 11.05.2026 | 11.05.2026 | Übereinstimmung |
-| E-Mail-Screenshot | Brutto | 6.366,50 € | 6.312,95 € | Abweichung (53,55 €) |
+\Pruefschritt{5 Zuordnung}
+\begin{AntwortTab}{Y{0.2}Y{0.2}Y{0.18}Y{0.18}Y{0.2}}
+\toprule
+\textit{Nachweis} & \textit{Merkmale} & \textit{Werte Rechnung} & \textit{Werte Nachweis} & \textit{Ergebnis} \\
+\midrule
+\endhead
+E-Mail-Screenshot & Rechnungsnr. & PA-26-0417 & PA-26-0417 & Übereinstimmung \\
+E-Mail-Screenshot & Lieferant & Patentis Patentanwälte & Patentis Patentanwälte & Übereinstimmung \\
+E-Mail-Screenshot & Rechnungsdatum & 11.05.2026 & 11.05.2026 & Übereinstimmung \\
+E-Mail-Screenshot & Brutto & 6.366,50 € & 6.312,95 € & Abweichung (53,55 €) \\
+\bottomrule
+\end{AntwortTab}
 
 Status: Zuordnung über Rechnungsnummer eindeutig; der im Nachweis genannte Betrag weicht jedoch vom Rechnungsbrutto ab.
 
-### 6 Berechtigung
-| Betrag/Betragsart/Währung | Soll (Stufe, Person) | Ist (Genehmiger) | Status | Begründung |
-|---|---|---|---|---|
-| 6.366,50 € Brutto / EUR | Person B: unbegrenzt, EUR, „Darf jede Rechnung freigeben"[11] | Person B | berechtigt | Person B hat laut Freigabematrix unbegrenzte Freigabeberechtigung in EUR |
+\Pruefschritt{6 Berechtigung}
+\begin{AntwortTab}{Y{0.16}Y{0.26}Y{0.12}Y{0.12}Y{0.30}}
+\toprule
+\textit{Betrag / Betragsart / Währung} & \textit{Soll (Stufe, Person)} & \textit{Ist (Genehmiger)} & \textit{Status} & \textit{Begründung} \\
+\midrule
+\endhead
+6.366,50 € Brutto / EUR & Person B: unbegrenzt, EUR, \enquote{Darf jede Rechnung freigeben}[11] & Person B & berechtigt & Person B hat laut Freigabematrix unbegrenzte Freigabeberechtigung in EUR \\
+\bottomrule
+\end{AntwortTab}
 
-Hinweis: Der im Freigabenachweis genannte Betrag (6.312,95 €) läge ebenfalls innerhalb der unbegrenzten Berechtigung. Rolle von Person B ist im Nachweis nicht ausgewiesen; die Matrix stellt jedoch auf namentlich genannte Personen ab („Die Matrix gilt für namentlich genannte Personen"[11]).
+Hinweis: Der im Freigabenachweis genannte Betrag (6.312,95 €) läge ebenfalls innerhalb der unbegrenzten Berechtigung. Rolle von Person B ist im Nachweis nicht ausgewiesen; die Matrix stellt jedoch auf namentlich genannte Personen ab (\enquote{Die Matrix gilt für namentlich genannte Personen}[11]).
 
-### 7 Zeitfolge
-| Daten | nach Rechnung | vor Buchung | vor Zahlung |
-|---|---|---|---|
-| Freigabe 18.05.2026 15:51 vs. Rechnungsdatum 11.05.2026 | Ja | Nicht prüfbar (kein Buchungsdatum vorhanden) | Nicht prüfbar (kein Zahlungsdatum vorhanden); Fälligkeit 01.06.2026 liegt nach Freigabe |
+\Pruefschritt{7 Zeitfolge}
+\begin{AntwortTab}{Y{0.26}Y{0.12}Y{0.24}Y{0.34}}
+\toprule
+\textit{Daten} & \textit{nach Rechnung} & \textit{vor Buchung} & \textit{vor Zahlung} \\
+\midrule
+\endhead
+Freigabe 18.05.2026 15:51 vs. Rechnungsdatum 11.05.2026 & Ja & Nicht prüfbar (kein Buchungsdatum vorhanden) & Nicht prüfbar (kein Zahlungsdatum vorhanden); Fälligkeit 01.06.2026 liegt nach Freigabe \\
+\bottomrule
+\end{AntwortTab}
 
-### 8 Gesamtbewertung Freigabe
-- Freigabe vorhanden, nicht eindeutig zuordenbar.
-
+\Pruefschritt{8 Gesamtbewertung Freigabe}
+\begin{itemize}
+    \item Freigabe vorhanden, nicht eindeutig zuordenbar.
+\end{itemize}
 Begründung: Rechnungsnummer, Lieferant und Rechnungsdatum stimmen überein; der im Nachweis genannte Betrag (6.312,95 €) weicht jedoch vom Rechnungsbrutto (6.366,50 €) ab, sodass offen bleibt, ob die Freigabe sich auf die vorliegende Rechnung oder einen anderen Betrag/Vorgang bezieht.
 
-### 9 Rechnerische Prüfung
-| Werte | berechnet | ausgewiesen | Differenz | Bewertung |
-|---|---|---|---|---|
-| Pos. 1 (1 × 4.200,00) | 4.200,00 € | 4.200,00 € | 0,00 € | korrekt |
-| Pos. 2 (1 × 40,00) | 40,00 € | 40,00 € | 0,00 € | korrekt |
-| Pos. 3 (1 × 300,00) | 300,00 € | 300,00 € | 0,00 € | korrekt |
-| Pos. 4 (9 × 85,00) | 765,00 € | 765,00 € | 0,00 € | korrekt |
-| Σ Positionen = Netto | 5.305,00 € | 5.350,00 € | +45,00 € | **fehlerhaft** |
-| Netto × 19 % = USt (auf ausgew. 5.350,00) | 1.016,50 € | 1.016,50 € | 0,00 € | rechnerisch konsistent zum ausgewiesenen Netto |
-| Netto × 19 % = USt (auf berechn. 5.305,00) | 1.007,95 € | 1.016,50 € | +8,55 € | **fehlerhaft** |
-| Netto + USt = Brutto | 6.366,50 € (zu 5.350,00+1.016,50) / 6.312,95 € (zu 5.305,00+1.007,95) | 6.366,50 € | +53,55 € ggü. korrektem Brutto | **fehlerhaft** |
+\Pruefschritt{9 Rechnerische Prüfung}
+\begin{AntwortTab}{Y{0.26}Y{0.24}Y{0.13}Y{0.15}Y{0.18}}
+\toprule
+\textit{Werte} & \textit{berechnet} & \textit{ausgewiesen} & \textit{Differenz} & \textit{Bewertung} \\
+\midrule
+\endhead
+Pos. 1 (1 $\times$ 4.200,00) & 4.200,00 € & 4.200,00 € & 0,00 € & korrekt \\
+Pos. 2 (1 $\times$ 40,00) & 40,00 € & 40,00 € & 0,00 € & korrekt \\
+Pos. 3 (1 $\times$ 300,00) & 300,00 € & 300,00 € & 0,00 € & korrekt \\
+Pos. 4 (9 $\times$ 85,00) & 765,00 € & 765,00 € & 0,00 € & korrekt \\
+$\Sigma$ Positionen = Netto & 5.305,00 € & 5.350,00 € & +45,00 € & fehlerhaft \\
+Netto $\times$ 19\,\% = USt (auf ausgew. 5.350,00) & 1.016,50 € & 1.016,50 € & 0,00 € & rechnerisch konsistent zum ausgewiesenen Netto \\
+Netto $\times$ 19\,\% = USt (auf berechn. 5.305,00) & 1.007,95 € & 1.016,50 € & +8,55 € & fehlerhaft \\
+Netto + USt = Brutto & 6.366,50 € (zu 5.350,00 + 1.016,50) / 6.312,95 € (zu 5.305,00 + 1.007,95) & 6.366,50 € & +53,55 € ggü. korrektem Brutto & fehlerhaft \\
+\bottomrule
+\end{AntwortTab}
 
-### 10 Formale Vollständigkeit
-| Pflichtangabe | Fundstelle | Status |
-|---|---|---|
-| Anschrift Lieferant | Erfinderweg 3, 80331 München[3] | vorhanden |
-| Anschrift Empfänger | Höhnerweg 2-4, 69469 Weinheim[1] | vorhanden |
-| USt-IdNr. Lieferant | DE 746 517 229[5] | vorhanden |
-| Steuernummer Lieferant | 19/577/78727[6] | vorhanden |
-| USt-IdNr. Empfänger | DE 143 566 072[4] | vorhanden |
-| Rechnungsdatum | 11.05.2026[2] | vorhanden |
-| Rechnungsnummer | PA-26-0417[2] | vorhanden |
-| Leistungsbeschreibung | Patentanmeldung mit Einzelpositionen[7] | vorhanden |
-| Leistungszeitpunkt | 06.05.2026[2] | vorhanden |
-| Entgelt (Netto) | 5.350,00 €[8] | vorhanden |
-| Steuersatz | 19 %[9]​[12] | vorhanden |
-| Steuerbetrag | 1.016,50 €[9] | vorhanden |
+\Pruefschritt{10 Formale Vollständigkeit}
+\begin{AntwortTab}{Y{0.3}Y{0.46}Y{0.2}}
+\toprule
+\textit{Pflichtangabe} & \textit{Fundstelle} & \textit{Status} \\
+\midrule
+\endhead
+Anschrift Lieferant & Erfinderweg 3, 80331 München[3] & vorhanden \\
+Anschrift Empfänger & Höhnerweg 2-4, 69469 Weinheim[1] & vorhanden \\
+USt-IdNr. Lieferant & DE 746 517 229[5] & vorhanden \\
+Steuernummer Lieferant & 19/577/78727[6] & vorhanden \\
+USt-IdNr. Empfänger & DE 143 566 072[4] & vorhanden \\
+Rechnungsdatum & 11.05.2026[2] & vorhanden \\
+Rechnungsnummer & PA-26-0417[2] & vorhanden \\
+Leistungsbeschreibung & Patentanmeldung mit Einzelpositionen[7] & vorhanden \\
+Leistungszeitpunkt & 06.05.2026[2] & vorhanden \\
+Entgelt (Netto) & 5.350,00 €[8] & vorhanden \\
+Steuersatz & 19\,\%[9][12] & vorhanden \\
+Steuerbetrag & 1.016,50 €[9] & vorhanden \\
+\bottomrule
+\end{AntwortTab}
 
-### 11 Plausibilität und Betrugsindikatoren
-| Kriterium | Werte | Bewertung |
-|---|---|---|
-| Leistungsdatum ≤ Rechnungsdatum | 06.05.2026 ≤ 11.05.2026 | plausibel |
-| Rechnungsdatum (Wochentag) | 11.05.2026 = Montag | plausibel |
-| Freigabedatum (Wochentag) | 18.05.2026 = Montag | plausibel |
-| Währungskonsistenz | EUR durchgängig | plausibel |
-| Steuersatzkonsistenz | 19 % durchgängig | plausibel |
-| Empfänger auf Rechnung vs. Referenz | Freudenberg Sealing Technologies GmbH & Co. KG | plausibel |
-| IBAN-Inhaber | nicht vergleichbar | nicht prüfbar |
-| Marktüblichkeit Beträge | kein Vergleich möglich | nicht prüfbar |
-| Rechnerische Konsistenz Σ Positionen → Netto | 4.200 + 40 + 300 + 765 = 5.305 ≠ 5.350 ausgewiesen | **auffällig** |
-| Konsistenz ausgewiesenes Brutto vs. Freigabenachweis-Betrag | 6.366,50 € vs. 6.312,95 € | **auffällig** |
-| Fehlende Bestellnummer | keine Bestellnr. auf Rechnung | auffällig |
-| Zahlungsziel | 21 Tage | plausibel |
-| Absenderdomain Freigabe | @freudenberg.example (interne Domain) | plausibel |
+\Pruefschritt{11 Plausibilität und Betrugsindikatoren}
+\begin{AntwortTab}{Y{0.34}Y{0.42}Y{0.2}}
+\toprule
+\textit{Kriterium} & \textit{Werte} & \textit{Bewertung} \\
+\midrule
+\endhead
+Leistungsdatum $\leq$ Rechnungsdatum & 06.05.2026 $\leq$ 11.05.2026 & plausibel \\
+Rechnungsdatum (Wochentag) & 11.05.2026 = Montag & plausibel \\
+Freigabedatum (Wochentag) & 18.05.2026 = Montag & plausibel \\
+Währungskonsistenz & EUR durchgängig & plausibel \\
+Steuersatzkonsistenz & 19\,\% durchgängig & plausibel \\
+Empfänger auf Rechnung vs. Referenz & Freudenberg Sealing Technologies GmbH \& Co. KG & plausibel \\
+IBAN-Inhaber & nicht vergleichbar & nicht prüfbar \\
+Marktüblichkeit Beträge & kein Vergleich möglich & nicht prüfbar \\
+Rechnerische Konsistenz $\Sigma$ Positionen $\rightarrow$ Netto & 4.200 + 40 + 300 + 765 = 5.305 $\neq$ 5.350 ausgewiesen & auffällig \\
+Konsistenz ausgewiesenes Brutto vs. Freigabenachweis-Betrag & 6.366,50 € vs. 6.312,95 € & auffällig \\
+Fehlende Bestellnummer & keine Bestellnr. auf Rechnung & auffällig \\
+Zahlungsziel & 21 Tage & plausibel \\
+Absenderdomain Freigabe & @freudenberg.example (interne Domain) & plausibel \\
+\bottomrule
+\end{AntwortTab}
 
-### 12 Auffälligkeiten
-1. **Rechnerischer Fehler Netto-Summe (5.350,00 € ausgewiesen vs. 5.305,00 € berechnet; +45,00 €)** | Risiko: hoch (materielle Betragsabweichung mit Zahlungsflusswirkung) | Audit-Exception-relevant: Ja | Begründung: Die Summe der Einzelpositionen ergibt 5.305,00 €, die Rechnung weist 5.350,00 € aus; dadurch Fortpflanzung in USt (+8,55 €) und Brutto (+53,55 €). | Quelle: Rechnung PA-26-0417, Pos. 1–4 und Nettosumme | Prüfhandlung: Korrekturrechnung oder Gutschrift beim Lieferanten anfordern; Zahlung in Höhe von max. 6.312,95 € veranlassen.
-2. **Soll-Ist-Abweichung Netto/USt/Brutto gegenüber Referenztabelle (+53,55 € brutto / +0,85 %)** | Risiko: hoch (Zahlungsfluss) | Audit-Exception-relevant: Ja | Begründung: Referenzwerte: Netto 5.305,00 €, USt 1.007,95 €, Brutto 6.312,95 €; Rechnung weist 5.350,00 € / 1.016,50 € / 6.366,50 € aus. | Quelle: Referenztabelle_Rechnungen.xlsx, Zeile PA-26-0417; Rechnung PA-26-0417 | Prüfhandlung: Abgleich mit Mandatsvereinbarung/Gebührenordnung.
-3. **Freigabenachweis-Betrag ≠ Rechnungsbrutto (6.312,95 € im Nachweis vs. 6.366,50 € auf Rechnung)** | Risiko: mittel (Zuordnung eingeschränkt) | Audit-Exception-relevant: Nein | Begründung: Zuordnung über Rechnungsnummer, Lieferant und Datum eindeutig, Betragsangabe im Nachweis entspricht aber dem Referenz-Sollwert, nicht dem Ist-Betrag der vorliegenden Rechnung. | Quelle: Freigabe-Screenshot vom 18.05.2026 15:51 | Prüfhandlung: Klärung mit Person B, auf welchen Betrag sich die Freigabe bezieht.
-4. **Fehlende Bestellnummer** | Risiko: mittel (fehlende Bestellreferenz) | Audit-Exception-relevant: Nein | Begründung: Keine Bestellnr. ausgewiesen (lt. Entscheidungslogik keine AE). | Quelle: Rechnung PA-26-0417 | Prüfhandlung: Prüfung im Beschaffungssystem.
+\Pruefschritt{12 Auffälligkeiten}
+\begin{enumerate}
+    \item Rechnerischer Fehler Netto-Summe (5.350,00 € ausgewiesen vs. 5.305,00 € berechnet; +45,00 €)\newline
+    Risiko: hoch (materielle Betragsabweichung mit Zahlungsflusswirkung)\newline
+    Audit-Exception-relevant: Ja\newline
+    Begründung: Die Summe der Einzelpositionen ergibt 5.305,00 €, die Rechnung weist 5.350,00 € aus; dadurch Fortpflanzung in USt (+8,55 €) und Brutto (+53,55 €).\newline
+    Quelle: Rechnung PA-26-0417, Pos. 1--4 und Nettosumme\newline
+    Prüfhandlung: Korrekturrechnung oder Gutschrift beim Lieferanten anfordern; Zahlung in Höhe von max. 6.312,95 € veranlassen.
+    \item Soll-Ist-Abweichung Netto/\hspace{0pt}USt/\hspace{0pt}Brutto gegenüber Referenztabelle (+53,55 € brutto / +0,85\,\%)\newline
+    Risiko: hoch (Zahlungsfluss)\newline
+    Audit-Exception-relevant: Ja\newline
+    Begründung: Referenzwerte: Netto 5.305,00 €, USt 1.007,95 €, Brutto 6.312,95 €; Rechnung weist 5.350,00 € / 1.016,50 € / 6.366,50 € aus.\newline
+    Quelle: \Datei{Referenztabelle_Rechnungen.xlsx}, Zeile PA-26-0417; Rechnung PA-26-0417\newline
+    Prüfhandlung: Abgleich mit Mandatsvereinbarung/Gebührenordnung.
+    \item Freigabenachweis-Betrag $\neq$ Rechnungsbrutto (6.312,95 € im Nachweis vs. 6.366,50 € auf Rechnung)\newline
+    Risiko: mittel (Zuordnung eingeschränkt)\newline
+    Audit-Exception-relevant: Nein\newline
+    Begründung: Zuordnung über Rechnungsnummer, Lieferant und Datum eindeutig, Betragsangabe im Nachweis entspricht aber dem Referenz-Sollwert, nicht dem Ist-Betrag der vorliegenden Rechnung.\newline
+    Quelle: Freigabe-Screenshot vom 18.05.2026 15:51\newline
+    Prüfhandlung: Klärung mit Person B, auf welchen Betrag sich die Freigabe bezieht.
+    \item Fehlende Bestellnummer\newline
+    Risiko: mittel (fehlende Bestellreferenz)\newline
+    Audit-Exception-relevant: Nein\newline
+    Begründung: Keine Bestellnr. ausgewiesen (lt. Entscheidungslogik keine AE).\newline
+    Quelle: Rechnung PA-26-0417\newline
+    Prüfhandlung: Prüfung im Beschaffungssystem.
+\end{enumerate}
 
-### 13 Empfehlung
-- Korrigierte Rechnung bzw. Gutschrift über 53,55 € beim Lieferanten anfordern.
-- Vor Zahlung Klärung mit Person B zur Freigabehöhe (6.312,95 € vs. 6.366,50 €) und Bestätigung einholen, auf welche Rechnungsversion sich die Freigabe bezieht.
-- Prüfung im Quellsystem (Beschaffung/Kreditor): Bestellbezug, Mandats-/Rahmenvereinbarung Patentis, IBAN-Stammdaten.
-- Prüfung Buchungs- und Zahlungszeitpunkt im Buchhaltungssystem zur Verifizierung der Zeitfolge (vor Buchung/vor Zahlung).
+\Pruefschritt{13 Empfehlung}
+\begin{itemize}
+    \item Korrigierte Rechnung bzw. Gutschrift über 53,55 € beim Lieferanten anfordern.
+    \item Vor Zahlung Klärung mit Person B zur Freigabehöhe (6.312,95 € vs. 6.366,50 €) und Bestätigung einholen, auf welche Rechnungsversion sich die Freigabe bezieht.
+    \item Prüfung im Quellsystem (Beschaffung/Kreditor): Bestellbezug, Mandats-/\hspace{0pt}Rahmenvereinbarung Patentis, IBAN-Stammdaten.
+    \item Prüfung Buchungs- und Zahlungszeitpunkt im Buchhaltungssystem zur Verifizierung der Zeitfolge (vor Buchung/vor Zahlung).
+\end{itemize}
 
-### 14 Menschliche Nachprüfung: Ja
-| fehlende Information | Prüfschritt | Prüfhandlung |
-|---|---|---|
-| Betragsabweichung Freigabenachweis vs. Rechnung | 4/5 Zuordnung, 8 Gesamtbewertung | Klärung mit Genehmiger Person B, auf welchen Betrag sich die Freigabe bezieht |
-| Buchungs- und Zahlungsdatum nicht vorhanden | 7 Zeitfolge | Abfrage im Buchhaltungssystem |
-| Ursache der Netto-Summenabweichung (5.350 vs. 5.305) | 9 Rechnerische Prüfung | Rückfrage beim Lieferanten / Abgleich Mandatsvereinbarung |
+\Pruefschritt{14 Menschliche Nachprüfung: Ja}
+\begin{AntwortTab}{Y{0.34}Y{0.24}Y{0.38}}
+\toprule
+\textit{fehlende Information} & \textit{Prüfschritt} & \textit{Prüfhandlung} \\
+\midrule
+\endhead
+Betragsabweichung Freigabenachweis vs. Rechnung & 4/5 Zuordnung, 8 Gesamtbewertung & Klärung mit Genehmiger Person B, auf welchen Betrag sich die Freigabe bezieht \\
+Buchungs- und Zahlungsdatum nicht vorhanden & 7 Zeitfolge & Abfrage im Buchhaltungssystem \\
+Ursache der Netto-Summenabweichung (5.350 vs. 5.305) & 9 Rechnerische Prüfung & Rückfrage beim Lieferanten / Abgleich Mandatsvereinbarung \\
+\bottomrule
+\end{AntwortTab}
 
-### 15 Audit Exception: Ja
+\Pruefschritt{15 Audit Exception: Ja}
 Die Rechnung enthält einen belegten rechnerischen Fehler: Die Summe der Einzelpositionen (5.305,00 €) weicht vom ausgewiesenen Nettobetrag (5.350,00 €) ab, mit Fortpflanzung auf USt und Brutto. Dieselbe Abweichung besteht gegenüber den Soll-Werten der Referenztabelle (+53,55 € brutto). Zusätzlich bezieht sich der Freigabenachweis betragsmäßig auf den Referenz-Soll-Betrag (6.312,95 €), nicht auf das ausgewiesene Rechnungsbrutto (6.366,50 €), was einer eindeutigen Freigabe des tatsächlich geforderten Betrags entgegensteht.
 
-Punkte aus 12 mit „Audit-Exception-relevant: Ja": Nr. 1 und Nr. 2.
+Punkte aus 12 mit \enquote{Audit-Exception-relevant: Ja}: Nr.~1 und Nr.~2.
 
-GPT 5.5
-Antwort 24 (\ac{FN}):
+%----------------------------------------------------------------------
 
-## Rechnung: PA-26-0417 | 24_Rechnung_Patentanmeldung_PA-26-0417.pdf
+\clearpage
+\subsection*{Antwort GPT-5.5}
+\Klassifikation{\ac{FN}}
 
-### 1 Rechnungsdaten
-Empfänger: Freudenberg Sealing Technologies GmbH & Co. KG, Abteilung Beschaffung, Höhrenweg 2-4, 69469 Weinheim | Rechnung: Kopfbereich
+{\RechnungKopfStil Rechnung: PA-26-0417 \textbar{} \Datei{24_Rechnung_Patentanmeldung_PA-26-0417.pdf}}\par
 
-Rechnungsnr.: PA-26-0417 | Rechnung: Feld „Rechnungsnummer“
+\Pruefschritt{1 Rechnungsdaten}
+\begin{AntwortTab}{Y{0.18}Y{0.5}Y{0.28}}
+\toprule
+\textit{Feld} & \textit{Wert} & \textit{Fundstelle} \\
+\midrule
+\endhead
+Empfänger & Freudenberg Sealing Technologies GmbH \& Co. KG, Abteilung Beschaffung, Höhrenweg 2-4, 69469 Weinheim & Rechnung: Kopfbereich \\
+Rechnungsnr. & PA-26-0417 & Rechnung: Feld \enquote{Rechnungsnummer} \\
+Rechnungsdatum & 11.05.2026 & Rechnung: Feld \enquote{Rechnungsdatum} \\
+Leistungsdatum & 06.05.2026 & Rechnung: Feld \enquote{Leistungsdatum} \\
+Kundennr. & P-2019 & Rechnung: Feld \enquote{Kundennummer} \\
+Referenzart/-nr. & Aktenzeichen / DE 10 2026 004 118 & Rechnung: Feld \enquote{Aktenzeichen} \\
+Bestellnr. & nicht vorhanden & Rechnung \\
+Lieferant & Patentis Patentanwälte & Rechnung: Briefkopf \\
+Anschriften & Lieferant: Erfinderweg 3, 80331 München\newline
+Empfänger: Höhrenweg 2-4, 69469 Weinheim & Rechnung \\
+St-Nr./USt-IdNr. & Lieferant USt-IdNr.: DE 746 517 229\newline
+Lieferant Steuernummer: 19/577/78727\newline
+Empfänger USt-IdNr.: DE 143 566 072 & Rechnung Fußzeile/Kopfbereich \\
+Leistung & Ausarbeitung Anmeldeunterlagen (Dichtungssystem, 14 Ansprüche)\newline
+Amtsgebühr DPMA\newline
+Recherchegebühr\newline
+Zeichnungen & Rechnung Positionen \\
+Menge & 1 Pauschale\newline 1 Position\newline 1 Position\newline 9 Blatt & \\
+Einzelpreis & 4.200,00 €\newline 40,00 €\newline 300,00 €\newline 85,00 € & \\
+Positionen & 4.200,00 €\newline 40,00 €\newline 300,00 €\newline 765,00 € & \\
+Netto & 5.305,00 € & Rechnung \\
+Steuersatz & 19\,\% & Rechnung \\
+USt & 1.007,95 € & Rechnung \\
+Brutto & 6.312,95 € & Rechnung \\
+Währung & EUR & Rechnung \\
+Zahlungsziel & Zahlbar innerhalb von 21 Tagen ohne Abzug, fällig am 01.06.2026 & Rechnung \\
+IBAN & DE97 6709 0000 9796 9325 09 & Rechnung Fußzeile \\
+Freigabereferenz & \Datei{Rechnung_PA-26-0417.pdf} & Freigabe-Screenshot \\
+\bottomrule
+\end{AntwortTab}
 
-Rechnungsdatum: 11.05.2026 | Rechnung: Feld „Rechnungsdatum“
+\Pruefschritt{2 Datensatz}
+\begin{AntwortTab}{Y{0.3}Y{0.24}Y{0.2}Y{0.22}}
+\toprule
+\textit{Datensatz} & \textit{Kriterium} & \textit{Werte} & \textit{Ergebnis} \\
+\midrule
+\endhead
+\Datei{Referenztabelle_Rechnungen.xlsx} & Rechnungsnr. exakt & PA-26-0417 & Treffer eindeutig [1] \\
+\bottomrule
+\end{AntwortTab}
 
-Leistungsdatum: 06.05.2026 | Rechnung: Feld „Leistungsdatum“
+\Pruefschritt{3 Soll-Ist}
+\begin{AntwortTab}{Y{0.19}Y{0.23}Y{0.23}Y{0.15}Y{0.20}}
+\toprule
+\textit{Feld} & \textit{Ist} & \textit{Soll} & \textit{Abweichung abs./\%} & \textit{Status} \\
+\midrule
+\endhead
+Empfänger & Freudenberg Sealing Technologies GmbH \& Co. KG & Freudenberg Sealing Technologies GmbH \& Co. KG & 0 / 0\,\% & Übereinstimmung \\
+Rechnungsnr. & PA-26-0417 & PA-26-0417 & 0 / 0\,\% & Übereinstimmung \\
+Rechnungsdatum & 11.05.2026 & 11.05.2026 & 0 / 0\,\% & Übereinstimmung \\
+Leistungsdatum & 06.05.2026 & 06.05.2026 & 0 / 0\,\% & Übereinstimmung \\
+Kundennr. & P-2019 & P-2019 & 0 / 0\,\% & Übereinstimmung \\
+Referenzart & Aktenzeichen & Aktenzeichen & 0 / 0\,\% & Übereinstimmung \\
+Referenznr. & DE 10 2026 004 118 & DE 10 2026 004 118 & 0 / 0\,\% & Übereinstimmung \\
+Lieferant & Patentis Patentanwälte & Patentis Patentanwälte & 0 / 0\,\% & Übereinstimmung \\
+Leistung & Patentanmeldung & Patentanmeldung & 0 / 0\,\% & Übereinstimmung \\
+Netto & 5.305,00 € & 5.305,00 € & 0,00 € / 0\,\% & Übereinstimmung \\
+Steuersatz & 19\,\% & 19\,\% & 0 / 0\,\% & Übereinstimmung \\
+USt & 1.007,95 € & 1.007,95 € & 0,00 € / 0\,\% & Übereinstimmung \\
+Brutto & 6.312,95 € & 6.312,95 € & 0,00 € / 0\,\% & Übereinstimmung \\
+Zahlungsziel & 01.06.2026 & 01.06.2026 & 0 / 0\,\% & Übereinstimmung \\
+USt-IdNr. Lieferant & DE 746 517 229 & nicht vorhanden in Referenztabelle & nicht prüfbar & nicht prüfbar \\
+\bottomrule
+\end{AntwortTab}
 
-Kundennr.: P-2019 | Rechnung: Feld „Kundennummer“
+Sollwerte gemäß \Datei{Referenztabelle_Rechnungen.xlsx}. [1]
 
-Referenzart/-nr.: Aktenzeichen / DE 10 2026 004 118 | Rechnung: Feld „Aktenzeichen“
+\Pruefschritt{4 Freigabenachweise (je Nachweis)}
+\begin{AntwortTab}{Y{0.22}Y{0.74}}
+\toprule
+\textit{Feld} & \textit{Nachweis} \\
+\midrule
+\endhead
+Dokument & PNG-Screenshot \\
+Typ & E-Mail \\
+Fundstelle & Betreff und Nachrichtentext \\
+Absender & Person B \textless{}person.b@freudenberg.example\textgreater{} \\
+Genehmiger & Person B \\
+Rolle & nicht prüfbar \\
+Wortlaut & \enquote{Rechnung PA-26-0417 (Patentis Patentanwälte) vom 11.05.2026 über 6.312,95 € ist freigegeben.} \\
+Datum/Uhrzeit & 18.05.2026 15:51 \\
+Merkmale (Nr., Lieferant, Betrag) & Rechnungsnr. PA-26-0417; Lieferant Patentis Patentanwälte; Betrag 6.312,95 € \\
+Lesbarkeit & lesbar \\
+Evidenz & hoch \\
+\bottomrule
+\end{AntwortTab}
 
-Bestellnr.: nicht vorhanden | Rechnung
+\Pruefschritt{5 Zuordnung}
+\begin{AntwortTab}{Y{0.16}Y{0.2}Y{0.23}Y{0.23}Y{0.14}}
+\toprule
+\textit{Nachweis} & \textit{Merkmale} & \textit{Werte Rechnung} & \textit{Werte Nachweis} & \textit{Ergebnis} \\
+\midrule
+\endhead
+E-Mail-Screenshot & Rechnungsnr., Lieferant, Betrag & PA-26-0417; Patentis Patentanwälte; 6.312,95 € & PA-26-0417; Patentis Patentanwälte; 6.312,95 € & eindeutig \\
+\bottomrule
+\end{AntwortTab}
 
-Lieferant: Patentis Patentanwälte | Rechnung: Briefkopf
+\Pruefschritt{6 Berechtigung}
+\begin{AntwortTab}{Y{0.18}Y{0.2}Y{0.12}Y{0.16}Y{0.30}}
+\toprule
+\textit{Betrag / Betragsart / Währung} & \textit{Soll (Stufe, Person)} & \textit{Ist (Genehmiger)} & \textit{Status} & \textit{Begründung} \\
+\midrule
+\endhead
+6.312,95 € brutto / EUR & Person B, unbegrenzt & Person B & Übereinstimmung & Person B darf jede Rechnung in EUR freigeben. [2] \\
+\bottomrule
+\end{AntwortTab}
 
-Anschriften:
-- Lieferant: Erfinderweg 3, 80331 München
-- Empfänger: Höhrenweg 2-4, 69469 Weinheim
-| Rechnung
+\Pruefschritt{7 Zeitfolge}
+\begin{AntwortTab}{Y{0.42}Y{0.14}Y{0.16}Y{0.24}}
+\toprule
+\textit{Daten} & \textit{nach Rechnung} & \textit{vor Buchung} & \textit{vor Zahlung (Ja/Nein/Nicht prüfbar)} \\
+\midrule
+\endhead
+Rechnungsdatum 11.05.2026; Freigabe 18.05.2026 15:51 & Ja & nicht prüfbar & Nicht prüfbar \\
+\bottomrule
+\end{AntwortTab}
 
-St-Nr./USt-IdNr.:
-- Lieferant USt-IdNr.: DE 746 517 229
-- Lieferant Steuernummer: 19/577/78727
-- Empfänger USt-IdNr.: DE 143 566 072
-| Rechnung Fußzeile/Kopfbereich
+\Pruefschritt{8 Gesamtbewertung Freigabe}
+\begin{itemize}
+    \item Freigabe vorhanden und regelkonform.
+\end{itemize}
 
-Leistung:
-- Ausarbeitung Anmeldeunterlagen (Dichtungssystem, 14 Ansprüche)
-- Amtsgebühr DPMA
-- Recherchegebühr
-- Zeichnungen
-| Rechnung Positionen
+\Pruefschritt{9 Rechnerische Prüfung}
+\begin{AntwortTab}{Y{0.3}Y{0.17}Y{0.17}Y{0.14}Y{0.18}}
+\toprule
+\textit{Werte} & \textit{berechnet} & \textit{ausgewiesen} & \textit{Differenz} & \textit{Bewertung} \\
+\midrule
+\endhead
+Positionssumme netto & 5.305,00 € & 5.305,00 € & 0,00 € & korrekt \\
+USt 19\,\% auf 5.305,00 € & 1.007,95 € & 1.007,95 € & 0,00 € & korrekt \\
+Brutto & 6.312,95 € & 6.312,95 € & 0,00 € & korrekt \\
+\bottomrule
+\end{AntwortTab}
 
-Menge:
-- 1 Pauschale
-- 1 Position
-- 1 Position
-- 9 Blatt
+\Pruefschritt{10 Formale Vollständigkeit}
+\begin{AntwortTab}{Y{0.34}Y{0.42}Y{0.2}}
+\toprule
+\textit{Pflichtangabe} & \textit{Fundstelle} & \textit{Status} \\
+\midrule
+\endhead
+Lieferantenanschrift & Briefkopf & vorhanden \\
+Leistungsempfänger & Adressfeld & vorhanden \\
+Rechnungsdatum & Rechnungsdatenblock & vorhanden \\
+Rechnungsnummer & Rechnungsdatenblock & vorhanden \\
+Leistungszeitpunkt & Rechnungsdatenblock & vorhanden \\
+Leistungsbeschreibung & Positionen & vorhanden \\
+Entgelt & Summenbereich & vorhanden \\
+Steuersatz & Summenbereich & vorhanden \\
+Steuerbetrag & Summenbereich & vorhanden \\
+USt-IdNr./Steuernummer & Fußzeile & vorhanden \\
+\bottomrule
+\end{AntwortTab}
 
-Einzelpreis:
-- 4.200,00 €
-- 40,00 €
-- 300,00 €
-- 85,00 €
+\Pruefschritt{11 Plausibilität und Betrugsindikatoren}
+\begin{AntwortTab}{Y{0.34}Y{0.38}Y{0.24}}
+\toprule
+\textit{Kriterium} & \textit{Werte} & \textit{plausibel/auffällig/ nicht prüfbar} \\
+\midrule
+\endhead
+Leistungsdatum vor Rechnungsdatum & 06.05.2026 vor 11.05.2026 & plausibel \\
+Währungskonsistenz & EUR durchgängig & plausibel \\
+Steuersatzkonsistenz & 19\,\% korrekt berechnet & plausibel \\
+Empfängerkonsistenz & Rechnung an Freudenberg Sealing Technologies GmbH \& Co. KG & plausibel \\
+Zahlungsziel & 21 Tage bis 01.06.2026 & plausibel \\
+Lieferant in Referenztabelle & vorhanden & plausibel \\
+Bestellnummer & nicht vorhanden & auffällig \\
+Freigabereferenz & vorhanden (E-Mail-Anhangsbezug) & plausibel \\
+Generische Leistung & nein & plausibel \\
+Rechnungsdatum Wochenende/Feiertag & 11.05.2026 (Dienstag) & plausibel \\
+Freigabedatum Wochenende/Feiertag & 18.05.2026 (Montag) & plausibel \\
+IBAN-Inhaber-Abgleich & keine Vergleichsquelle & nicht prüfbar \\
+\bottomrule
+\end{AntwortTab}
 
-Positionen:
-- 4.200,00 €
-- 40,00 €
-- 300,00 €
-- 765,00 €
+\Pruefschritt{12 Auffälligkeiten}
+\begin{enumerate}
+    \item Fehlende Bestellnummer (Bestellnr.: nicht vorhanden)\newline
+    Risiko: Mittel\newline
+    Audit-Exception-relevant: Nein\newline
+    Begründung: Bestellreferenz fehlt auf der Rechnung.\newline
+    Quelle/Dokument: Rechnung\newline
+    Prüfdhandlung: Prüfung im Quellsystem auf vorhandene Bestellung oder alternative Beauftragung.
+\end{enumerate}
 
-Netto: 5.305,00 € | Rechnung
+\Pruefschritt{13 Empfehlung}
+\begin{itemize}
+    \item Prüfung im Quellsystem, ob eine Bestellung oder Mandatierung zur Patentanmeldung hinterlegt ist.
+    \item Abgleich der Lieferantenstammdaten (IBAN, USt-IdNr.) mit dem ERP-System.
+    \item Buchungs- und Zahlungsbeleg zur vollständigen Zeitfolgenprüfung einsehen.
+\end{itemize}
 
-Steuersatz: 19 % | Rechnung
+\Pruefschritt{14 Menschliche Nachprüfung: Ja}
+\begin{AntwortTab}{Y{0.4}Y{0.16}Y{0.4}}
+\toprule
+\textit{fehlende Information} & \textit{Prüfschritt} & \textit{Prüfhandlung} \\
+\midrule
+\endhead
+Buchungsdatum nicht vorhanden & Prüfschritt 8 & Buchungsbeleg im Quellsystem prüfen. \\
+Zahlungsdatum nicht vorhanden & Prüfschritt 8 & Zahlungsbeleg im Quellsystem prüfen. \\
+USt-IdNr. des Lieferanten nicht in Referenztabelle enthalten & Prüfschritt 3 & Stammdatenabgleich im Quellsystem durchführen. \\
+\bottomrule
+\end{AntwortTab}
 
-USt: 1.007,95 € | Rechnung
+\Pruefschritt{15 Audit Exception: Nein}
+Es wurde ein eindeutiger Referenzdatensatz gefunden, die Soll-Ist-Werte stimmen überein, die Rechnung ist rechnerisch korrekt und eine eindeutige sowie berechtigte Freigabe durch Person B liegt vor. [1][2] Die festgestellte fehlende Bestellnummer ist gemäß Vorgaben nicht Audit-Exception-relevant.
 
-Brutto: 6.312,95 € | Rechnung
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% RECHNUNG 98
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Währung: EUR | Rechnung
+\clearpage
+\section{Rechnung~98}
+\label{anhang:modellantwort-98}
 
-Zahlungsziel: Zahlbar innerhalb von 21 Tagen ohne Abzug, fällig am 01.06.2026 | Rechnung
-
-IBAN: DE97 6709 0000 9796 9325 09 | Rechnung Fußzeile
-
-Freigabereferenz: Rechnung_PA-26-0417.pdf | Freigabe-Screenshot
-
-### 2 Datensatz
-| Datensatz | Kriterium | Werte | Ergebnis |
-|---|---|---|---|
-| Referenztabelle_Rechnungen.xlsx | Rechnungsnr. exakt | PA-26-0417 | Treffer eindeutig [1] |
-
-### 3 Soll-Ist
-| Feld | Ist | Soll | Abweichung abs./% | Status |
-|---|---|---|---|---|
-| Empfänger | Freudenberg Sealing Technologies GmbH & Co. KG | Freudenberg Sealing Technologies GmbH & Co. KG | 0 / 0 % | Übereinstimmung |
-| Rechnungsnr. | PA-26-0417 | PA-26-0417 | 0 / 0 % | Übereinstimmung |
-| Rechnungsdatum | 11.05.2026 | 11.05.2026 | 0 / 0 % | Übereinstimmung |
-| Leistungsdatum | 06.05.2026 | 06.05.2026 | 0 / 0 % | Übereinstimmung |
-| Kundennr. | P-2019 | P-2019 | 0 / 0 % | Übereinstimmung |
-| Referenzart | Aktenzeichen | Aktenzeichen | 0 / 0 % | Übereinstimmung |
-| Referenznr. | DE 10 2026 004 118 | DE 10 2026 004 118 | 0 / 0 % | Übereinstimmung |
-| Lieferant | Patentis Patentanwälte | Patentis Patentanwälte | 0 / 0 % | Übereinstimmung |
-| Leistung | Patentanmeldung | Patentanmeldung | 0 / 0 % | Übereinstimmung |
-| Netto | 5.305,00 € | 5.305,00 € | 0,00 € / 0 % | Übereinstimmung |
-| Steuersatz | 19 % | 19 % | 0 / 0 % | Übereinstimmung |
-| USt | 1.007,95 € | 1.007,95 € | 0,00 € / 0 % | Übereinstimmung |
-| Brutto | 6.312,95 € | 6.312,95 € | 0,00 € / 0 % | Übereinstimmung |
-| Zahlungsziel | 01.06.2026 | 01.06.2026 | 0 / 0 % | Übereinstimmung |
-| USt-IdNr. Lieferant | DE 746 517 229 | nicht vorhanden in Referenztabelle | nicht prüfbar | nicht prüfbar |
-
-Sollwerte gemäß Referenztabelle_Rechnungen.xlsx. [1]
-
-### 4 Freigabenachweise (je Nachweis)
-| Dokument | Typ | Fundstelle | Absender | Genehmiger | Rolle | Wortlaut | Datum/Uhrzeit | Merkmale (Nr., Lieferant, Betrag) | Lesbarkeit | Evidenz |
-|---|---|---|---|---|---|---|---|---|---|---|
-| PNG-Screenshot | E-Mail | Betreff und Nachrichtentext | Person B <person.b@freudenberg.example> | Person B | nicht prüfbar | „Rechnung PA-26-0417 (Patentis Patentanwälte) vom 11.05.2026 über 6.312,95 € ist freigegeben.“ | 18.05.2026 15:51 | Rechnungsnr. PA-26-0417; Lieferant Patentis Patentanwälte; Betrag 6.312,95 € | lesbar | hoch |
-
-### 5 Zuordnung
-| Nachweis | Merkmale | Werte Rechnung | Werte Nachweis | Ergebnis |
-|---|---|---|---|---|
-| E-Mail-Screenshot | Rechnungsnr., Lieferant, Betrag | PA-26-0417; Patentis Patentanwälte; 6.312,95 € | PA-26-0417; Patentis Patentanwälte; 6.312,95 € | eindeutig |
-
-### 6 Berechtigung
-| Betrag/Betragsart/Währung | Soll (Stufe, Person) | Ist (Genehmiger) | Status | Begründung |
-|---|---|---|---|---|
-| 6.312,95 € brutto / EUR | Person B, unbegrenzt | Person B | Übereinstimmung | Person B darf jede Rechnung in EUR freigeben. [2] |
-
-### 7 Zeitfolge
-| Daten | nach Rechnung | vor Buchung | vor Zahlung (Ja/Nein/Nicht prüfbar) |
-|---|---|---|---|
-| Rechnungsdatum 11.05.2026; Freigabe 18.05.2026 15:51 | Ja | nicht prüfbar | Nicht prüfbar |
-
-### 8 Gesamtbewertung Freigabe
-- Freigabe vorhanden und regelkonform.
-
-### 9 Rechnerische Prüfung
-| Werte | berechnet | ausgewiesen | Differenz | Bewertung |
-|---|---|---|---|---|
-| Positionssumme netto | 5.305,00 € | 5.305,00 € | 0,00 € | korrekt |
-| USt 19 % auf 5.305,00 € | 1.007,95 € | 1.007,95 € | 0,00 € | korrekt |
-| Brutto | 6.312,95 € | 6.312,95 € | 0,00 € | korrekt |
-
-### 10 Formale Vollständigkeit
-| Pflichtangabe | Fundstelle | Status |
-|---|---|---|
-| Lieferantenanschrift | Briefkopf | vorhanden |
-| Leistungsempfänger | Adressfeld | vorhanden |
-| Rechnungsdatum | Rechnungsdatenblock | vorhanden |
-| Rechnungsnummer | Rechnungsdatenblock | vorhanden |
-| Leistungszeitpunkt | Rechnungsdatenblock | vorhanden |
-| Leistungsbeschreibung | Positionen | vorhanden |
-| Entgelt | Summenbereich | vorhanden |
-| Steuersatz | Summenbereich | vorhanden |
-| Steuerbetrag | Summenbereich | vorhanden |
-| USt-IdNr./Steuernummer | Fußzeile | vorhanden |
-
-### 11 Plausibilität und Betrugsindikatoren
-| Kriterium | Werte | plausibel/auffällig/nicht prüfbar |
-|---|---|---|
-| Leistungsdatum vor Rechnungsdatum | 06.05.2026 vor 11.05.2026 | plausibel |
-| Währungskonsistenz | EUR durchgängig | plausibel |
-| Steuersatzkonsistenz | 19 % korrekt berechnet | plausibel |
-| Empfängerkonsistenz | Rechnung an Freudenberg Sealing Technologies GmbH & Co. KG | plausibel |
-| Zahlungsziel | 21 Tage bis 01.06.2026 | plausibel |
-| Lieferant in Referenztabelle | vorhanden | plausibel |
-| Bestellnummer | nicht vorhanden | auffällig |
-| Freigabereferenz | vorhanden (E-Mail-Anhangsbezug) | plausibel |
-| Generische Leistung | nein | plausibel |
-| Rechnungsdatum Wochenende/Feiertag | 11.05.2026 (Dienstag) | plausibel |
-| Freigabedatum Wochenende/Feiertag | 18.05.2026 (Montag) | plausibel |
-| IBAN-Inhaber-Abgleich | keine Vergleichsquelle | nicht prüfbar |
-
-### 12 Auffälligkeiten
-1. Fehlende Bestellnummer (Bestellnr.: nicht vorhanden) | Risiko: Mittel | Audit-Exception-relevant: Nein | Begründung: Bestellreferenz fehlt auf der Rechnung. | Quelle/Dokument: Rechnung | Prüfdhandlung: Prüfung im Quellsystem auf vorhandene Bestellung oder alternative Beauftragung.
-
-### 13 Empfehlung
-- Prüfung im Quellsystem, ob eine Bestellung oder Mandatierung zur Patentanmeldung hinterlegt ist.
-- Abgleich der Lieferantenstammdaten (IBAN, USt-IdNr.) mit dem ERP-System.
-- Buchungs- und Zahlungsbeleg zur vollständigen Zeitfolgenprüfung einsehen.
-
-### 14 Menschliche Nachprüfung: Ja
-- Buchungsdatum nicht vorhanden | Prüfschritt 8 | Buchungsbeleg im Quellsystem prüfen.
-- Zahlungsdatum nicht vorhanden | Prüfschritt 8 | Zahlungsbeleg im Quellsystem prüfen.
-- USt-IdNr. des Lieferanten nicht in Referenztabelle enthalten | Prüfschritt 3 | Stammdatenabgleich im Quellsystem durchführen.
-
-### 15 Audit Exception: Nein
-Es wurde ein eindeutiger Referenzdatensatz gefunden, die Soll-Ist-Werte stimmen überein, die Rechnung ist rechnerisch korrekt und eine eindeutige sowie berechtigte Freigabe durch Person B liegt vor. [1]​[2] Die festgestellte fehlende Bestellnummer ist gemäß Vorgaben nicht Audit-Exception-relevant.
-
-Opus 4.7
-Antwort 98 (\ac{TP})
+\subsection*{Antwort Claude Opus 4.7}
+\Klassifikation{\ac{TP}}
 
 Die Referenztabelle enthält keine USt-IdNr. des Lieferanten als separates Feld. Ich habe alle notwendigen Informationen. Nun erstelle ich das Prüfprotokoll.
 
-## Rechnung: FW-2026-0771 | 98_Rechnung_Sommerfest_FW-2026-0771.pdf
+{\RechnungKopfStil Rechnung: FW-2026-0771 \textbar{} \Datei{98_Rechnung_Sommerfest_FW-2026-0771.pdf}}\par
 
-### 1 Rechnungsdaten
-- **Empfänger:** Freudenberg & Co. Kommanditgesellschaft, Zentraler Einkauf, Höhnerweg 2-4, 69469 Weinheim
-- **Rechnungsnummer:** FW-2026-0771
-- **Rechnungsdatum:** 04.06.2026
-- **Leistungsdatum:** 30.05.2026
-- **Kundennummer:** FE-3311
-- **Referenzart/-nr.:** Veranstaltung / Sommerfest 2026
-- **Bestellnummer:** nicht vorhanden
-- **Lieferant:** Festwerk Eventagentur GmbH, Festplatzweg 7, 68159 Mannheim
-- **USt-IdNr. Empfänger:** DE 143 566 072
-- **USt-IdNr. Lieferant:** DE 924 942 840 (Fußzeile)
-- **St-Nr. Lieferant:** 75/368/97848 (Fußzeile)
-- **Leistung:** Abrechnung Betriebssommerfest vom 30.05.2026 (Catering/Bewirtung, Bühne/Ton/Licht, Zelte/Mobiliar, Rahmenprogramm)
-- **Positionen:**
-  - Pos. 1: 1.800 Gäste × 38,00 € = 68.400,00 €
-  - Pos. 2: 1 Pauschale × 14.800,00 € = 14.800,00 €
-  - Pos. 3: 1 Pauschale × 9.600,00 € = 9.600,00 €
-  - Pos. 4: 1 Pauschale × 6.800,00 € = 6.800,00 €
-- **Netto:** 99.600,00 €
-- **Steuersatz:** 19 %
-- **USt:** 18.924,00 €
-- **Brutto:** 118.524,00 €
-- **Währung:** EUR
-- **Zahlungsziel:** 21 Tage, fällig am 25.06.2026
-- **IBAN:** DE24 6001 0070 7569 4185 80 (Postbank Stuttgart, BIC PBNKDEFFXXX)
-- **Freigabereferenz:** nicht vorhanden
+\Pruefschritt{1 Rechnungsdaten}
+\begin{AntwortTab}{Y{0.27}Y{0.69}}
+\toprule
+\textit{Feld} & \textit{Wert} \\
+\midrule
+\endhead
+Empfänger & Freudenberg \& Co. Kommanditgesellschaft, Zentraler Einkauf, Höhnerweg 2-4, 69469 Weinheim \\
+Rechnungsnummer & FW-2026-0771 \\
+Rechnungsdatum & 04.06.2026 \\
+Leistungsdatum & 30.05.2026 \\
+Kundennummer & FE-3311 \\
+Referenzart/-nr. & Veranstaltung / Sommerfest 2026 \\
+Bestellnummer & nicht vorhanden \\
+Lieferant & Festwerk Eventagentur GmbH, Festplatzweg 7, 68159 Mannheim \\
+USt-IdNr. Empfänger & DE 143 566 072 \\
+USt-IdNr. Lieferant & DE 924 942 840 (Fußzeile) \\
+St-Nr. Lieferant & 75/368/97848 (Fußzeile) \\
+Leistung & Abrechnung Betriebssommerfest vom 30.05.2026 (Catering/Bewirtung, Bühne/Ton/Licht, Zelte/Mobiliar, Rahmenprogramm) \\
+Positionen & Pos. 1: 1.800 Gäste $\times$ 38,00 € = 68.400,00 €\newline
+Pos. 2: 1 Pauschale $\times$ 14.800,00 € = 14.800,00 €\newline
+Pos. 3: 1 Pauschale $\times$ 9.600,00 € = 9.600,00 €\newline
+Pos. 4: 1 Pauschale $\times$ 6.800,00 € = 6.800,00 € \\
+Netto & 99.600,00 € \\
+Steuersatz & 19\,\% \\
+USt & 18.924,00 € \\
+Brutto & 118.524,00 € \\
+Währung & EUR \\
+Zahlungsziel & 21 Tage, fällig am 25.06.2026 \\
+IBAN & DE24 6001 0070 7569 4185 80 (Postbank Stuttgart, BIC PBNKDEFFXXX) \\
+Freigabereferenz & nicht vorhanden \\
+\bottomrule
+\end{AntwortTab}
 
-### 2 Datensatz
-| Datensatz | Kriterium | Werte | Ergebnis |
-|---|---|---|---|
-| 98_Rechnung_Sommerfest_FW-2026-0771.pdf[1] | Rechnungsnr. exakt | FW-2026-0771 | Treffer |
-| | Lieferant | Festwerk Eventagentur GmbH | Übereinstimmung |
-| | Brutto | 118.524,00 € | Übereinstimmung |
-| | Rechnungsdatum | 04.06.2026 | Übereinstimmung |
+\Pruefschritt{2 Datensatz}
+\begin{AntwortTab}{Y{0.36}Y{0.2}Y{0.22}Y{0.18}}
+\toprule
+\textit{Datensatz} & \textit{Kriterium} & \textit{Werte} & \textit{Ergebnis} \\
+\midrule
+\endhead
+\Datei{98_Rechnung_Sommerfest_FW-2026-0771.pdf}[1] & Rechnungsnr. exakt & FW-2026-0771 & Treffer \\
+ & Lieferant & Festwerk Eventagentur GmbH & Übereinstimmung \\
+ & Brutto & 118.524,00 € & Übereinstimmung \\
+ & Rechnungsdatum & 04.06.2026 & Übereinstimmung \\
+\bottomrule
+\end{AntwortTab}
 
 Eindeutiger Referenzdatensatz gefunden.
 
-### 3 Soll-Ist
-| Feld | Ist | Soll | Abweichung abs./% | Status |
-|---|---|---|---|---|
-| Empfänger | Freudenberg & Co. Kommanditgesellschaft | Freudenberg & Co. Kommanditgesellschaft[1] | – | Übereinstimmung |
-| Rechnungsnr. | FW-2026-0771 | FW-2026-0771[1] | – | Übereinstimmung |
-| Rechnungsdatum | 04.06.2026 | 04.06.2026[1] | – | Übereinstimmung |
-| Leistungsdatum | 30.05.2026 | 30.05.2026 (Leistungsdatum)[1] | – | Übereinstimmung |
-| Kundennummer | FE-3311 | FE-3311[1] | – | Übereinstimmung |
-| Referenzart | Veranstaltung | Veranstaltung[1] | – | Übereinstimmung |
-| Referenznr. | Sommerfest 2026 | Sommerfest 2026[1] | – | Übereinstimmung |
-| Lieferant | Festwerk Eventagentur GmbH | Festwerk Eventagentur GmbH[1] | – | Übereinstimmung |
-| Leistung | Sommerfest/Betriebsfeier | Sommerfest Betriebsfeier[1] | – | Übereinstimmung |
-| Netto | 99.600,00 € | 99,600.00 €[1] | 0,00 € / 0,00 % | Übereinstimmung |
-| Steuersatz | 19 % | 19%[1] | – | Übereinstimmung |
-| USt | 18.924,00 € | 18,924.00 €[1] | 0,00 € / 0,00 % | Übereinstimmung |
-| Brutto | 118.524,00 € | 118,524.00 €[1] | 0,00 € / 0,00 % | Übereinstimmung |
-| Zahlungsziel/fällig | 25.06.2026 | 25.06.2026[1] | – | Übereinstimmung |
-| USt-IdNr. Lieferant | DE 924 942 840 | nicht vorhanden in Referenztabelle | – | nicht prüfbar |
+\Pruefschritt{3 Soll-Ist}
+\begin{AntwortTab}{Y{0.19}Y{0.23}Y{0.23}Y{0.15}Y{0.20}}
+\toprule
+\textit{Feld} & \textit{Ist} & \textit{Soll} & \textit{Abweichung abs./\%} & \textit{Status} \\
+\midrule
+\endhead
+Empfänger & Freudenberg \& Co. Kommanditgesellschaft & Freudenberg \& Co. Kommanditgesellschaft[1] & -- & Übereinstimmung \\
+Rechnungsnr. & FW-2026-0771 & FW-2026-0771[1] & -- & Übereinstimmung \\
+Rechnungsdatum & 04.06.2026 & 04.06.2026[1] & -- & Übereinstimmung \\
+Leistungsdatum & 30.05.2026 & 30.05.2026 (Leistungsdatum)[1] & -- & Übereinstimmung \\
+Kundennummer & FE-3311 & FE-3311[1] & -- & Übereinstimmung \\
+Referenzart & Veranstaltung & Veranstaltung[1] & -- & Übereinstimmung \\
+Referenznr. & Sommerfest 2026 & Sommerfest 2026[1] & -- & Übereinstimmung \\
+Lieferant & Festwerk Eventagentur GmbH & Festwerk Eventagentur GmbH[1] & -- & Übereinstimmung \\
+Leistung & Sommerfest/Betriebsfeier & Sommerfest Betriebsfeier[1] & -- & Übereinstimmung \\
+Netto & 99.600,00 € & 99,600.00 €[1] & 0,00 € / 0,00\,\% & Übereinstimmung \\
+Steuersatz & 19\,\% & 19\%[1] & -- & Übereinstimmung \\
+USt & 18.924,00 € & 18,924.00 €[1] & 0,00 € / 0,00\,\% & Übereinstimmung \\
+Brutto & 118.524,00 € & 118,524.00 €[1] & 0,00 € / 0,00\,\% & Übereinstimmung \\
+Zahlungsziel/fällig & 25.06.2026 & 25.06.2026[1] & -- & Übereinstimmung \\
+USt-IdNr. Lieferant & DE 924 942 840 & nicht vorhanden in Referenztabelle & -- & nicht prüfbar \\
+\bottomrule
+\end{AntwortTab}
 
-### 4 Freigabenachweise
-| Dokument | Typ | Fundstelle | Absender | Genehmiger | Rolle | Wortlaut | Datum/Uhrzeit | Merkmale | Lesbarkeit | Evidenz |
-|---|---|---|---|---|---|---|---|---|---|---|
-| PNG-Screenshot E-Mail | E-Mail-Antwort | Betreff „AW: Rechnung FW-2026-0771 zur Freigabe" | Person E <person.e@freudenberg.example> | Person E | nicht angegeben | „die Rechnung FW-2026-0771 der Festwerk Eventagentur GmbH über 118.524,00 € ist freigegeben. Die Leistung wurde wie beauftragt erbracht." | Di 09.06.2026 11:38 | Rechnungsnr. FW-2026-0771; Lieferant Festwerk Eventagentur GmbH; Betrag 118.524,00 € | lesbar | hoch (Genehmiger, Inhalt, Datum, Rechnungsbezug) |
+\Pruefschritt{4 Freigabenachweise}
+\begin{AntwortTab}{Y{0.22}Y{0.74}}
+\toprule
+\textit{Feld} & \textit{Nachweis} \\
+\midrule
+\endhead
+Dokument & PNG-Screenshot E-Mail \\
+Typ & E-Mail-Antwort \\
+Fundstelle & Betreff \enquote{AW: Rechnung FW-2026-0771 zur Freigabe} \\
+Absender & Person E \textless{}person.e@freudenberg.example\textgreater{} \\
+Genehmiger & Person E \\
+Rolle & nicht angegeben \\
+Wortlaut & \enquote{die Rechnung FW-2026-0771 der Festwerk Eventagentur GmbH über 118.524,00 € ist freigegeben. Die Leistung wurde wie beauftragt erbracht.} \\
+Datum/Uhrzeit & Di 09.06.2026 11:38 \\
+Merkmale & Rechnungsnr. FW-2026-0771; Lieferant Festwerk Eventagentur GmbH; Betrag 118.524,00 € \\
+Lesbarkeit & lesbar \\
+Evidenz & hoch (Genehmiger, Inhalt, Datum, Rechnungsbezug) \\
+\bottomrule
+\end{AntwortTab}
 
-### 5 Zuordnung
-| Nachweis | Merkmale | Werte Rechnung | Werte Nachweis | Ergebnis |
-|---|---|---|---|---|
-| E-Mail Person E | Rechnungsnr. exakt | FW-2026-0771 | FW-2026-0771 | eindeutig |
-| | Lieferant | Festwerk Eventagentur GmbH | Festwerk Eventagentur GmbH | eindeutig |
-| | Brutto | 118.524,00 € | 118.524,00 € | eindeutig |
+\Pruefschritt{5 Zuordnung}
+\begin{AntwortTab}{Y{0.2}Y{0.2}Y{0.2}Y{0.2}Y{0.16}}
+\toprule
+\textit{Nachweis} & \textit{Merkmale} & \textit{Werte Rechnung} & \textit{Werte Nachweis} & \textit{Ergebnis} \\
+\midrule
+\endhead
+E-Mail Person E & Rechnungsnr. exakt & FW-2026-0771 & FW-2026-0771 & eindeutig \\
+ & Lieferant & Festwerk Eventagentur GmbH & Festwerk Eventagentur GmbH & eindeutig \\
+ & Brutto & 118.524,00 € & 118.524,00 € & eindeutig \\
+\bottomrule
+\end{AntwortTab}
 
-Status: **eindeutig zugeordnet**.
+Status: eindeutig zugeordnet.
 
-### 6 Berechtigung
-| Betrag/Betragsart/Währung | Soll (Stufe, Person) | Ist (Genehmiger) | Status | Begründung |
-|---|---|---|---|---|
-| 118.524,00 € Brutto / EUR | Person E: keine Berechtigung, Darf keine Rechnung freigeben[2] | Person E | nicht berechtigt | Person E hat laut Freigabematrix generell keine Freigabeberechtigung. |
+\Pruefschritt{6 Berechtigung}
+\begin{AntwortTab}{Y{0.16}Y{0.26}Y{0.12}Y{0.14}Y{0.28}}
+\toprule
+\textit{Betrag / Betragsart / Währung} & \textit{Soll (Stufe, Person)} & \textit{Ist (Genehmiger)} & \textit{Status} & \textit{Begründung} \\
+\midrule
+\endhead
+118.524,00 € Brutto / EUR & Person E: keine Berechtigung, Darf keine Rechnung freigeben[2] & Person E & nicht berechtigt & Person E hat laut Freigabematrix generell keine Freigabeberechtigung. \\
+\bottomrule
+\end{AntwortTab}
 
-### 7 Zeitfolge
-| Daten | nach Rechnung | vor Buchung | vor Zahlung |
-|---|---|---|---|
-| Rechnungsdatum 04.06.2026; Freigabe 09.06.2026; Fälligkeit 25.06.2026 | Ja (09.06. nach 04.06.) | Nicht prüfbar (Buchungsdatum liegt nicht vor) | Nicht prüfbar (Zahlungsdatum liegt nicht vor; Freigabe liegt vor Fälligkeit) |
+\Pruefschritt{7 Zeitfolge}
+\begin{AntwortTab}{Y{0.25}Y{0.15}Y{0.24}Y{0.32}}
+\toprule
+\textit{Daten} & \textit{nach Rechnung} & \textit{vor Buchung} & \textit{vor Zahlung} \\
+\midrule
+\endhead
+Rechnungsdatum 04.06.2026; Freigabe 09.06.2026; Fälligkeit 25.06.2026 & Ja (09.06. nach 04.06.) & Nicht prüfbar (Buchungsdatum liegt nicht vor) & Nicht prüfbar (Zahlungsdatum liegt nicht vor; Freigabe liegt vor Fälligkeit) \\
+\bottomrule
+\end{AntwortTab}
 
-### 8 Gesamtbewertung Freigabe
-- **Freigabe vorhanden, Genehmiger nicht berechtigt.**
+\Pruefschritt{8 Gesamtbewertung Freigabe}
+\begin{itemize}
+    \item Freigabe vorhanden, Genehmiger nicht berechtigt.
+\end{itemize}
 
-### 9 Rechnerische Prüfung
-| Werte | berechnet | ausgewiesen | Differenz | Bewertung |
-|---|---|---|---|---|
-| Pos. 1: 1.800 × 38,00 € | 68.400,00 € | 68.400,00 € | 0,00 € | korrekt |
-| Pos. 2 | 14.800,00 € | 14.800,00 € | 0,00 € | korrekt |
-| Pos. 3 | 9.600,00 € | 9.600,00 € | 0,00 € | korrekt |
-| Pos. 4 | 6.800,00 € | 6.800,00 € | 0,00 € | korrekt |
-| Netto (Σ Positionen) | 99.600,00 € | 99.600,00 € | 0,00 € | korrekt |
-| USt (99.600 × 19 %) | 18.924,00 € | 18.924,00 € | 0,00 € | korrekt |
-| Brutto (Netto + USt) | 118.524,00 € | 118.524,00 € | 0,00 € | korrekt |
+\Pruefschritt{9 Rechnerische Prüfung}
+\begin{AntwortTab}{Y{0.3}Y{0.17}Y{0.17}Y{0.14}Y{0.18}}
+\toprule
+\textit{Werte} & \textit{berechnet} & \textit{ausgewiesen} & \textit{Differenz} & \textit{Bewertung} \\
+\midrule
+\endhead
+Pos. 1: 1.800 $\times$ 38,00 € & 68.400,00 € & 68.400,00 € & 0,00 € & korrekt \\
+Pos. 2 & 14.800,00 € & 14.800,00 € & 0,00 € & korrekt \\
+Pos. 3 & 9.600,00 € & 9.600,00 € & 0,00 € & korrekt \\
+Pos. 4 & 6.800,00 € & 6.800,00 € & 0,00 € & korrekt \\
+Netto ($\Sigma$ Positionen) & 99.600,00 € & 99.600,00 € & 0,00 € & korrekt \\
+USt (99.600 $\times$ 19\,\%) & 18.924,00 € & 18.924,00 € & 0,00 € & korrekt \\
+Brutto (Netto + USt) & 118.524,00 € & 118.524,00 € & 0,00 € & korrekt \\
+\bottomrule
+\end{AntwortTab}
 
-### 10 Formale Vollständigkeit
-| Pflichtangabe | Fundstelle | Status |
-|---|---|---|
-| Anschrift Lieferant | Kopf/Fuß | vorhanden |
-| Anschrift Empfänger | Rechnungsempfänger | vorhanden |
-| St-Nr. Lieferant | Fußzeile | vorhanden |
-| USt-IdNr. Lieferant | Fußzeile (DE 924 942 840) | vorhanden |
-| USt-IdNr. Empfänger | Empfängerblock (DE 143 566 072) | vorhanden |
-| Rechnungsdatum | Rechnungsdaten | vorhanden |
-| Rechnungsnummer | Rechnungsdaten / Überschrift | vorhanden |
-| Leistungsbeschreibung | Positionstabelle | vorhanden |
-| Leistungszeitpunkt | Rechnungsdaten (30.05.2026) | vorhanden |
-| Entgelt (Netto) | Summenblock | vorhanden |
-| Steuersatz | Summenblock (19 %) | vorhanden |
-| Steuerbetrag | Summenblock | vorhanden |
+\Pruefschritt{10 Formale Vollständigkeit}
+\begin{AntwortTab}{Y{0.3}Y{0.46}Y{0.2}}
+\toprule
+\textit{Pflichtangabe} & \textit{Fundstelle} & \textit{Status} \\
+\midrule
+\endhead
+Anschrift Lieferant & Kopf/Fuß & vorhanden \\
+Anschrift Empfänger & Rechnungsempfänger & vorhanden \\
+St-Nr. Lieferant & Fußzeile & vorhanden \\
+USt-IdNr. Lieferant & Fußzeile (DE 924 942 840) & vorhanden \\
+USt-IdNr. Empfänger & Empfängerblock (DE 143 566 072) & vorhanden \\
+Rechnungsdatum & Rechnungsdaten & vorhanden \\
+Rechnungsnummer & Rechnungsdaten / Überschrift & vorhanden \\
+Leistungsbeschreibung & Positionstabelle & vorhanden \\
+Leistungszeitpunkt & Rechnungsdaten (30.05.2026) & vorhanden \\
+Entgelt (Netto) & Summenblock & vorhanden \\
+Steuersatz & Summenblock (19\,\%) & vorhanden \\
+Steuerbetrag & Summenblock & vorhanden \\
+\bottomrule
+\end{AntwortTab}
 
-### 11 Plausibilität und Betrugsindikatoren
-| Kriterium | Werte | Bewertung |
-|---|---|---|
-| Leistungs- nicht nach Rechnungsdatum | Leistung 30.05.2026, Rechnung 04.06.2026 | plausibel |
-| Währung konsistent | EUR durchgehend | plausibel |
-| Steuersatz konsistent | 19 % durchgehend | plausibel |
-| Empfänger konsistent | Freudenberg & Co. KG, Weinheim | plausibel |
-| IBAN-Inhaber-Vergleich | keine Vergleichsdaten | nicht prüfbar |
-| Zahlungsziel | 21 Tage, fällig 25.06.2026 | plausibel |
-| Fehlende Bestellnummer | – | auffällig (Red Flag 11d) |
-| Fehlende Freigabereferenz auf Rechnung | – | auffällig (Red Flag 11d) |
-| Freigabe über externe Adresse | person.e@freudenberg.example (interne Domain) | plausibel |
-| Rechnungs-/Freigabedatum Wochenende/Feiertag | 04.06.2026 Do; 09.06.2026 Di | plausibel |
-| Marktüblichkeit der Beträge | – | nicht prüfbar |
-| Lieferant in Referenztabelle | Treffer FW-2026-0771 | plausibel |
+\Pruefschritt{11 Plausibilität und Betrugsindikatoren}
+\begin{AntwortTab}{Y{0.34}Y{0.38}Y{0.24}}
+\toprule
+\textit{Kriterium} & \textit{Werte} & \textit{Bewertung} \\
+\midrule
+\endhead
+Leistungs- nicht nach Rechnungsdatum & Leistung 30.05.2026, Rechnung 04.06.2026 & plausibel \\
+Währung konsistent & EUR durchgehend & plausibel \\
+Steuersatz konsistent & 19\,\% durchgehend & plausibel \\
+Empfänger konsistent & Freudenberg \& Co. KG, Weinheim & plausibel \\
+IBAN-Inhaber-Vergleich & keine Vergleichsdaten & nicht prüfbar \\
+Zahlungsziel & 21 Tage, fällig 25.06.2026 & plausibel \\
+Fehlende Bestellnummer & -- & auffällig (Red Flag 11d) \\
+Fehlende Freigabereferenz auf Rechnung & -- & auffällig (Red Flag 11d) \\
+Freigabe über externe Adresse & person.e@freudenberg.example (interne Domain) & plausibel \\
+Rechnungs-/Freigabedatum Wochenende/Feiertag & 04.06.2026 Do; 09.06.2026 Di & plausibel \\
+Marktüblichkeit der Beträge & -- & nicht prüfbar \\
+Lieferant in Referenztabelle & Treffer FW-2026-0771 & plausibel \\
+\bottomrule
+\end{AntwortTab}
 
-### 12 Auffälligkeiten
-1. **Freigabe durch nicht berechtigte Person (Person E, 118.524,00 € Brutto)** | Risiko: Hoch (Freigabe unberechtigt, materieller Betrag) | **Audit-Exception-relevant: Ja** | Begründung: Person E: keine Berechtigung, Darf keine Rechnung freigeben[2]; Rechnung wurde dennoch per E-Mail vom 09.06.2026 freigegeben. | Quelle: Freigabematrix.xlsx; PNG-Screenshot „AW: Rechnung FW-2026-0771 zur Freigabe". | Prüfhandlung: Klärung im Fachbereich, nachträgliche Freigabe durch berechtigte Person (A oder B) einholen; Vier-Augen-Kontrolle im Freigabeprozess verifizieren.
-2. **Fehlende Bestellnummer auf der Rechnung** | Risiko: Mittel (fehlende Bestellreferenz) | Audit-Exception-relevant: Nein | Begründung: Auf der Rechnung ist keine Bestellnummer ausgewiesen; Referenzart laut Referenztabelle ist „Veranstaltung". | Quelle: 98_Rechnung_Sommerfest_FW-2026-0771.pdf. | Prüfhandlung: Prüfen, ob eine Bestellung/Auftragsvergabe im Quellsystem existiert.
+\Pruefschritt{12 Auffälligkeiten}
+\begin{enumerate}
+    \item Freigabe durch nicht berechtigte Person (Person E, 118.524,00 € Brutto)\newline
+    Risiko: Hoch (Freigabe unberechtigt, materieller Betrag)\newline
+    Audit-Exception-relevant: Ja\newline
+    Begründung: Person E: keine Berechtigung, Darf keine Rechnung freigeben[2]; Rechnung wurde dennoch per E-Mail vom 09.06.2026 freigegeben.\newline
+    Quelle: \Datei{Freigabematrix.xlsx}; PNG-Screenshot \enquote{AW: Rechnung FW-2026-0771 zur Freigabe}.\newline
+    Prüfhandlung: Klärung im Fachbereich, nachträgliche Freigabe durch berechtigte Person (A oder B) einholen; Vier-Augen-Kontrolle im Freigabeprozess verifizieren.
+    \item Fehlende Bestellnummer auf der Rechnung\newline
+    Risiko: Mittel (fehlende Bestellreferenz)\newline
+    Audit-Exception-relevant: Nein\newline
+    Begründung: Auf der Rechnung ist keine Bestellnummer ausgewiesen; Referenzart laut Referenztabelle ist \enquote{Veranstaltung}.\newline
+    Quelle: \Datei{98_Rechnung_Sommerfest_FW-2026-0771.pdf}.\newline
+    Prüfhandlung: Prüfen, ob eine Bestellung/Auftragsvergabe im Quellsystem existiert.
+\end{enumerate}
 
-### 13 Empfehlung
-- Nachträgliche Freigabe durch eine gemäß Freigabematrix berechtigte Person (Person A oder Person B) einholen; vorherige Freigabe durch Person E ist unwirksam.
-- Im Quellsystem prüfen, ob die Rechnung bereits gebucht oder zur Zahlung angewiesen wurde; ggf. Zahlungslauf stoppen.
-- Vorliegen einer Bestellung / eines Auftrags zur Veranstaltung „Sommerfest 2026" (FE-3311) im Quellsystem prüfen.
-- Abgleich IBAN DE24 6001 0070 7569 4185 80 mit Lieferantenstammdaten im Kreditorensystem.
-- Berechtigungsprozess überprüfen: Wie konnte eine Anfrage zur Freigabe an eine nicht berechtigte Person (Person E) gelangen bzw. akzeptiert werden.
+\Pruefschritt{13 Empfehlung}
+\begin{itemize}
+    \item Nachträgliche Freigabe durch eine gemäß Freigabematrix berechtigte Person (Person A oder Person B) einholen; vorherige Freigabe durch Person E ist unwirksam.
+    \item Im Quellsystem prüfen, ob die Rechnung bereits gebucht oder zur Zahlung angewiesen wurde; ggf. Zahlungslauf stoppen.
+    \item Vorliegen einer Bestellung / eines Auftrags zur Veranstaltung \enquote{Sommerfest 2026} (FE-3311) im Quellsystem prüfen.
+    \item Abgleich IBAN DE24 6001 0070 7569 4185 80 mit Lieferantenstammdaten im Kreditorensystem.
+    \item Berechtigungsprozess überprüfen: Wie konnte eine Anfrage zur Freigabe an eine nicht berechtigte Person (Person E) gelangen bzw. akzeptiert werden.
+\end{itemize}
 
-### 14 Menschliche Nachprüfung: Ja
-| fehlende Information | Prüfschritt | Prüfhandlung |
-|---|---|---|
-| Nachweisbare Freigabe durch berechtigte Person | 4/6 Freigabe & Berechtigung | Berechtigte Freigabe (Person A/B) einholen und dokumentieren |
-| Buchungs- und Zahlungsstatus | 7 Zeitfolge | Status im Quellsystem prüfen, ggf. Zahlung stoppen |
-| IBAN-Abgleich mit Stammdaten | 11c Plausibilität | Abgleich im Kreditorensystem |
+\Pruefschritt{14 Menschliche Nachprüfung: Ja}
+\begin{AntwortTab}{Y{0.34}Y{0.24}Y{0.38}}
+\toprule
+\textit{fehlende Information} & \textit{Prüfschritt} & \textit{Prüfhandlung} \\
+\midrule
+\endhead
+Nachweisbare Freigabe durch berechtigte Person & 4/6 Freigabe \& Berechtigung & Berechtigte Freigabe (Person A/B) einholen und dokumentieren \\
+Buchungs- und Zahlungsstatus & 7 Zeitfolge & Status im Quellsystem prüfen, ggf. Zahlung stoppen \\
+IBAN-Abgleich mit Stammdaten & 11c Plausibilität & Abgleich im Kreditorensystem \\
+\bottomrule
+\end{AntwortTab}
 
-### 15 Audit Exception: Ja
+\Pruefschritt{15 Audit Exception: Ja}
 Die Rechnung wurde ausschließlich durch Person E freigegeben, die laut Freigabematrix generell nicht freigabeberechtigt ist. Damit liegt eine fehlerhafte Freigabe vor; der Betrag von 118.524,00 € Brutto übersteigt zudem die Grenzen von Person C (25.000,00 €) und Person D (1.000,00 €), sodass nur Person A oder B befugt gewesen wären.
 
 Audit-Exception-relevante Punkte aus Abschnitt 12:
-1. Freigabe durch nicht berechtigte Person (Person E).
+\begin{enumerate}
+    \item Freigabe durch nicht berechtigte Person (Person E).
+\end{enumerate}
 
+%----------------------------------------------------------------------
 
-GPT 5.5
-Antwort 98 (\ac{TP}):
+\clearpage
+\subsection*{Antwort GPT-5.5}
+\Klassifikation{\ac{TP}}
 
-## Rechnung: FW-2026-0771 | 98_Rechnung_Sommerfest_FW-2026-0771.pdf
+{\RechnungKopfStil Rechnung: FW-2026-0771 \textbar{} \Datei{98_Rechnung_Sommerfest_FW-2026-0771.pdf}}\par
 
-### 1 Rechnungsdaten
-Empfänger, Rechnungsnr., -datum, Leistungsdatum, Kundennr., Referenzart/-nr., Bestellnr., Lieferant, Anschriften, St-Nr./USt-IdNr., Leistung, Menge, Einzelpreis, Positionen, Netto, Steuersatz, USt, Brutto, Währung, Zahlungsziel, IBAN, Freigabereferenz
+\Pruefschritt{1 Rechnungsdaten}
+{\RaggedRight Empfänger, Rechnungsnr., -datum, Leistungsdatum, Kundennr., Referenzart/-nr., Bestellnr., Lieferant, Anschriften, St-Nr./USt-IdNr., Leistung, Menge, Einzelpreis, Positionen, Netto, Steuersatz, USt, Brutto, Währung, Zahlungsziel, IBAN, Freigabereferenz\par}
 
-Empfänger: Freudenberg & Co. Kommanditgesellschaft, Zentraler Einkauf, Höhnerweg 2-4, 69469 Weinheim
+\begin{AntwortTab}{Y{0.27}Y{0.69}}
+\toprule
+\textit{Feld} & \textit{Wert} \\
+\midrule
+\endhead
+Empfänger & Freudenberg \& Co. Kommanditgesellschaft, Zentraler Einkauf, Höhnerweg 2-4, 69469 Weinheim \\
+Rechnungsnr. & FW-2026-0771 \\
+Rechnungsdatum & 04.06.2026 \\
+Leistungsdatum & 30.05.2026 \\
+Kundennr. & FE-3311 \\
+Referenzart/-nr. & Veranstaltung / Sommerfest 2026 \\
+Bestellnr. & nicht vorhanden \\
+Lieferant & Festwerk Eventagentur GmbH \\
+Anschriften & Lieferant: Festplatzweg 7, 68159 Mannheim\newline
+Empfänger: Höhnerweg 2-4, 69469 Weinheim \\
+St-Nr./USt-IdNr. & Rechnungskopf: USt-IdNr. DE 143 566 072\newline
+Fußzeile: USt-IdNr. DE 924 942 840\newline
+St.-Nr. nicht vorhanden \\
+Leistung & Catering, Bewirtung vor Ort, Buffet und Getränke, Servicepersonal\newline
+Bühne, Ton- und Lichttechnik\newline
+Zelt und Mobiliar\newline
+Rahmenprogramm und Künstler \\
+Menge & 1.800 Gäste\newline 1 Pauschale\newline 1 Pauschale\newline 1 Pauschale \\
+Einzelpreis & 38,00 €\newline 14.800,00 €\newline 9.600,00 €\newline 6.800,00 € \\
+Positionen & 68.400,00 €\newline 14.800,00 €\newline 9.600,00 €\newline 6.800,00 € \\
+Netto & 99.600,00 € \\
+Steuersatz & 19\,\% \\
+USt & 18.924,00 € \\
+Brutto & 118.524,00 € \\
+Währung & EUR \\
+Zahlungsziel & innerhalb von 21 Tagen, fällig am 25.06.2026 \\
+IBAN & DE24 6001 0007 7569 4185 80 \\
+Freigabereferenz & nicht vorhanden \\
+\bottomrule
+\end{AntwortTab}
 
-Rechnungsnr.: FW-2026-0771
+\Pruefschritt{2 Datensatz}
+\begin{AntwortTab}{Y{0.3}Y{0.24}Y{0.2}Y{0.22}}
+\toprule
+\textit{Datensatz} & \textit{Kriterium} & \textit{Werte} & \textit{Ergebnis} \\
+\midrule
+\endhead
+\Datei{Referenztabelle_Rechnungen.xlsx} & Rechnungsnr. exakt & FW-2026-0771 & Eindeutiger Treffer [1] \\
+\bottomrule
+\end{AntwortTab}
 
-Rechnungsdatum: 04.06.2026
+\Pruefschritt{3 Soll-Ist}
+\begin{AntwortTab}{Y{0.19}Y{0.23}Y{0.23}Y{0.15}Y{0.20}}
+\toprule
+\textit{Feld} & \textit{Ist} & \textit{Soll} & \textit{Abweichung abs./\%} & \textit{Status} \\
+\midrule
+\endhead
+Empfänger & Freudenberg \& Co. Kommanditgesellschaft & Freudenberg \& Co. Kommanditgesellschaft & 0 / 0\,\% & Übereinstimmung \\
+Rechnungsnr. & FW-2026-0771 & FW-2026-0771 & 0 / 0\,\% & Übereinstimmung \\
+Rechnungsdatum & 04.06.2026 & 04.06.2026 & 0 / 0\,\% & Übereinstimmung \\
+Leistungsdatum & 30.05.2026 & 30.05.2026 (Leistungsdatum) & 0 / 0\,\% & Übereinstimmung \\
+Kundennr. & FE-3311 & FE-3311 & 0 / 0\,\% & Übereinstimmung \\
+Referenzart & Veranstaltung & Veranstaltung & 0 / 0\,\% & Übereinstimmung \\
+Referenznr. & Sommerfest 2026 & Sommerfest 2026 & 0 / 0\,\% & Übereinstimmung \\
+Lieferant & Festwerk Eventagentur GmbH & Festwerk Eventagentur GmbH & 0 / 0\,\% & Übereinstimmung \\
+Leistung & Abrechnung des Betriebssommerfestes vom 30.05.2026 & Sommerfest Betriebsfeier & nicht berechenbar & Übereinstimmung \\
+Netto & 99.600,00 € & 99.600,00 € & 0,00 € / 0\,\% & Übereinstimmung \\
+Steuersatz & 19\,\% & 19\,\% & 0 / 0\,\% & Übereinstimmung \\
+USt & 18.924,00 € & 18.924,00 € & 0,00 € / 0\,\% & Übereinstimmung \\
+Brutto & 118.524,00 € & 118.524,00 € & 0,00 € / 0\,\% & Übereinstimmung \\
+Zahlungsziel/ Fälligkeit & 25.06.2026 & 25.06.2026 & 0 / 0\,\% & Übereinstimmung \\
+USt-IdNr. Lieferant & DE 143 566 072 / DE 924 942 840 & nicht vorhanden & nicht prüfbar & nicht prüfbar \\
+\bottomrule
+\end{AntwortTab}
 
-Leistungsdatum: 30.05.2026
+\Pruefschritt{4 Freigabenachweise (je Nachweis)}
+\begin{AntwortTab}{Y{0.22}Y{0.74}}
+\toprule
+\textit{Feld} & \textit{Nachweis} \\
+\midrule
+\endhead
+Dokument & PNG-Screenshot E-Mail \\
+Typ & E-Mail \\
+Fundstelle & Antwortnachricht \\
+Absender & Person E \textless{}person.e@freudenberg.example\textgreater{} \\
+Genehmiger & Person E \\
+Rolle & nicht vorhanden \\
+Wortlaut & \enquote{die Rechnung FW-2026-0771 der Festwerk Eventagentur GmbH über 118.524,00 € ist freigegeben. Die Leistung wurde wie beauftragt erbracht.} \\
+Datum/Uhrzeit & 09.06.2026 11:38 \\
+Merkmale (Nr., Lieferant, Betrag) & Rechnungsnr. FW-2026-0771, Lieferant Festwerk Eventagentur GmbH, Betrag 118.524,00 € \\
+Lesbarkeit & lesbar \\
+Evidenz & hoch \\
+\bottomrule
+\end{AntwortTab}
 
-Kundennr.: FE-3311
+\Pruefschritt{5 Zuordnung}
+\begin{AntwortTab}{Y{0.14}Y{0.18}Y{0.25}Y{0.25}Y{0.14}}
+\toprule
+\textit{Nachweis} & \textit{Merkmale} & \textit{Werte Rechnung} & \textit{Werte Nachweis} & \textit{Ergebnis} \\
+\midrule
+\endhead
+E-Mail Freigabe & Rechnungsnr., Lieferant, Betrag & FW-2026-0771; Festwerk Eventagentur GmbH; 118.524,00 € & FW-2026-0771; Festwerk Eventagentur GmbH; 118.524,00 € & eindeutig \\
+\bottomrule
+\end{AntwortTab}
 
-Referenzart/-nr.: Veranstaltung / Sommerfest 2026
+\Pruefschritt{6 Berechtigung}
+\begin{AntwortTab}{Y{0.18}Y{0.24}Y{0.12}Y{0.14}Y{0.28}}
+\toprule
+\textit{Betrag / Betragsart / Währung} & \textit{Soll (Stufe, Person)} & \textit{Ist (Genehmiger)} & \textit{Status} & \textit{Begründung} \\
+\midrule
+\endhead
+118.524,00 € brutto / EUR & Person A oder Person B (unbegrenzt) [2] & Person E & Abweichung & Person E besitzt keine Freigabeberechtigung. [2] \\
+\bottomrule
+\end{AntwortTab}
 
-Bestellnr.: nicht vorhanden
+\Pruefschritt{7 Zeitfolge}
+\begin{AntwortTab}{Y{0.42}Y{0.14}Y{0.16}Y{0.24}}
+\toprule
+\textit{Daten} & \textit{nach Rechnung} & \textit{vor Buchung} & \textit{vor Zahlung (Ja/Nein/Nicht prüfbar)} \\
+\midrule
+\endhead
+Freigabe 09.06.2026 11:38, Rechnung 04.06.2026 & Ja & nicht prüfbar & Nicht prüfbar \\
+\bottomrule
+\end{AntwortTab}
 
-Lieferant: Festwerk Eventagentur GmbH
+\Pruefschritt{8 Gesamtbewertung Freigabe}
+\begin{itemize}
+    \item Freigabe vorhanden, Genehmiger nicht berechtigt.
+\end{itemize}
 
-Anschriften:
-- Lieferant: Festplatzweg 7, 68159 Mannheim
-- Empfänger: Höhnerweg 2-4, 69469 Weinheim
+\Pruefschritt{9 Rechnerische Prüfung}
+\begin{AntwortTab}{Y{0.3}Y{0.17}Y{0.17}Y{0.14}Y{0.18}}
+\toprule
+\textit{Werte} & \textit{berechnet} & \textit{ausgewiesen} & \textit{Differenz} & \textit{Bewertung} \\
+\midrule
+\endhead
+1.800 $\times$ 38,00 € & 68.400,00 € & 68.400,00 € & 0,00 € & korrekt \\
+Summe Positionen & 99.600,00 € & 99.600,00 € & 0,00 € & korrekt \\
+99.600,00 € $\times$ 19\,\% & 18.924,00 € & 18.924,00 € & 0,00 € & korrekt \\
+Netto + USt & 118.524,00 € & 118.524,00 € & 0,00 € & korrekt \\
+\bottomrule
+\end{AntwortTab}
 
-St-Nr./USt-IdNr.:
-- Rechnungskopf: USt-IdNr. DE 143 566 072
-- Fußzeile: USt-IdNr. DE 924 942 840
-- St.-Nr. nicht vorhanden
+\Pruefschritt{10 Formale Vollständigkeit}
+\begin{AntwortTab}{Y{0.34}Y{0.42}Y{0.2}}
+\toprule
+\textit{Pflichtangabe} & \textit{Fundstelle} & \textit{Status} \\
+\midrule
+\endhead
+Name/Anschrift Lieferant & Rechnungskopf/Fußzeile & vorhanden \\
+Name/Anschrift Empfänger & Rechnungskopf & vorhanden \\
+Rechnungsnummer & Rechnungsdaten & vorhanden \\
+Rechnungsdatum & Rechnungsdaten & vorhanden \\
+Leistungsbeschreibung & Positionsliste & vorhanden \\
+Leistungszeitpunkt & Rechnungsdaten & vorhanden \\
+Entgelt & Summenbereich & vorhanden \\
+Steuersatz & Summenbereich & vorhanden \\
+Steuerbetrag & Summenbereich & vorhanden \\
+USt-IdNr./St.-Nr. & Rechnungskopf/Fußzeile & vorhanden \\
+\bottomrule
+\end{AntwortTab}
 
-Leistung:
-- Catering, Bewirtung vor Ort, Buffet und Getränke, Servicepersonal
-- Bühne, Ton- und Lichttechnik
-- Zelt und Mobiliar
-- Rahmenprogramm und Künstler
+\Pruefschritt{11 Plausibilität und Betrugsindikatoren}
+\begin{AntwortTab}{Y{0.34}Y{0.38}Y{0.24}}
+\toprule
+\textit{Kriterium} & \textit{Werte} & \textit{plausibel/auffällig/ nicht prüfbar} \\
+\midrule
+\endhead
+Leistungsdatum vor Rechnungsdatum & 30.05.2026 vor 04.06.2026 & plausibel \\
+Währung konsistent & EUR & plausibel \\
+Zahlungsziel konsistent & Rechnung 04.06.2026, Fälligkeit 25.06.2026 & plausibel \\
+Lieferant in Referenztabelle & vorhanden [1] & plausibel \\
+USt-IdNr. innerhalb Rechnung & DE 143 566 072 und DE 924 942 840 & auffällig \\
+Fehlende Bestellnummer & keine Bestellnummer angegeben & auffällig \\
+Generische Leistung & Sommerfest/Betriebsfeier & auffällig \\
+\bottomrule
+\end{AntwortTab}
 
-Menge:
-- 1.800 Gäste
-- 1 Pauschale
-- 1 Pauschale
-- 1 Pauschale
+\Pruefschritt{12 Auffälligkeiten}
+\begin{enumerate}
+    \item Freigabe durch Person E bei Rechnungsbetrag 118.524,00 € brutto \textbar{} Hoch \textbar{} Audit-Exception-relevant: Ja \textbar{} Genehmiger laut Freigabematrix nicht freigabeberechtigt. [2] \textbar{} \Datei{Freigabematrix.xlsx}, E-Mail-Screenshot \textbar{} Berechtigungsprüfung gegen Freigabematrix
+    \item Zwei unterschiedliche USt-IdNr. auf derselben Rechnung (DE 143 566 072 / DE 924 942 840) \textbar{} Niedrig \textbar{} Audit-Exception-relevant: Ja \textbar{} Belegte Abweichung innerhalb des Rechnungsdokuments. \textbar{} Rechnung Kopf- und Fußzeile \textbar{} Dokumentenprüfung
+    \item Fehlende Bestellnummer \textbar{} Mittel \textbar{} Audit-Exception-relevant: Nein \textbar{} Bestellreferenz nicht angegeben. \textbar{} Rechnung \textbar{} Dokumentenprüfung
+\end{enumerate}
 
-Einzelpreis:
-- 38,00 €
-- 14.800,00 €
-- 9.600,00 €
-- 6.800,00 €
+\Pruefschritt{13 Empfehlung}
+\begin{itemize}
+    \item Berechtigte Freigabe gemäß Freigabematrix im Quellsystem prüfen.
+    \item Ursprung der unterschiedlichen USt-IdNr. beim Lieferanten klären.
+    \item Buchungs- und Zahlungsdaten im Quellsystem prüfen.
+    \item Bestellbezug bzw. Beschaffungsvorgang im Quellsystem nachvollziehen.
+\end{itemize}
 
-Positionen:
-- 68.400,00 €
-- 14.800,00 €
-- 9.600,00 €
-- 6.800,00 €
+\Pruefschritt{14 Menschliche Nachprüfung: Ja}
+\begin{AntwortTab}{Y{0.4}Y{0.16}Y{0.4}}
+\toprule
+\textit{fehlende Information} & \textit{Prüfschritt} & \textit{Prüfhandlung} \\
+\midrule
+\endhead
+Buchungsdatum fehlt & Prüfschritt 8 & Buchungsbeleg im Quellsystem prüfen. \\
+Zahlungsdatum fehlt & Prüfschritt 8 & Zahlungsbeleg im Quellsystem prüfen. \\
+USt-IdNr. des Referenzdatensatzes fehlt & Prüfschritt 3 & Stammdaten/Referenztabelle prüfen. \\
+\bottomrule
+\end{AntwortTab}
 
-Netto: 99.600,00 €
-
-Steuersatz: 19 %
-
-USt: 18.924,00 €
-
-Brutto: 118.524,00 €
-
-Währung: EUR
-
-Zahlungsziel: innerhalb von 21 Tagen, fällig am 25.06.2026
-
-IBAN: DE24 6001 0007 7569 4185 80
-
-Freigabereferenz: nicht vorhanden
-
-### 2 Datensatz
-
-| Datensatz | Kriterium | Werte | Ergebnis |
-|---|---|---|---|
-| Referenztabelle_Rechnungen.xlsx | Rechnungsnr. exakt | FW-2026-0771 | Eindeutiger Treffer [1] |
-
-### 3 Soll-Ist
-
-| Feld | Ist | Soll | Abweichung abs./% | Status |
-|---|---|---|---|---|
-| Empfänger | Freudenberg & Co. Kommanditgesellschaft | Freudenberg & Co. Kommanditgesellschaft | 0 / 0 % | Übereinstimmung |
-| Rechnungsnr. | FW-2026-0771 | FW-2026-0771 | 0 / 0 % | Übereinstimmung |
-| Rechnungsdatum | 04.06.2026 | 04.06.2026 | 0 / 0 % | Übereinstimmung |
-| Leistungsdatum | 30.05.2026 | 30.05.2026 (Leistungsdatum) | 0 / 0 % | Übereinstimmung |
-| Kundennr. | FE-3311 | FE-3311 | 0 / 0 % | Übereinstimmung |
-| Referenzart | Veranstaltung | Veranstaltung | 0 / 0 % | Übereinstimmung |
-| Referenznr. | Sommerfest 2026 | Sommerfest 2026 | 0 / 0 % | Übereinstimmung |
-| Lieferant | Festwerk Eventagentur GmbH | Festwerk Eventagentur GmbH | 0 / 0 % | Übereinstimmung |
-| Leistung | Abrechnung des Betriebssommerfestes vom 30.05.2026 | Sommerfest Betriebsfeier | nicht berechenbar | Übereinstimmung |
-| Netto | 99.600,00 € | 99.600,00 € | 0,00 € / 0 % | Übereinstimmung |
-| Steuersatz | 19 % | 19 % | 0 / 0 % | Übereinstimmung |
-| USt | 18.924,00 € | 18.924,00 € | 0,00 € / 0 % | Übereinstimmung |
-| Brutto | 118.524,00 € | 118.524,00 € | 0,00 € / 0 % | Übereinstimmung |
-| Zahlungsziel/Fälligkeit | 25.06.2026 | 25.06.2026 | 0 / 0 % | Übereinstimmung |
-| USt-IdNr. Lieferant | DE 143 566 072 / DE 924 942 840 | nicht vorhanden | nicht prüfbar | nicht prüfbar |
-
-### 4 Freigabenachweise (je Nachweis)
-
-| Dokument | Typ | Fundstelle | Absender | Genehmiger | Rolle | Wortlaut | Datum/Uhrzeit | Merkmale (Nr., Lieferant, Betrag) | Lesbarkeit | Evidenz |
-|---|---|---|---|---|---|---|---|---|---|---|
-| PNG-Screenshot E-Mail | E-Mail | Antwortnachricht | Person E <person.e@freudenberg.example> | Person E | nicht vorhanden | „die Rechnung FW-2026-0771 der Festwerk Eventagentur GmbH über 118.524,00 € ist freigegeben. Die Leistung wurde wie beauftragt erbracht.“ | 09.06.2026 11:38 | Rechnungsnr. FW-2026-0771, Lieferant Festwerk Eventagentur GmbH, Betrag 118.524,00 € | lesbar | hoch |
-
-### 5 Zuordnung
-
-| Nachweis | Merkmale | Werte Rechnung | Werte Nachweis | Ergebnis |
-|---|---|---|---|---|
-| E-Mail Freigabe | Rechnungsnr., Lieferant, Betrag | FW-2026-0771; Festwerk Eventagentur GmbH; 118.524,00 € | FW-2026-0771; Festwerk Eventagentur GmbH; 118.524,00 € | eindeutig |
-
-### 6 Berechtigung
-
-| Betrag/Betragsart/Währung | Soll (Stufe, Person) | Ist (Genehmiger) | Status | Begründung |
-|---|---|---|---|---|
-| 118.524,00 € brutto / EUR | Person A oder Person B (unbegrenzt) [2] | Person E | Abweichung | Person E besitzt keine Freigabeberechtigung. [2] |
-
-### 7 Zeitfolge
-
-| Daten | nach Rechnung | vor Buchung | vor Zahlung (Ja/Nein/Nicht prüfbar) |
-|---|---|---|---|
-| Freigabe 09.06.2026 11:38, Rechnung 04.06.2026 | Ja | nicht prüfbar | Nicht prüfbar |
-
-### 8 Gesamtbewertung Freigabe
-
-- Freigabe vorhanden, Genehmiger nicht berechtigt.
-
-### 9 Rechnerische Prüfung
-
-| Werte | berechnet | ausgewiesen | Differenz | Bewertung |
-|---|---|---|---|---|
-| 1.800 × 38,00 € | 68.400,00 € | 68.400,00 € | 0,00 € | korrekt |
-| Summe Positionen | 99.600,00 € | 99.600,00 € | 0,00 € | korrekt |
-| 99.600,00 € × 19 % | 18.924,00 € | 18.924,00 € | 0,00 € | korrekt |
-| Netto + USt | 118.524,00 € | 118.524,00 € | 0,00 € | korrekt |
-
-### 10 Formale Vollständigkeit
-
-| Pflichtangabe | Fundstelle | Status |
-|---|---|---|
-| Name/Anschrift Lieferant | Rechnungskopf/Fußzeile | vorhanden |
-| Name/Anschrift Empfänger | Rechnungskopf | vorhanden |
-| Rechnungsnummer | Rechnungsdaten | vorhanden |
-| Rechnungsdatum | Rechnungsdaten | vorhanden |
-| Leistungsbeschreibung | Positionsliste | vorhanden |
-| Leistungszeitpunkt | Rechnungsdaten | vorhanden |
-| Entgelt | Summenbereich | vorhanden |
-| Steuersatz | Summenbereich | vorhanden |
-| Steuerbetrag | Summenbereich | vorhanden |
-| USt-IdNr./St.-Nr. | Rechnungskopf/Fußzeile | vorhanden |
-
-### 11 Plausibilität und Betrugsindikatoren
-
-| Kriterium | Werte | plausibel/auffällig/nicht prüfbar |
-|---|---|---|
-| Leistungsdatum vor Rechnungsdatum | 30.05.2026 vor 04.06.2026 | plausibel |
-| Währung konsistent | EUR | plausibel |
-| Zahlungsziel konsistent | Rechnung 04.06.2026, Fälligkeit 25.06.2026 | plausibel |
-| Lieferant in Referenztabelle | vorhanden [1] | plausibel |
-| USt-IdNr. innerhalb Rechnung | DE 143 566 072 und DE 924 942 840 | auffällig |
-| Fehlende Bestellnummer | keine Bestellnummer angegeben | auffällig |
-| Generische Leistung | Sommerfest/Betriebsfeier | auffällig |
-
-### 12 Auffälligkeiten
-
-1. Freigabe durch Person E bei Rechnungsbetrag 118.524,00 € brutto | Hoch | Audit-Exception-relevant: Ja | Genehmiger laut Freigabematrix nicht freigabeberechtigt. [2] | Freigabematrix.xlsx, E-Mail-Screenshot | Berechtigungsprüfung gegen Freigabematrix
-
-2. Zwei unterschiedliche USt-IdNr. auf derselben Rechnung (DE 143 566 072 / DE 924 942 840) | Niedrig | Audit-Exception-relevant: Ja | Belegte Abweichung innerhalb des Rechnungsdokuments. | Rechnung Kopf- und Fußzeile | Dokumentenprüfung
-
-3. Fehlende Bestellnummer | Mittel | Audit-Exception-relevant: Nein | Bestellreferenz nicht angegeben. | Rechnung | Dokumentenprüfung
-
-### 13 Empfehlung
-
-- Berechtigte Freigabe gemäß Freigabematrix im Quellsystem prüfen.
-- Ursprung der unterschiedlichen USt-IdNr. beim Lieferanten klären.
-- Buchungs- und Zahlungsdaten im Quellsystem prüfen.
-- Bestellbezug bzw. Beschaffungsvorgang im Quellsystem nachvollziehen.
-
-### 14 Menschliche Nachprüfung: Ja
-
-- Buchungsdatum fehlt | Prüfschritt 8 | Buchungsbeleg im Quellsystem prüfen.
-- Zahlungsdatum fehlt | Prüfschritt 8 | Zahlungsbeleg im Quellsystem prüfen.
-- USt-IdNr. des Referenzdatensatzes fehlt | Prüfschritt 3 | Stammdaten/Referenztabelle prüfen.
-
-### 15 Audit Exception: Ja
-
+\Pruefschritt{15 Audit Exception: Ja}
 Ausschlaggebend sind die belegte Freigabe durch Person E trotz fehlender Freigabeberechtigung gemäß Freigabematrix sowie die belegte Abweichung durch zwei unterschiedliche USt-IdNr. auf derselben Rechnung. Die rechnerische Prüfung und der Soll-Ist-Abgleich der übrigen prüfbaren Felder ergaben keine Abweichungen.
 
+\endgroup

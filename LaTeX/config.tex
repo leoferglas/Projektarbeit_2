@@ -225,9 +225,13 @@
 
 \newcommand{\initializeAppendix}{
     \appendix
-    \renewcommand{\thechapter}{A\arabic{chapter}}
+    \renewcommand{\thechapter}{A\texorpdfstring{\,}{ }\arabic{chapter}}
     \ihead{}
     \cftaddtitleline{toc}{chapter}{Anhang}{}
+    % Kapitelnummern im Anhang breiter machen (KOMA Variante)
+    \addtocontents{toc}{\protect\RedeclareSectionCommand[tocnumwidth=2.5em]{chapter}}
+    \addtocontents{toc}{\protect\setlength{\protect\cftsecindent}{2.3em}}
+    \addtocontents{toc}{\protect\setlength{\protect\cftsecnumwidth}{2.9em}}
 }
 
 \makeindex
