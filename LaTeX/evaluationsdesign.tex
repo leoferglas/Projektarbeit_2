@@ -10,7 +10,7 @@ Zur Beantwortung der Forschungsfrage, wie sich verschiedene \acp{LLM} hinsichtli
 \label{sec:untersuchungsumgebung}
 \label{sec:modellauswahl}
 
-Als Untersuchungsumgebung wird der Microsoft Copilot gewählt, den Freudenberg bereits unternehmensweit einsetzt. Die Daten werden dabei unter Einhaltung der internen Datenschutz- und Compliance-Richtlinien sowie der EU Data Boundary-Richtlinien verarbeitet (vgl. \cite{Microsoft2026Anthropic, Microsoft2026OpenAI}). Da die Lizenzen im Unternehmen bereits vorhanden sind und der Copilot im Internal Audit ausgerollt ist, entstehen weder zusätzliche Kosten noch Schulungsaufwand für die Mitarbeiter. Open-Source-Modelle werden aufgrund des erheblichen Infrastruktur- und Implementierungsaufwands nicht untersucht, spezialisierte Softwarelösungen wie DataSnipper aufgrund der zusätzlich benötigten Lizenz.
+Als Untersuchungsumgebung wird der Microsoft Copilot gewählt, den Freudenberg bereits unternehmensweit einsetzt. Die Daten werden dabei unter Einhaltung der internen Datenschutz- und Compliance-Richtlinien sowie der EU Data Boundary-Richtlinien verarbeitet (vgl. \cite{Microsoft2026Anthropic, Microsoft2026OpenAI}). Da die Lizenzen im Unternehmen bereits vorhanden sind und der Copilot im Internal Audit ausgerollt ist, entstehen weder zusätzliche Kosten noch Schulungsaufwand für die Mitarbeiter. Open-Source-Modelle werden aufgrund des erheblichen Infrastruktur- und Implementierungsaufwands nicht untersucht (vgl. \cite[S. 6 ff.]{shaikh:hal-01570767}), spezialisierte Softwarelösungen wie DataSnipper aufgrund der zusätzlich benötigten Lizenz (vgl. \cite{datasnipper_license_2024}).
 
 Innerhalb des Microsoft Copilot können die Modelle über das Chatfenster oder über eigene Agenten im Copilot Studio genutzt werden. In dieser Arbeit wird der Einsatz eigener Agenten gewählt. Da Instruktionen und Wissensquellen im Agenten fest hinterlegt sind, wird jedes Stichprobenelement nach demselben Prüfschema verarbeitet, unabhängig davon, wer die Prüfung anstößt. Abweichungen in der Formulierung der Anweisungen, die das Ergebnis unabhängig von der Leistung des Modells beeinflussen könnten, werden so vermieden.
 
@@ -24,7 +24,7 @@ Alle acht Modelle werden damit unter den Bedingungen untersucht, unter denen ein
 
 Für die Evaluation der betrachteten \ac{KI}-Modelle ist eine Datenbasis erforderlich, die den realen Prüfungskontext möglichst genau abbildet. Die Verwendung originaler Rechnungsbelege aus dem Internal Audit der Freudenberg Group ist ausgeschlossen, da diese personenbezogene sowie geschäftskritische Informationen enthalten und daher im Rahmen dieser Evaluierung nicht herangezogen werden dürfen. Um dennoch eine hinreichend umfangreiche und belastbare Testbasis zu schaffen, werden die Testdatensätze mithilfe generativer \ac{KI} über Claude Opus 5.5 erzeugt.
 
-Die künstlich erstellten Rechnungen orientieren sich in Struktur, Umfang und Informationsgehalt an realen Rechnungen und enthalten dieselben prüfungsrelevanten Kriterien wie die im Audit untersuchten Dokumente. Um einen realitätsnahen Anwendungsfall nachzubilden, umfasst der Datensatz sowohl 80 digital erzeugte Rechnungen im PDF-Format (Rechnung 01 - Rechnung 80) als auch 20 eingescannte Rechnungen (Rechnung 81 - Rechnung 100). Nach der Generierung der Rechnungen werden gezielt Fehler in die Dokumente eingebracht. Dieser Ansatz orientiert sich an Benchmark-Studien zur Evaluation von \acp{LLM} im Finanzkontext, bei denen vorhandene Finanzdokumente systematisch durch künstlich eingefügte Fehler verändert werden, um die Fähigkeit der Modelle zur Identifikation von Inkonsistenzen zu untersuchen (vgl. \cite[S.~1]{Panda2026FinVerBench}).
+Die künstlich erstellten Rechnungen orientieren sich in Struktur, Umfang und Informationsgehalt an realen Rechnungen und enthalten dieselben prüfungsrelevanten Kriterien wie die im Audit untersuchten Dokumente. Um einen realitätsnahen Anwendungsfall nachzubilden, umfasst der Datensatz sowohl 80 digital erzeugte Rechnungen im PDF-Format (vgl. \hyperref[anhang:rechnung-1]{\ref*{anhang:rechnungen}, Rechnung~1}) als auch 20 eingescannte Rechnungen (vgl. \hyperref[anhang:rechnung-98]{\ref*{anhang:rechnungen}, Rechnung~98}). Nach der Generierung der Rechnungen werden gezielt Fehler in die Dokumente eingebracht. Dieser Ansatz orientiert sich an Benchmark-Studien zur Evaluation von \acp{LLM} im Finanzkontext, bei denen vorhandene Finanzdokumente systematisch durch künstlich eingefügte Fehler verändert werden, um die Fähigkeit der Modelle zur Identifikation von Inkonsistenzen zu untersuchen (vgl. \cite[S.~1]{Panda2026FinVerBench}).
 
 Neben den Rechnungen werden auch Screenshots von Mails zur Freigabe der einzelnen Rechnungen erstellt. Auch hier werden gezielt einzelne Fehler in die Datensätze eingebaut. Der Testdatensatz umfasst somit sowohl fehlerhafte als auch vollständig korrekte Rechnungen und Freigaben.
 
@@ -40,7 +40,7 @@ Bei der Fehlererzeugung wird bewusst auf eine breite Streuung der Fehler geachte
   \centering
   \begin{tabular}{cl}
     \hline
-    \textbf{Anzahl} & \textbf{Fehlerkategorie}\\
+    Anzahl & Fehlerkategorie\\
     \hline
     6 & Betrugsmuster \\
     5 & Freigabefehler \\
@@ -49,7 +49,7 @@ Bei der Fehlererzeugung wird bewusst auf eine breite Streuung der Fehler geachte
     3 & Datums- und Periodenfehler \\
     2 & Fehlende Rechnungsnummer \\
     \hline
-    24 & \textbf{Gesamt} \\
+    24 & Gesamt \\
     \hline
   \end{tabular}
   \caption{Verteilung der eingebauten Fehler auf die Fehlerkategorien}
@@ -67,7 +67,7 @@ Die inhaltlichen Anforderungen ergeben sich aus dem bestehenden Vorgehen der Sti
 
 Bei der Gestaltung werden mehrere etablierte Techniken genutzt. Das Modell erhält eine klare Rolle als Prüfagent des Internal Audits, die den fachlichen Rahmen der Aufgabe vorgibt (vgl. \cite{microsoft2026declarative}). Die Quellen werden in den Instruktionen ausdrücklich benannt und erklärt (vgl. \cite{microsoft2026declarative}). Die Rechnung liefert die Istwerte, die Referenztabelle die Sollwerte und die Freigabematrix die Berechtigungen. Freigabeunterlagen gelten nur als Evidenz. Durch diese Rangfolge muss das Modell bei widersprüchlichen Angaben nicht selbst entscheiden, welcher Quelle es folgt. Die Aufgabe ist in elf Prüfschritte mit fester Reihenfolge zerlegt. Das verringert Mehrdeutigkeiten und verhindert, dass das Modell Aufgaben zusammenführt oder neu interpretiert (vgl. \cite{microsoft2026declarative}).
 
-\acp{LLM} neigen dazu, fehlende Informationen durch plausibel klingende, aber falsche Inhalte zu ersetzen (vgl. \cite[S.~1]{huang2025survey}). Der Prompt verbietet deshalb Annahmen und Ergänzungen und erlaubt dem Modell ausdrücklich, Unsicherheit anzugeben. Dafür gibt es feste Statuswerte wie „nicht vorhanden“, „nicht lesbar“ oder „nicht prüfbar“. Außerdem muss jede Aussage mit Wert und Fundstelle belegt werden (vgl. \cite{anthropic2026hallucinations}). Die Ausgabe folgt einer festen Struktur mit vorgegebenen Feldern und Statuswerten, da es ohne vorgegebenes Format zu inkonsistentem Verhalten zwischen verschiedenen Modellen kommen kann (vgl. \cite{microsoft2026declarative}). Das feste Format erleichtert die menschliche Prüfung und macht die Ergebnisse der Modelle direkt vergleichbar.
+\acp{LLM} neigen dazu, fehlende Informationen durch plausibel klingende, aber falsche Inhalte zu ersetzen (vgl. \cite[S.~1]{huang2025survey}). Der Prompt verbietet deshalb Annahmen und Ergänzungen und erlaubt dem Modell ausdrücklich, Unsicherheit anzugeben. Dafür gibt es feste Statuswerte wie nicht vorhanden, nicht lesbar oder nicht prüfbar. Außerdem muss jede Aussage mit Wert und Fundstelle belegt werden (vgl. \cite{anthropic2026hallucinations}). Die Ausgabe folgt einer festen Struktur mit vorgegebenen Feldern und Statuswerten, da es ohne vorgegebenes Format zu inkonsistentem Verhalten zwischen verschiedenen Modellen kommen kann (vgl. \cite{microsoft2026declarative}). Das feste Format erleichtert die menschliche Prüfung und macht die Ergebnisse der Modelle direkt vergleichbar.
 
 Am Ende jeder Prüfung gibt das Modell zwei voneinander unabhängige Urteile ab. Die Audit Exception steht für einen belegten Fehler, etwa eine Abweichung von der Referenztabelle, einen Rechenfehler oder eine Freigabe durch eine nicht berechtigte Person. Die menschliche Nachprüfung steht für Unsicherheit, zum Beispiel bei fehlenden, unleserlichen oder widersprüchlichen Unterlagen oder einer nicht eindeutigen Zuordnung der Freigabe. Der Prompt legt fest, dass ein übersehener Fehler schwerer wiegt als ein Fehlalarm. Unsichere Fälle dürfen also nicht als unauffällig gelten, sollen ohne Beleg aber auch nicht als Exception zählen. Unsicherheit führt deshalb zur menschlichen Nachprüfung und nicht zu einer Audit Exception. Das gilt auch, wenn keine Freigabe nachweisbar ist, da die Ursache technisch sein kann, zum Beispiel ein nicht ausgelesener Anhang. Die abschließende Bewertung bleibt damit beim Prüfer.
 
@@ -87,11 +87,11 @@ Zur strukturierten Berücksichtigung dieser Kriterien wird in dieser Arbeit eine
 \section{Entwicklung einer Bewertungsmatrix}
 \label{sec:bewertungsmatrix}
 
-Um die Evaluation basierend auf einer Nutzwertanalyse durchzuführen, muss eine Bewertungsmatrix mit mehreren Kriterien entwickelt werden (vgl. \cite[S.~3]{liang2023holisticevaluationlanguagemodels}). Die Bewertungsmatrix berücksichtigt die Anforderungen der Corporate Audit Abteilung der \ac{FCo} und umfasst zwei Hauptkriterien: die Erkennungsleistung der Modelle und die Konsistenz der Ergebnisse. Aus der gewichteten Zusammenführung dieser Kriterien ergibt sich eine Rangfolge der untersuchten Modelle.
+Um die Evaluation basierend auf einer Nutzwertanalyse durchzuführen, muss eine Bewertungsmatrix mit mehreren Kriterien entwickelt werden (vgl. \cite[S.~3]{liang2023holisticevaluationlanguagemodels}). Die Bewertungsmatrix berücksichtigt die Anforderungen der Corporate Audit Abteilung der Freudenberg Group und umfasst zwei Hauptkriterien: die Erkennungsleistung der Modelle und die Konsistenz der Ergebnisse. Aus der gewichteten Zusammenführung dieser Kriterien ergibt sich eine Rangfolge der untersuchten Modelle.
 
 Eine qualitative Bewertung der Begründungen der Modelle wird nicht vorgenommen. Da der Prompt ein festes Antwortformat vorgibt, unterscheiden sich die Begründungen der Modelle in Aufbau und Formulierung nur geringfügig. Ob ein Modell den richtigen Fehler benennt, fließt zudem bereits in die Erkennungsleistung ein.
 
-Als zentrales quantitatives Kriterium wird die Erkennungsleistung der Modelle herangezogen. Die Bewertung erfolgt auf Ebene der einzelnen Rechnung. Maßgeblich ist dabei ausschließlich das Feld „Audit Exception“ am Ende der Ausgabe des Modells. Wann das Modell eine Audit Exception meldet, ist in der Entscheidungslogik der Instruktionen festgelegt (siehe Anhang~\ref{anh:prompt}). Die Empfehlung zur menschlichen Nachprüfung wird für die Bewertung nicht herangezogen, da sie keine nachgewiesene Abweichung voraussetzt. Die Erkennungsleistung wird somit ausschließlich an den Feststellungen gemessen, die das Modell anhand der Unterlagen belegen kann.
+Als zentrales quantitatives Kriterium wird die Erkennungsleistung der Modelle herangezogen. Die Bewertung erfolgt auf Ebene der einzelnen Rechnung. Maßgeblich ist dabei ausschließlich das Feld Audit Exception am Ende der Ausgabe des Modells. Wann das Modell eine Audit Exception meldet, ist in der Entscheidungslogik der Instruktionen festgelegt (siehe Anhang~\ref{anh:prompt}). Die Empfehlung zur menschlichen Nachprüfung wird für die Bewertung nicht herangezogen, da sie keine nachgewiesene Abweichung voraussetzt. Die Erkennungsleistung wird somit ausschließlich an den Feststellungen gemessen, die das Modell anhand der Unterlagen belegen kann.
 
 Durch den Vergleich mit den im Testdatensatz festgelegten Fehlern lässt sich jede Rechnung einem von vier Klassifikationsergebnissen zuordnen. Ein True Positive liegt vor, wenn das Modell eine fehlerhafte Rechnung beanstandet und den eingebauten Fehler zutreffend benennt. Ein False Negative liegt vor, wenn das Modell eine fehlerhafte Rechnung nicht oder nur aus einem anderen Grund beanstandet, da der eigentliche Fehler in beiden Fällen im Audit unentdeckt bliebe. Ein False Positive liegt vor, wenn das Modell eine korrekte Rechnung beanstandet. Ein True Negative liegt vor, wenn das Modell eine korrekte Rechnung nicht beanstandet.
 
@@ -120,7 +120,7 @@ Entscheidet das Modell in allen fünf Durchläufen gleich, erhält die Rechnung 
 \section{Gewichtung der Bewertungsmatrix}
 \label{sec:gewichtung}
 
-Um die beiden Hauptkriterien zu einem Gesamtergebnis zusammenzuführen, werden diese entsprechend ihrer Bedeutung für den Audit Use Case gewichtet. Die Gewichtung erfolgt auf Basis der Anforderungen der Corporate Audit Abteilung der \ac{FCo} (vgl. \cite{Goth2026}). Da sie auf einer subjektiven Einschätzung beruht, wird sie im Folgenden für jedes Kriterium begründet.
+Um die beiden Hauptkriterien zu einem Gesamtergebnis zusammenzuführen, werden diese entsprechend ihrer Bedeutung für den Audit Use Case gewichtet. Die Gewichtung erfolgt auf Basis der Anforderungen der Corporate Audit Abteilung der Freudenberg Group (vgl. \cite{Goth2026}). Da sie auf einer subjektiven Einschätzung beruht, wird sie im Folgenden für jedes Kriterium begründet.
 
 Die Erkennungsleistung erhält mit 70\,\% das höhere Gewicht, da die zuverlässige Identifikation fehlerhafter Rechnungen die Kernaufgabe der Stichprobenanalyse darstellt. Diese 70\,\% werden im Verhältnis 4 zu 3 auf Recall und Precision aufgeteilt, sodass der Recall mit 40\,\% und die Precision mit 30\,\% in den Gesamtnutzwert eingehen. Das Verhältnis lässt sich damit begründen, dass ein \ac{FP}, also ein Fehlalarm, vom Auditor im Rahmen der weiteren Prüfung erkannt wird und lediglich zusätzlichen Prüfaufwand verursacht. Wird ein Fehler hingegen vom Modell nicht gemeldet (\ac{FN}), besteht die Gefahr, dass auch der Auditor diesen übersieht, da er sich auf das Ergebnis des Systems verlässt.
 
@@ -130,7 +130,7 @@ Die Konsistenz wird mit 30\,\% gewichtet. Reproduzierbare Ergebnisse sind eine V
     \centering
     \begin{tabular}{llll}
         \hline
-        \textbf{Hauptkriterium} & \textbf{Gewicht} & \textbf{Teilkriterium} & \textbf{Gewicht} \\
+        Hauptkriterium & Gewicht & Teilkriterium & Gewicht \\
         \hline
         Erkennungsleistung & 70\,\% & Recall & 40\,\% \\
                            &        & Precision & 30\,\% \\

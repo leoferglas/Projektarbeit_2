@@ -2,20 +2,22 @@
 
 \chapter{Rechnungen}
 \label{anhang:rechnungen}
-Nachfolgend sind die 100 für die Evaluation verwendeten Rechnungen abgebildet. Die Nummerierung entspricht der Nummerierung im Ground-Truth-Datensatz (Anhang~\ref{anhang:ground-truth}). Die zugehörigen Freigaben sind in Anhang~\ref{anhang:freigaben} dokumentiert.
+Nachfolgend sind beispielhaft drei der 100 für die Evaluation verwendeten Rechnungen (Rechnungen~1, 57 und 98) abgebildet. Die Nummerierung entspricht der Nummerierung im Ground-Truth-Datensatz (Anhang~\ref{anhang:ground-truth}). Die zugehörigen Freigaben sind in Anhang~\ref{anhang:freigaben} dokumentiert.
 
-% #1: Nummer der Rechnung, #2: Dateiname im Ordner Rechnungen_Mixed
-% Die erste Rechnung steht ohne Seitenumbruch (und etwas kleiner) direkt unter dem Einleitungstext
+% Die Höhe der ersten Rechnung wird aus dem auf der Seite verbleibenden Platz berechnet
 \newif\ifersteRechnung
 \ersteRechnungtrue
+\newlength{\RechnungHoehe}
 \newcommand{\AnhangRechnung}[2]{%
+    \par
     \ifersteRechnung
         \global\ersteRechnungfalse
-        \def\RechnungHoehe{\dimexpr\textheight-12\baselineskip\relax}%
+        \setlength{\RechnungHoehe}{\dimexpr\pagegoal-\pagetotal-7\baselineskip\relax}%
     \else
         \clearpage
-        \def\RechnungHoehe{\dimexpr\textheight-5\baselineskip\relax}%
+        \setlength{\RechnungHoehe}{\dimexpr\textheight-5\baselineskip\relax}%
     \fi
+    \phantomsection\label{anhang:rechnung-#1}%
     \section*{Rechnung~#1}
     \begin{center}
         \includegraphics[
@@ -27,102 +29,5 @@ Nachfolgend sind die 100 für die Evaluation verwendeten Rechnungen abgebildet. 
 }
 
 \AnhangRechnung{1}{01_Rechnung_Copilot.pdf}
-\AnhangRechnung{2}{02_Rechnung_Bueromaterial.pdf}
-\AnhangRechnung{3}{03_RechnungIT_Beratung.pdf}
-\AnhangRechnung{4}{04_Rechnung_Wartung_Klimatechnik.pdf}
-\AnhangRechnung{5}{05_Rechnung_Spedition.pdf}
-\AnhangRechnung{6}{06_Rechnung_Messebau.pdf}
-\AnhangRechnung{7}{07_Rechnung_Weiterbildung.pdf}
-\AnhangRechnung{8}{08_Rechnung.pdf}
-\AnhangRechnung{9}{09_Rechnung_Gebaeudereinigung.pdf}
-\AnhangRechnung{10}{10_Rechnung_Netzwerktechnik.pdf}
-\AnhangRechnung{11}{11_Rechnung_Zeitarbeit.pdf}
-\AnhangRechnung{12}{12_Rechnung_Stromlieferung_SR-2026-884102.pdf}
-\AnhangRechnung{13}{13_Rechnung_Erdgaslieferung_TG-26-004417.pdf}
-\AnhangRechnung{14}{14_Rechnung_Telekommunikation_KT-2026-77219.pdf}
-\AnhangRechnung{15}{15_Rechnung_Kantinenbewirtschaftung_CU-2026-0318.pdf}
-\AnhangRechnung{16}{16_Rechnung_Lohnfertigung_WF-26-1180.pdf}
-\AnhangRechnung{17}{17_Rechnung_Kalibrierung_ML-2026-0642.pdf}
-\AnhangRechnung{18}{18_Rechnung_Abfallentsorgung_RE-26-5518.pdf}
-\AnhangRechnung{19}{19_Rechnung_Berufskleidung_TX-2026-0904.pdf}
-\AnhangRechnung{20}{20_Rechnung_Fuhrpark_AF-2026-11204.pdf}
-\AnhangRechnung{21}{21_Rechnung_Tagung_HO-2026-2288.pdf}
-\AnhangRechnung{22}{22_Rechnung_Rechtsberatung_LX-2026-0331.pdf}
-\AnhangRechnung{23}{23_Rechnung_Jahresabschlusspruefung_KWP-2026-0088.pdf}
-\AnhangRechnung{24}{24_Rechnung_Patentanmeldung_PA-26-0417.pdf}
-\AnhangRechnung{25}{25_Rechnung_Fachuebersetzungen_LU-2026-1442.pdf}
-\AnhangRechnung{26}{26_Rechnung_Katalogdruck_OD-2026-3390.pdf}
-\AnhangRechnung{27}{27_Rechnung_Website-Relaunch_PW-2026-0221.pdf}
-\AnhangRechnung{28}{28_Rechnung_CAD-Softwarelizenzen_CS-2026-0771.pdf}
-\AnhangRechnung{29}{29_Rechnung_Cloud-Hosting_NC-2026-08841.pdf}
-\AnhangRechnung{30}{30_Rechnung_Werkschutz_SK-2026-0455.pdf}
-\AnhangRechnung{31}{31_Rechnung_Staplermiete_HT-26-2214.pdf}
-\AnhangRechnung{32}{32_Rechnung_Transportverpackungen_PX-2026-6612.pdf}
-\AnhangRechnung{33}{33_Rechnung_Laborbedarf_CL-2026-4471.pdf}
-\AnhangRechnung{34}{34_Rechnung_Materialpruefung_MP-2026-0993.pdf}
-\AnhangRechnung{35}{35_Rechnung_ISO-Zertifizierungsaudit_CZ-2026-0208.pdf}
-\AnhangRechnung{36}{36_Rechnung_Aufzugswartung_VA-2026-0771.pdf}
-\AnhangRechnung{37}{37_Rechnung_Elektroinstallation_VE-2026-1188.pdf}
-\AnhangRechnung{38}{38_Rechnung_Malerarbeiten_FW-26-0339.pdf}
-\AnhangRechnung{39}{39_Rechnung_Pflege_GW-2026-0512.pdf}
-\AnhangRechnung{40}{40_Rechnung_Winterdienst_WD-2026-0044.pdf}
-\AnhangRechnung{41}{41_Rechnung_Messtechnik_ST-2026-7719.pdf}
-\AnhangRechnung{42}{42_Rechnung_Hydraulikschlaeuche_HF-26-3308.pdf}
-\AnhangRechnung{43}{43_Rechnung_Stahlblech_SK-2026-88117.pdf}
-\AnhangRechnung{44}{44_Rechnung_Kunststoffgranulat_PM-2026-5504.pdf}
-\AnhangRechnung{45}{45_Rechnung_Transportversicherung_AS-2026-0117.pdf}
-\AnhangRechnung{46}{46_Rechnung_Personalvermittlung_TA-2026-0662.pdf}
-\AnhangRechnung{47}{47_Rechnung_Bueromoebel_EF-2026-2201.pdf}
-\AnhangRechnung{48}{48_Rechnung_Wasserspender_AQ-2026-1104.pdf}
-\AnhangRechnung{49}{49_Rechnung_Sprachkurse_VS-2026-0388.pdf}
-\AnhangRechnung{50}{50_Rechnung_Imagefilm_B8-2026-0227.pdf}
-\AnhangRechnung{51}{51_Rechnung_Fachliteratur_FV-2026-0912.pdf}
-\AnhangRechnung{52}{52_Rechnung_Werbeartikel_PR-2026-3341.pdf}
-\AnhangRechnung{53}{53_Rechnung_Kurierfahrten_KE-2026-11408.pdf}
-\AnhangRechnung{54}{54_Rechnung_Aktenvernichtung_SD-2026-0448.pdf}
-\AnhangRechnung{55}{55_Rechnung_Dolmetscherdienst_IK-2026-0217.pdf}
-\AnhangRechnung{56}{56_Rechnung_Arbeitssicherheit_SA-2026-0331.pdf}
 \AnhangRechnung{57}{57_Rechnung_Brandschutzwartung_PS-2026-1104.pdf}
-\AnhangRechnung{58}{58_Rechnung_E-Learning_LW-2026-0662.pdf}
-\AnhangRechnung{59}{59_Rechnung_Druckluftanlagen_AT-2026-0774.pdf}
-\AnhangRechnung{60}{60_Rechnung_Schweisszusatzwerkstoffe_WP-2026-8814.pdf}
-\AnhangRechnung{61}{61_Rechnung_Lohnbeschichtung_CO-2026-2219.pdf}
-\AnhangRechnung{62}{62_Rechnung_Waermebehandlung_TH-2026-4471.pdf}
-\AnhangRechnung{63}{63_Rechnung_Zerspanungswerkzeuge_CT-2026-7719.pdf}
-\AnhangRechnung{64}{64_Rechnung_Kuehlschmierstoffmanagement_LM-2026-0338.pdf}
-\AnhangRechnung{65}{65_Rechnung_Roboterintegration_RX-2026-0114.pdf}
-\AnhangRechnung{66}{66_Rechnung_SPS-Programmierung_SL-2026-0552.pdf}
-\AnhangRechnung{67}{67_Rechnung_Pumpen_PT-2026-6640.pdf}
-\AnhangRechnung{68}{68_Rechnung_Kranpruefung_LC-2026-0993.pdf}
-\AnhangRechnung{69}{69_Rechnung_Regalinspektion_RI-2026-0447.pdf}
-\AnhangRechnung{70}{70_Rechnung_Baucontainer_MB-2026-1150.pdf}
-\AnhangRechnung{71}{71_Rechnung_Fundamentarbeiten_BB-2026-0228.pdf}
-\AnhangRechnung{72}{72_Rechnung_Dachsanierung_DW-2026-0771.pdf}
-\AnhangRechnung{73}{73_Rechnung_Fensterbau_GK-2026-0338.pdf}
-\AnhangRechnung{74}{74_Rechnung_Zutrittskontrolle_LW-2026-2204.pdf}
-\AnhangRechnung{75}{75_Rechnung_Videoueberwachung_VT-2026-0885.pdf}
-\AnhangRechnung{76}{76_Rechnung_Glasfaseranschluss_FN-2026-4417.pdf}
-\AnhangRechnung{77}{77_Rechnung_Storage-System_SX-2026-0662.pdf}
-\AnhangRechnung{78}{78_Rechnung_SAP-Wartung_EC-2026-11840.pdf}
-\AnhangRechnung{79}{79_Rechnung_Datenbanklizenzen_DH-2026-0774.pdf}
-\AnhangRechnung{80}{80_Rechnung_IT-Security_CB-2026-0117.pdf}
-\AnhangRechnung{81}{81_Rechnung_Managed_PF-2026-0338.pdf}
-\AnhangRechnung{82}{82_Rechnung_Telefonanlage_VC-2026-2214.pdf}
-\AnhangRechnung{83}{83_Rechnung_Marktforschungsstudie_MV-2026-0093.pdf}
-\AnhangRechnung{84}{84_Rechnung_Strategieberatung_SG-2026-0441.pdf}
-\AnhangRechnung{85}{85_Rechnung_Zeitarbeit_KP-2026-0662.pdf}
-\AnhangRechnung{86}{86_Rechnung_Betriebsumzug_UP-2026-0227.pdf}
-\AnhangRechnung{87}{87_Rechnung_Sondermoebelbau_HF-2026-0118.pdf}
-\AnhangRechnung{88}{88_Rechnung_Beschilderung_SG-2026-1180.pdf}
-\AnhangRechnung{89}{89_Rechnung_Zerstoerungsfreie_RL-2026-0552.pdf}
-\AnhangRechnung{90}{90_Rechnung_Reinraumwartung_CR-2026-0338.pdf}
-\AnhangRechnung{91}{91_Rechnung_Trinkwasseranalyse_HL-2026-0771.pdf}
-\AnhangRechnung{92}{92_Rechnung_Schaedlingsmonitoring_VI-2026-0448.pdf}
-\AnhangRechnung{93}{93_Rechnung_Reifenservice_RZ-2026-2204.pdf}
-\AnhangRechnung{94}{94_Rechnung_Kraftstoff_TP-2026-88410.pdf}
-\AnhangRechnung{95}{95_Rechnung_Mietwagen_FM-2026-1140.pdf}
-\AnhangRechnung{96}{96_Rechnung_Etiketten_LP-2026-3390.pdf}
-\AnhangRechnung{97}{97_Rechnung_Werksbusverkehr_WB-2026-0338.pdf}
 \AnhangRechnung{98}{98_Rechnung_Sommerfest_FW-2026-0771.pdf}
-\AnhangRechnung{99}{99_Rechnung_Klimageraete_KP-2026-4471.pdf}
-\AnhangRechnung{100}{100_Rechnung_Persoenliche_PT-2026-5518.pdf}
