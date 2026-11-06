@@ -1,30 +1,128 @@
-\QuerformatStart
-
 \chapter{Ground-Truth-Datensatz}
-\label{anhang:ground-truth}
-Die nachfolgende Tabelle zeigt die Ground Truth der 100 für die Evaluation verwendeten Rechnungen. Für Rechnungen \\ mit einer Audit Exception sind zusätzlich der Fehlertyp und eine Beschreibung der jeweiligen Auffälligkeit angegeben.
+\label{anh:groundtruth}
 
-\begin{center}
-    \includegraphics[
-        page=1,
-        trim=48 62 51 54,
-        clip,
-        width=\linewidth,
-        height=0.68\textheight,
-        keepaspectratio
-    ]{../2026_09_30_Ground_Truth.pdf}
-\end{center}
+Die nachfolgende Tabelle zeigt die Ground Truth der 100 für die Evaluation verwendeten Rechnungen. Für Rechnungen mit einer Audit Exception sind zusätzlich der Fehlertyp und eine Beschreibung der jeweiligen Auffälligkeit angegeben.
 
-\clearpage
-\begin{center}
-    \includegraphics[
-        page=2,
-        trim=48 230 51 54,
-        clip,
-        width=\linewidth,
-        height=0.95\textheight,
-        keepaspectratio
-    ]{../2026_09_30_Ground_Truth.pdf}
-\end{center}
-
-\QuerformatEnde
+{\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{
+  >{\raggedleft\arraybackslash}p{1.3cm}
+  >{\raggedright\arraybackslash}p{1.6cm}
+  >{\raggedright\arraybackslash}p{3.1cm}
+  >{\raggedright\arraybackslash}p{\dimexpr\linewidth-6.0cm-8\tabcolsep\relax}}
+\toprule
+\textbf{Rech\-nung} & \textbf{Audit Exception} & \textbf{Fehlertyp} & \textbf{Beschreibung} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Rech\-nung} & \textbf{Audit Exception} & \textbf{Fehlertyp} & \textbf{Beschreibung} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{4}{r}{\footnotesize Fortsetzung auf der nächsten Seite} \\
+\endfoot
+\bottomrule
+\endlastfoot
+1 & Nein & & \\
+2 & Ja & Rechenfehler & Der Bruttobetrag ist mit 6.000 € statt 5.804,82 € angegeben. Es handelt sich um einen Rechenfehler. \\
+3 & Ja & Betrugsmuster & 22 Beratertage abgerechnet, obwohl der Mai 2026 nur 18 Arbeitstage hat. \\
+4 & Ja & Fehlende Rechnungsnummer & Die Rechnungsnummer fehlt. \\
+5 & Ja & Stammdaten\-abweichung & Der Lieferantenname weicht von den Stammdaten ab. \\
+6 & Ja & Freigabefehler & Person C gibt die Rechnung frei, obwohl ihre Freigabegrenze bei 25.000 € liegt und der Rechnungsbetrag 34.279,14 € beträgt. \\
+7 & Ja & Fehlende Rechnungsnummer & Die Rechnungsnummer fehlt. \\
+8 & Ja & Freigabefehler & Person D gibt die Rechnung frei, obwohl ihre Freigabegrenze bei 1.000 € liegt und der Rechnungsbetrag 7.888,51 € beträgt. \\
+9 & Ja & Betrugsmuster & Sanitärreinigung und Material sind laut Leistungsbeschreibung bereits in der Pauschale enthalten und werden in Position 2 jedoch zusätzlich berechnet. \\
+10 & Nein & & \\
+11 & Nein & & \\
+12 & Ja & Stammdaten\-abweichung & Netto- und Bruttobetrag weichen von den Stammdaten ab. \\
+13 & Nein & & \\
+14 & Nein & & \\
+15 & Nein & & \\
+16 & Ja & Stammdaten\-abweichung & Das Zahlungsziel weicht von den Stammdaten ab. \\
+17 & Nein & & \\
+18 & Nein & & \\
+19 & Nein & & \\
+20 & Ja & Betrugsmuster & Service und Reifeneinlagerung werden für 46 Fahrzeuge abgerechnet, obwohl nur 42 Fahrzeuge geleast sind. \\
+21 & Nein & & \\
+22 & Nein & & \\
+23 & Nein & & \\
+24 & Ja & Rechenfehler & Der Nettobetrag ist mit 5.350 € statt 5.305 € angegeben. Es handelt sich um einen Zahlendreher. Umsatzsteuer und Bruttobetrag wurden ausgehend vom falschen Nettobetrag korrekt weiterberechnet. \\
+25 & Nein & & \\
+26 & Nein & & \\
+27 & Nein & & \\
+28 & Nein & & \\
+29 & Nein & & \\
+30 & Ja & Datums- und Periodenfehler & Der Leistungszeitraum endet am 30.02.2026. Dieses Datum existiert nicht. \\
+31 & Nein & & \\
+32 & Nein & & \\
+33 & Ja & Datums- und Periodenfehler & Das Leistungsdatum ist mit dem 11.02.2025 angegeben, während die Rechnung vom 13.02.2026 stammt. Das Leistungsdatum liegt somit im Vorjahr. \\
+34 & Nein & & \\
+35 & Nein & & \\
+36 & Nein & & \\
+37 & Nein & & \\
+38 & Nein & & \\
+39 & Nein & & \\
+40 & Nein & & \\
+41 & Nein & & \\
+42 & Ja & Rechenfehler & Position 2 wurde falsch multipliziert. Das Produkt aus 360 und 8,20 € beträgt 2.952,00 €, ausgewiesen sind jedoch 3.052,00 €. \\
+43 & Nein & & \\
+44 & Ja & Betrugsmuster & Es liegt eine mögliche Zahlungsumleitung vor. Angegeben sind eine neue litauische Bankverbindung, ein Hinweis auf geänderte Bankdaten, das Zahlungsziel „sofort“ und eine leicht abgewandelte E-Mail-Domain. \\
+45 & Nein & & \\
+46 & Nein & & \\
+47 & Ja & Freigabefehler & Der Absender „Person A“ verwendet die externe E-Mail-Adresse \path{rechungsfreigabe24@mailbox-service.example}. \\
+48 & Nein & & \\
+49 & Nein & & \\
+50 & Nein & & \\
+51 & Ja & Stammdaten\-abweichung & Die Kundennummer ist mit AB-4417 statt AB-4471 angegeben. \\
+52 & Ja & Betrugsmuster & Als Lieferanschrift ist eine Privatadresse der bestellenden Person angegeben und kein Unternehmensstandort. \\
+53 & Nein & & \\
+54 & Nein & & \\
+55 & Nein & & \\
+56 & Nein & & \\
+57 & Nein & & \\
+58 & Nein & & \\
+59 & Nein & & \\
+60 & Nein & & \\
+61 & Nein & & \\
+62 & Nein & & \\
+63 & Nein & & \\
+64 & Nein & & \\
+65 & Nein & & \\
+66 & Nein & & \\
+67 & Nein & & \\
+68 & Nein & & \\
+69 & Nein & & \\
+70 & Nein & & \\
+71 & Nein & & \\
+72 & Nein & & \\
+73 & Ja & Freigabefehler & Der Absender „Person B“ verwendet die gefälschte E-Mail-Adresse: \path{person.b@freuden.berg.example}. \\
+74 & Nein & & \\
+75 & Nein & & \\
+76 & Nein & & \\
+77 & Nein & & \\
+78 & Nein & & \\
+79 & Nein & & \\
+80 & Nein & & \\
+81 & Nein & & \\
+82 & Nein & & \\
+83 & Nein & & \\
+84 & Nein & & \\
+85 & Nein & & \\
+86 & Nein & & \\
+87 & Ja & Betrugsmuster & Der Kontoinhaber weicht vom Rechnungssteller ab und entspricht der internen Ansprechperson. \\
+88 & Nein & & \\
+89 & Nein & & \\
+90 & Nein & & \\
+91 & Nein & & \\
+92 & Ja & Rechenfehler & Der Bruttobetrag ist mit 6.979,20 € statt 6.997,20 € angegeben. \\
+93 & Nein & & \\
+94 & Nein & & \\
+95 & Nein & & \\
+96 & Nein & & \\
+97 & Nein & & \\
+98 & Ja & Freigabefehler & Person E gibt die Rechnung frei, obwohl die Person nicht zur Freigabe berechtigt ist. \\
+99 & Nein & & \\
+100 & Ja & Datums- und Periodenfehler & Das Leistungsdatum 25.06.2026 liegt nach dem Rechnungsdatum 18.06.2026. \\
+\end{longtable}
+}
